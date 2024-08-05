@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://borc6c0hfgnjf"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/shoppable/key_logger.gd" id="1_3lv4j"]
+
+[resource]
+script = ExtResource("1_3lv4j")
+vouchers = 1
+id = "keylogger"
+rarity = 3
+title = "Keylogger"
+exhausts = false
+target = 0
+price = 4
+tooltip_text = "Next card you draft is free."

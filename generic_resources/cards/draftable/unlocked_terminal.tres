@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://xyr7622a2l52"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/unlocked_terminal.gd" id="1_725x6"]
+[ext_resource type="Texture2D" uid="uid://dkwrjb11sq1v5" path="res://place_holder_art/unlockedterinaltemp.png" id="1_avdup"]
+
+[resource]
+script = ExtResource("1_725x6")
+vouchers = 1
+id = "unlockedterminal"
+rarity = 2
+title = "Unlocked Terminal"
+exhausts = true
+target = 0
+price = 4
+art = ExtResource("1_avdup")
+tooltip_text = "Next card you draft is free. Exhaust"

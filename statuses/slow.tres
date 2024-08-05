@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Slow" load_steps=2 format=3 uid="uid://boekjwnnw724v"]
+
+[ext_resource type="Script" path="res://statuses/slow.gd" id="1_qc3qr"]
+
+[resource]
+script = ExtResource("1_qc3qr")
+id = "slow"
+stacks = 1
+expieres = false
+stackable = false
+timing = 2
+tooltip = "Each move costs 1 more"

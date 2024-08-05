@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl8axrns0pe12"]
+
+[ext_resource type="Script" path="res://generic_resources/rooms/storeroom.gd" id="1_uecfc"]
+
+[node name="Storeroom" type="Node"]
+script = ExtResource("1_uecfc")

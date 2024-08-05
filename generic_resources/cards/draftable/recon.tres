@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://hp7ktp5m8qte"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/recon.gd" id="1_p2n3v"]
+
+[resource]
+script = ExtResource("1_p2n3v")
+reduction = 1
+id = "recon"
+rarity = 3
+title = "Recon"
+exhausts = false
+target = 0
+price = 3
+tooltip_text = "Reduce the cost of all cards in the draft area by %s"

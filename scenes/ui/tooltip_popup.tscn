@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://j4gt2sii1mtk"]
+
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://place_holder_art/tile_0121.png" id="1_b84ei"]
+[ext_resource type="Script" path="res://scenes/ui/tooltip_popup.gd" id="1_x1ti8"]
+[ext_resource type="FontFile" uid="uid://da0fpdbf5ya4r" path="res://art/Roboto-Regular.ttf" id="2_n6nef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_70rvo"]
+font = ExtResource("2_n6nef")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7723"]
+font = ExtResource("2_n6nef")
+font_size = 18
+
+[node name="TooltipPopup" type="Node2D"]
+script = ExtResource("1_x1ti8")
+
+[node name="GrayOut" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="Popup" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 160.0
+offset_right = 990.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.913725)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 650.0
+offset_bottom = 350.0
+
+[node name="TooltipIcon" type="TextureRect" parent="Popup/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_b84ei")
+stretch_mode = 5
+
+[node name="TooltipTitle" type="Label" parent="Popup/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+text = "Card name"
+label_settings = SubResource("LabelSettings_70rvo")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TooltipText" type="Label" parent="Popup/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+text = "Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. "
+label_settings = SubResource("LabelSettings_y7723")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="gui_input" from="GrayOut" to="." method="_on_gray_out_gui_input"]

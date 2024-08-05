@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://51mxowwev0cs"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/starter/sneak.gd" id="1_3x4vy"]
+[ext_resource type="Texture2D" uid="uid://bshced0g7uml8" path="res://place_holder_art/sneaktemp.png" id="1_rvego"]
+
+[resource]
+script = ExtResource("1_3x4vy")
+base_move = 1
+id = "sneak"
+rarity = 0
+title = "Sneak"
+exhausts = false
+target = 0
+price = 0
+art = ExtResource("1_rvego")
+tooltip_text = "Gain %s move"

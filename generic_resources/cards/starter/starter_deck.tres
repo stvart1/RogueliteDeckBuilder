@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=5 format=3 uid="uid://d2jmj5dk36v12"]
+
+[ext_resource type="Resource" uid="uid://cvkbxy5orr3cg" path="res://generic_resources/cards/starter/bump.tres" id="1_7oslh"]
+[ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_oooj8"]
+[ext_resource type="Resource" uid="uid://3b8l5jc5hqi3" path="res://generic_resources/cards/starter/eavesdropping.tres" id="2_mrj7o"]
+[ext_resource type="Resource" uid="uid://51mxowwev0cs" path="res://generic_resources/cards/starter/sneak.tres" id="4_phr21"]
+
+[resource]
+script = ExtResource("1_oooj8")
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_7oslh"), ExtResource("1_7oslh"), ExtResource("2_mrj7o"), ExtResource("2_mrj7o"), ExtResource("2_mrj7o"), ExtResource("2_mrj7o"), ExtResource("2_mrj7o"), ExtResource("2_mrj7o"), ExtResource("4_phr21"), ExtResource("4_phr21")])

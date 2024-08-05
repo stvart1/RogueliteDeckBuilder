@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://e3ybsgax41fd"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/think.gd" id="1_57wh1"]
+
+[resource]
+script = ExtResource("1_57wh1")
+base_draw = 2
+id = "think"
+rarity = 3
+title = "Think"
+exhausts = false
+target = 0
+price = 8
+tooltip_text = "Draw %s cards"

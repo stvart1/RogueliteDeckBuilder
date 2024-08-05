@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://25u0kkapbu0o"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/shoppable/deep_learning.gd" id="1_ttnav"]
+
+[resource]
+script = ExtResource("1_ttnav")
+base_draw = 4
+id = "deeplearning"
+rarity = 3
+title = "Deep Learning"
+exhausts = false
+target = 0
+price = 4
+tooltip_text = "Draw %s cards"

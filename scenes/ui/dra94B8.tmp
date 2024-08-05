@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuqw6uv2o8wh4"]
+
+[ext_resource type="PackedScene" uid="uid://bqll2cyb4vfte" path="res://scenes/card/draft_card.tscn" id="1_0i21b"]
+[ext_resource type="Script" path="res://scenes/ui/draft_area.gd" id="1_d34lw"]
+[ext_resource type="Texture2D" uid="uid://du7r7v1iaahuo" path="res://place_holder_art/rarity.png" id="1_rfgt1"]
+[ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="2_k6rcx"]
+
+[node name="DraftArea" type="Node2D"]
+script = ExtResource("1_d34lw")
+draftpile = ExtResource("2_k6rcx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(297, 357)
+offset_right = 297.0
+offset_bottom = 357.0
+mouse_filter = 2
+color = Color(0.111734, 0.429927, 0.391428, 1)
+
+[node name="RefreshButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = 324.0
+offset_right = 187.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+text = "5"
+icon = ExtResource("1_rfgt1")
+
+[node name="RefreshLabel" type="Label" parent="."]
+offset_left = 119.0
+offset_top = 302.0
+offset_right = 179.0
+offset_bottom = 325.0
+text = "Refresh"
+
+[node name="Cards" type="GridContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 367.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 30
+columns = 3
+
+[node name="DraftCard" parent="Cards" instance=ExtResource("1_0i21b")]
+layout_mode = 2
+
+[node name="DraftCard2" parent="Cards" instance=ExtResource("1_0i21b")]
+layout_mode = 2
+
+[node name="DraftCard3" parent="Cards" instance=ExtResource("1_0i21b")]
+layout_mode = 2
+
+[node name="DraftCard4" parent="Cards" instance=ExtResource("1_0i21b")]
+layout_mode = 2
+
+[node name="DraftCard5" parent="Cards" instance=ExtResource("1_0i21b")]
+layout_mode = 2
+
+[node name="DraftCard6" parent="Cards" instance=ExtResource("1_0i21b")]
+layout_mode = 2

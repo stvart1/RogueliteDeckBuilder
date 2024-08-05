@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://jaupfyh6jhpy"]
+
+[ext_resource type="FontFile" uid="uid://dxp6sg2p03r1v" path="res://art/Roboto-Bold.ttf" id="1_w7nje"]
+[ext_resource type="FontFile" uid="uid://da0fpdbf5ya4r" path="res://art/Roboto-Regular.ttf" id="2_3pfvy"]
+
+[resource]
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_w7nje")
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/normal_font_size = 10
+RichTextLabel/fonts/normal_font = ExtResource("2_3pfvy")

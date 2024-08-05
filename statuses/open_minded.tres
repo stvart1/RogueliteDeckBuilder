@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="OpenMindedStatus" load_steps=2 format=3 uid="uid://1o6fbjtq46h6"]
+
+[ext_resource type="Script" path="res://statuses/open_minded.gd" id="1_qlxwk"]
+
+[resource]
+script = ExtResource("1_qlxwk")
+id = "openminded"
+stacks = null
+expieres = false
+stackable = null
+timing = 2
+tooltip = null

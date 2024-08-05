@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cvkbxy5orr3cg"]
+
+[ext_resource type="Texture2D" uid="uid://clshwr2du4xqm" path="res://place_holder_art/bumptemp.png" id="1_do2sx"]
+[ext_resource type="Script" path="res://generic_resources/cards/starter/bump.gd" id="1_hy0q4"]
+
+[resource]
+script = ExtResource("1_hy0q4")
+base_fight = 1
+id = "bump"
+rarity = 0
+title = "Bump"
+exhausts = false
+target = 0
+price = 0
+art = ExtResource("1_do2sx")
+tooltip_text = "Gain %s Fight"

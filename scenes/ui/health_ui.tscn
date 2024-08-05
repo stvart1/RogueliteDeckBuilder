@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://jlg46gnlu600"]
+
+[ext_resource type="Texture2D" uid="uid://d0edy7thj8ce6" path="res://place_holder_art/heart.png" id="1_rrbqj"]
+[ext_resource type="Script" path="res://scenes/ui/health_ui.gd" id="1_wfdh4"]
+
+[node name="HealthUI" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_wfdh4")
+
+[node name="HealthIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_rrbqj")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "99"
+
+[node name="MaxHealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "/99"

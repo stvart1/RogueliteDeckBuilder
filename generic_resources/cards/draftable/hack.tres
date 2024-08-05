@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dwinnijj5yoin"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/hack.gd" id="1_41vye"]
+
+[resource]
+script = ExtResource("1_41vye")
+base_buy = 3
+id = "hack"
+rarity = 1
+title = "Hack"
+exhausts = false
+target = 0
+price = 3
+tooltip_text = "Gain %s insight"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://xcmqojiv245m"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_22xhi"]
+[ext_resource type="Texture2D" uid="uid://ukld5o613i0a" path="res://place_holder_art/tile_0122.png" id="1_ix4l3"]
+[ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="3_uiwp4"]
+[ext_resource type="PackedScene" uid="uid://c35pkqpitei47" path="res://scenes/modifier_handler/modifier.tscn" id="4_amqbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvyb5"]
+size = Vector2(80, 80)
+
+[node name="Enemy" type="Area2D" groups=["enemies"]]
+position = Vector2(43, 40)
+script = ExtResource("1_22xhi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+texture = ExtResource("1_ix4l3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kvyb5")
+
+[node name="ModifierHandler" parent="." instance=ExtResource("3_uiwp4")]
+
+[node name="Modifier" parent="ModifierHandler" instance=ExtResource("4_amqbo")]

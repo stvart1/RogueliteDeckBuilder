@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://0b5u0ha7brai"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/sprint.gd" id="1_s7i2m"]
+
+[resource]
+script = ExtResource("1_s7i2m")
+base_move = 2
+id = "sprint"
+rarity = 1
+title = "Sprint"
+exhausts = false
+target = 0
+price = 2
+tooltip_text = "Gain %s move"

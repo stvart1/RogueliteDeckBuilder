@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cokwoy23tbaw1"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/shoppable/silencer.gd" id="1_10ckc"]
+
+[resource]
+script = ExtResource("1_10ckc")
+stacks = 2
+id = "silencer"
+rarity = 3
+title = "Silencer"
+exhausts = false
+target = 0
+price = 4
+tooltip_text = "The next 2 enemies you defeat cost 0"

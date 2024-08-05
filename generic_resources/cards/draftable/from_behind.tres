@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dvwc2j5wfyu4a"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/from_behind.gd" id="1_lu26j"]
+
+[resource]
+script = ExtResource("1_lu26j")
+base_move = 1
+base_fight = 1
+id = "from_behind"
+rarity = 1
+title = "From Behind"
+exhausts = false
+target = 0
+price = 2
+tooltip_text = "Gain %s move and %s fight"

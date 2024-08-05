@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpg75fuxa5jlm"]
+
+[ext_resource type="Texture2D" uid="uid://b1nj6u7dxl3mh" path="res://place_holder_art/tile_0085.png" id="1_au01w"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_syx63"]
+[ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="2_16au0"]
+[ext_resource type="PackedScene" uid="uid://c35pkqpitei47" path="res://scenes/modifier_handler/modifier.tscn" id="3_s2eg3"]
+[ext_resource type="PackedScene" uid="uid://bcwg4nnbo2nkg" path="res://scenes/status_handler/status_handler.tscn" id="5_77ttw"]
+
+[node name="Player" type="Node2D" groups=["player"]]
+script = ExtResource("1_syx63")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_au01w")
+
+[node name="ModifierHandler" parent="." instance=ExtResource("2_16au0")]
+
+[node name="DamageTakenModifier" parent="ModifierHandler" instance=ExtResource("3_s2eg3")]
+
+[node name="DraftCostModifierModifier" parent="ModifierHandler" instance=ExtResource("3_s2eg3")]
+type = 5
+
+[node name="StatusHandler" parent="." node_paths=PackedStringArray("status_owner") instance=ExtResource("5_77ttw")]
+visible = false
+status_owner = NodePath("..")
+
+[connection signal="gui_input" from="StatusHandler" to="StatusHandler" method="_on_gui_input"]

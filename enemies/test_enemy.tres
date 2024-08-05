@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://baua4eplc6af6"]
+
+[ext_resource type="Texture2D" uid="uid://d2vujk8wvu6ia" path="res://place_holder_art/tile_0123.png" id="1_4g5ux"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_to65s"]
+
+[resource]
+script = ExtResource("1_to65s")
+health = 2
+art = ExtResource("1_4g5ux")
+tier = 1
+damage = 1
+name = "Test Enemy 1"
+description = "The first test enemy, does 1 damage when it reaches the end of the track"

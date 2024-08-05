@@ -1,0 +1,41 @@
+Movement
+Damage
+Insight
+Gold/scrap
+
+art: 80*60
+
+7* 1buy
+2* 1fight
+1* 1move
+
+
+
+95 10, 
+
+map 10*5	
+room 40*40 + 20 boarder
+
+elevator 		fixed
+offices			based on level(3 to start?)
+first aid		5%
+store			5%
+kiosk(draw)		5%
+waiting room	10%
+secutiry		20%
+hallway			reminder(55%)
+
+
+enum Type {UNASSIGNED, STOREROOM, FIRST_AID, WAITING_ROOM, EVENT, MYSTERY, PLAIN, OFFICE, KIOSK, SECURITY, ELEVATOR}
+
+
+
+
+var random_room_type_weights = {
+	Room.Type.FIRST_AID: 0.0,
+	Room.Type.STOREROOM: 0.0,
+	Room.Type.KIOSK: 0.0,
+	Room.Type.WAITING_ROOM: 0.0,
+	Room.Type.SECURITY: 0.0,
+	Room.Type.PLAIN: 0.0
+}

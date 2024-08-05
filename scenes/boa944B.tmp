@@ -1,0 +1,205 @@
+[gd_scene load_steps=23 format=3 uid="uid://c4cghsw6122aj"]
+
+[ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="1_50su2"]
+[ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_doaey"]
+[ext_resource type="Texture2D" uid="uid://nk7bbddaftyp" path="res://art/card_back.png" id="2_mb8lb"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="3_tibae"]
+[ext_resource type="PackedScene" uid="uid://jlg46gnlu600" path="res://scenes/ui/health_ui.tscn" id="4_6s467"]
+[ext_resource type="PackedScene" uid="uid://dpg75fuxa5jlm" path="res://scenes/player/player.tscn" id="4_myp5y"]
+[ext_resource type="Script" path="res://scenes/ResourceBar.gd" id="4_vf06v"]
+[ext_resource type="PackedScene" uid="uid://dqcdkmgio64ef" path="res://scenes/ui/gold_ui.tscn" id="5_fmekr"]
+[ext_resource type="PackedScene" uid="uid://ds77ufvfvqn3k" path="res://scenes/ui/move_ui.tscn" id="5_xo70e"]
+[ext_resource type="Texture2D" uid="uid://bue8imscpldys" path="res://place_holder_art/tile_0097.png" id="5_xqhbj"]
+[ext_resource type="PackedScene" uid="uid://bxgj3ykpuyk2e" path="res://scenes/ui/fight_ui.tscn" id="6_3vi0n"]
+[ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="6_mw0c4"]
+[ext_resource type="Texture2D" uid="uid://bpgk3uxxwda42" path="res://place_holder_art/tile_0098.png" id="7_tyymk"]
+[ext_resource type="PackedScene" uid="uid://b3gy0hx74t2pt" path="res://scenes/card/card_ui.tscn" id="8_5ps68"]
+[ext_resource type="PackedScene" uid="uid://baamlfnbthkdi" path="res://scenes/ui/buy_ui.tscn" id="8_ruwq4"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="8_wfxda"]
+[ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="9_e71qi"]
+[ext_resource type="PackedScene" uid="uid://cuqw6uv2o8wh4" path="res://scenes/ui/draft_area.tscn" id="9_myced"]
+[ext_resource type="PackedScene" uid="uid://xcmqojiv245m" path="res://scenes/enemy/enemy.tscn" id="10_3wyrr"]
+[ext_resource type="Script" path="res://scenes/player_handler.gd" id="11_pv5xn"]
+[ext_resource type="Script" path="res://scenes/PlayArea.gd" id="12_fnm5l"]
+
+[sub_resource type="Resource" id="Resource_8g4eb"]
+script = ExtResource("8_wfxda")
+character_name = "Tester"
+description = "Testser"
+portrait = ExtResource("7_tyymk")
+starting_deck = ExtResource("9_e71qi")
+draftable_cards = ExtResource("6_mw0c4")
+cards_per_turn = 5
+max_mana = 0
+starting_move = 0
+starting_fight = 0
+starting_buy = 0
+max_health = 5
+art = ExtResource("5_xqhbj")
+
+[node name="BoardScene" type="Node2D"]
+script = ExtResource("1_doaey")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_50su2")
+
+[node name="DraftArea" parent="." instance=ExtResource("9_myced")]
+position = Vector2(983, 363)
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+position = Vector2(983, 0)
+
+[node name="GridContainer" type="GridContainer" parent="EnemyHandler"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 7.0
+offset_right = 257.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 32
+columns = 2
+
+[node name="CenterContainer3" type="CenterContainer" parent="EnemyHandler/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Enemy" parent="EnemyHandler/GridContainer/CenterContainer3" instance=ExtResource("10_3wyrr")]
+
+[node name="CenterContainer4" type="CenterContainer" parent="EnemyHandler/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Enemy" parent="EnemyHandler/GridContainer/CenterContainer4" instance=ExtResource("10_3wyrr")]
+
+[node name="CenterContainer5" type="CenterContainer" parent="EnemyHandler/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Enemy" parent="EnemyHandler/GridContainer/CenterContainer5" instance=ExtResource("10_3wyrr")]
+
+[node name="CenterContainer6" type="CenterContainer" parent="EnemyHandler/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Enemy" parent="EnemyHandler/GridContainer/CenterContainer6" instance=ExtResource("10_3wyrr")]
+
+[node name="Player" parent="." instance=ExtResource("4_myp5y")]
+position = Vector2(140, 129)
+stats = SubResource("Resource_8g4eb")
+
+[node name="PlayerHandler" type="Node" parent="."]
+script = ExtResource("11_pv5xn")
+
+[node name="PlayArea" type="CanvasLayer" parent="."]
+script = ExtResource("12_fnm5l")
+
+[node name="PlayerCards" type="HBoxContainer" parent="PlayArea"]
+custom_minimum_size = Vector2(948, 0)
+offset_left = 15.0
+offset_top = 518.0
+offset_right = 963.0
+offset_bottom = 658.0
+theme_override_constants/separation = 6
+
+[node name="DrawPileButton" type="TextureButton" parent="PlayArea/PlayerCards"]
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 2
+texture_normal = ExtResource("2_mb8lb")
+texture_pressed = ExtResource("2_mb8lb")
+texture_hover = ExtResource("2_mb8lb")
+texture_disabled = ExtResource("2_mb8lb")
+texture_focused = ExtResource("2_mb8lb")
+
+[node name="Hand" type="HBoxContainer" parent="PlayArea/PlayerCards"]
+custom_minimum_size = Vector2(736, 0)
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+script = ExtResource("3_tibae")
+
+[node name="CardUI" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="CardUI3" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="CardUI4" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="CardUI5" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="CardUI6" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="CardUI7" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="CardUI2" parent="PlayArea/PlayerCards/Hand" instance=ExtResource("8_5ps68")]
+layout_mode = 2
+
+[node name="DiscardPileButton" type="TextureButton" parent="PlayArea/PlayerCards"]
+custom_minimum_size = Vector2(100, 140)
+layout_mode = 2
+texture_normal = ExtResource("2_mb8lb")
+
+[node name="EndTurnButton" type="Button" parent="PlayArea"]
+offset_left = 452.0
+offset_top = 673.0
+offset_right = 530.0
+offset_bottom = 704.0
+text = "End Turn"
+
+[node name="ResourceBar" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ResourceBar"]
+offset_top = 454.0
+offset_right = 976.0
+offset_bottom = 496.0
+color = Color(0.151276, 0.151276, 0.151276, 0.654902)
+
+[node name="ResourceBar" type="HBoxContainer" parent="ResourceBar"]
+offset_left = 19.0
+offset_top = 454.0
+offset_right = 976.0
+offset_bottom = 496.0
+theme_override_constants/separation = 43
+script = ExtResource("4_vf06v")
+
+[node name="Health" parent="ResourceBar/ResourceBar" instance=ExtResource("4_6s467")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Gold" parent="ResourceBar/ResourceBar" instance=ExtResource("5_fmekr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Move" parent="ResourceBar/ResourceBar" instance=ExtResource("5_xo70e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Fight" parent="ResourceBar/ResourceBar" instance=ExtResource("6_3vi0n")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Buy" parent="ResourceBar/ResourceBar" instance=ExtResource("8_ruwq4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DebugButton" type="CanvasLayer" parent="."]
+
+[node name="PlusMoveButton" type="Button" parent="DebugButton"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "+1Move"
+
+[connection signal="pressed" from="DebugButton/PlusMoveButton" to="." method="_on_plus_move_button_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AssassinateStatus" load_steps=2 format=3 uid="uid://i3j5opdsauf1"]
+
+[ext_resource type="Script" path="res://statuses/assassinate.gd" id="1_3yavh"]
+
+[resource]
+script = ExtResource("1_3yavh")
+id = "assassinate"
+stacks = 1
+expieres = false
+stackable = true
+timing = 2
+tooltip = "Defeat an enemy for free"

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqll2cyb4vfte"]
+
+[ext_resource type="PackedScene" uid="uid://4hofjhklp6mv" path="res://scenes/ui/card_menu_ui.tscn" id="1_l6iix"]
+[ext_resource type="Script" path="res://scenes/card/draft_card.gd" id="1_rvhuh"]
+[ext_resource type="Texture2D" uid="uid://du7r7v1iaahuo" path="res://place_holder_art/rarity.png" id="2_hu3y6"]
+
+[node name="DraftCard" type="VBoxContainer"]
+custom_minimum_size = Vector2(100, 176)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("1_rvhuh")
+
+[node name="CardContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 0
+
+[node name="CardMenuUI" parent="CardContainer" instance=ExtResource("1_l6iix")]
+layout_mode = 2
+
+[node name="DraftButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "999"
+icon = ExtResource("2_hu3y6")
+expand_icon = true
+
+[connection signal="gui_input" from="CardContainer" to="." method="_on_card_container_gui_input"]
+[connection signal="mouse_entered" from="CardContainer" to="." method="_on_card_container_mouse_entered"]
+[connection signal="mouse_exited" from="CardContainer" to="." method="_on_card_container_mouse_exited"]
+[connection signal="pressed" from="DraftButton" to="." method="_on_draft_button_pressed"]

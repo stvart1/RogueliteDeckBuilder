@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://hlovnhk5i7uk"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/assassinate.gd" id="1_m6qw1"]
+[ext_resource type="Texture2D" uid="uid://c8ehi4qkkyd55" path="res://place_holder_art/assassinatetemp.png" id="1_si78x"]
+
+[resource]
+script = ExtResource("1_m6qw1")
+stacks = 1
+id = "assassinate"
+rarity = 2
+title = "Assassinate"
+exhausts = true
+target = 0
+price = 5
+art = ExtResource("1_si78x")
+tooltip_text = "	Next enemy defeated costs 0 fight. Exhaust."

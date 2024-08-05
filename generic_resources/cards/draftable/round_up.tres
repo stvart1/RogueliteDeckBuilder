@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c5q0lahknydnf"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/round_up.gd" id="1_hcw3o"]
+
+[resource]
+script = ExtResource("1_hcw3o")
+reduction = 1
+id = "roundup"
+rarity = 2
+title = "Round Up"
+exhausts = false
+target = 0
+price = 3
+tooltip_text = "reduce the toughness of each enemy by %s"

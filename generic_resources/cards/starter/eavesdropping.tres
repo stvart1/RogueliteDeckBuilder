@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3b8l5jc5hqi3"]
+
+[ext_resource type="Texture2D" uid="uid://bwr27spannipu" path="res://place_holder_art/eavesdroptemp.png" id="1_5iwb0"]
+[ext_resource type="Script" path="res://generic_resources/cards/starter/eavesdropping.gd" id="1_l1flu"]
+
+[resource]
+script = ExtResource("1_l1flu")
+base_buy = 1
+id = "eavesdropping"
+rarity = 0
+title = "Eavesdropping"
+exhausts = false
+target = 0
+price = 0
+art = ExtResource("1_5iwb0")
+tooltip_text = "Gain %s insight"

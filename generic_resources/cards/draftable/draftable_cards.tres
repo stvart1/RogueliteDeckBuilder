@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=11 format=3 uid="uid://v0ha2k34niir"]
+
+[ext_resource type="Resource" uid="uid://hp7ktp5m8qte" path="res://generic_resources/cards/draftable/recon.tres" id="1_acwef"]
+[ext_resource type="Resource" uid="uid://hlovnhk5i7uk" path="res://generic_resources/cards/draftable/assassinate.tres" id="1_hkf5q"]
+[ext_resource type="Resource" uid="uid://dvwc2j5wfyu4a" path="res://generic_resources/cards/draftable/from_behind.tres" id="1_x6l3r"]
+[ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_ypp5t"]
+[ext_resource type="Resource" uid="uid://dwinnijj5yoin" path="res://generic_resources/cards/draftable/hack.tres" id="2_a4tvj"]
+[ext_resource type="Resource" uid="uid://0b5u0ha7brai" path="res://generic_resources/cards/draftable/sprint.tres" id="3_bld7s"]
+[ext_resource type="Resource" uid="uid://c5q0lahknydnf" path="res://generic_resources/cards/draftable/round_up.tres" id="5_fipvl"]
+[ext_resource type="Resource" uid="uid://e3ybsgax41fd" path="res://generic_resources/cards/draftable/think.tres" id="7_bemuo"]
+[ext_resource type="Resource" uid="uid://xyr7622a2l52" path="res://generic_resources/cards/draftable/unlocked_terminal.tres" id="7_r77kp"]
+[ext_resource type="Resource" uid="uid://b7ujonkv3gps4" path="res://generic_resources/cards/draftable/open_minded.tres" id="9_bygb2"]
+
+[resource]
+script = ExtResource("1_ypp5t")
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_hkf5q"), ExtResource("1_x6l3r"), ExtResource("2_a4tvj"), ExtResource("1_acwef"), ExtResource("5_fipvl"), ExtResource("3_bld7s"), ExtResource("7_bemuo"), ExtResource("7_r77kp"), ExtResource("9_bygb2")])

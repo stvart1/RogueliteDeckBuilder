@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwb1til8i5x1d"]
+
+[ext_resource type="Script" path="res://scenes/map/map_room.gd" id="1_etmjc"]
+[ext_resource type="Texture2D" uid="uid://pgj8vfpj6tc5" path="res://place_holder_art/tile_0130.png" id="2_vm03n"]
+[ext_resource type="Texture2D" uid="uid://2egbj0w2asc2" path="res://place_holder_art/expose.png" id="3_lw7q2"]
+
+[sub_resource type="Theme" id="Theme_qdlf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oujgw"]
+size = Vector2(40, 40)
+
+[node name="MapRoom" type="Area2D"]
+script = ExtResource("1_etmjc")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="IconButton" type="TextureButton" parent="Visuals"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme = SubResource("Theme_qdlf7")
+theme_type_variation = &"Disabled"
+texture_normal = ExtResource("2_vm03n")
+texture_disabled = ExtResource("3_lw7q2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oujgw")
+
+[connection signal="pressed" from="Visuals/IconButton" to="." method="_on_icon_pressed"]

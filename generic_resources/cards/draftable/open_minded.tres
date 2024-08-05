@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b7ujonkv3gps4"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/draftable/open_minded.gd" id="1_n3ni4"]
+
+[resource]
+script = ExtResource("1_n3ni4")
+stacks = 1
+id = "openminded"
+rarity = 0
+title = "Open Minded"
+exhausts = false
+target = 0
+price = 0
+tooltip_text = "Next %s refreshes are free"
