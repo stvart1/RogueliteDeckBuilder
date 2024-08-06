@@ -8,6 +8,7 @@ extends Node2D
 @onready var tooltip_icon = %TooltipIcon
 @onready var tooltip_text = %TooltipText
 @onready var tooltip_title = %TooltipTitle
+@onready var status_container = %StatusContainer
 
 
 func _set_text(value: String):
@@ -28,3 +29,5 @@ func _set_icon(value: Texture):
 func _on_gray_out_gui_input(event):
 	if event.is_action_pressed("right_mouse") or event.is_action_pressed("left_mouse"):
 		visible = false
+		for node in status_container.get_children():
+			node.queue_free()

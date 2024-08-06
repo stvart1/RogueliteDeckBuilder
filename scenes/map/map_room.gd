@@ -22,15 +22,17 @@ const ICONS := {
 #var available := true : set = set_available
 var room: Room : set = set_room
 var player: Player
+var map: Map
 
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-
+	map = get_tree().get_first_node_in_group("map")
 
 func room_status_changed():
-	icon_button.disabled = !((room.available and player.stats.move >= room.move_cost and not player.stats.fatigued) or room.occupying)
-	print("x: %s, y: %s; button disabled: %s, available: %s, player move: %s, move cost: %s, occupied: %s" % [room.xpos, room.ypos, icon_button.disabled, room.available, player.stats.move, room.move_cost, room.occupying])
+	var modified_cost: int = map.modifier_handler.get_modified_value(room.move_cost, Modifier.Type.MOVE_COST)
+	icon_button.disabled = !((room.available and player.stats.move >= modified_cost and not player.stats.fatigued) or room.occupying)
+	print("x: %s, y: %s; button disabled: %s, available: %s, player move: %s, move cost: %s, modified move cost: %s occupied: %s" % [room.xpos, room.ypos, icon_button.disabled, room.available, player.stats.move, room.move_cost, modified_cost, room.occupying])
 
 
 
@@ -69,6 +71,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 
 func _on_icon_pressed():
-	if room.available and player.stats.move >= room.move_cost:
-		player.stats.move -= room.move_cost
+	var modified_cost: int = map.modifier_handler.get_modified_value(room.move_cost, Modifier.Type.MOVE_COST)
+	if room.available and player.stats.move >= modified_cost:
+		player.stats.move -= modified_cost
 		clicked.emit()

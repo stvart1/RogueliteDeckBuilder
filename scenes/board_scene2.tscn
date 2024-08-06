@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="20_1ku4x"]
 [ext_resource type="Script" path="res://scenes/shop_popup.gd" id="20_ir4ro"]
 [ext_resource type="Script" path="res://scenes/ui/CardPileViewer.gd" id="20_pw3qc"]
-[ext_resource type="PackedScene" uid="uid://drbypv8b3pnir" path="res://scenes/card/shop_card_1.tscn" id="21_ff8c5"]
+[ext_resource type="PackedScene" uid="uid://drbypv8b3pnir" path="res://scenes/card/shop_card.tscn" id="21_ff8c5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mng3u"]
 size = Vector2(976, 446)

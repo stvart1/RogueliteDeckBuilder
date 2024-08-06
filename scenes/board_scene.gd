@@ -2,6 +2,7 @@ class_name BoardScene
 extends Node2D
 
 const TOOLTIP_POPUP = preload("res://scenes/ui/tooltip_popup.tscn")
+const TEST_MANAGER = preload("res://enemies/test_manager.tres")
 
 @export var character: CharacterStats 
 
@@ -24,10 +25,19 @@ func _ready():
 	map.generate_new_map()
 
 
-func show_tooltip(icon: Texture, title: String, text: String):
+func show_tooltip(icon: Texture, title: String, text: String, array: Array = []):
 	tooltip_popup.icon = icon
 	tooltip_popup.text = text
 	tooltip_popup.title = title
+	if array:
+		for statusui:StatusUI in array:
+			var new_v_box = VBoxContainer.new()
+			tooltip_popup.status_container.add_child(new_v_box)
+			var new_stat_tooltip = statusui.duplicate()
+			new_v_box.add_child(new_stat_tooltip)
+			var new_label = Label.new()
+			new_v_box.add_child(new_label)
+			new_label.text = new_stat_tooltip.status.tooltip
 	tooltip_popup.visible = true
 
 
@@ -37,6 +47,10 @@ func card_drafted(card: Card):
 
 func _on_plus_move_button_pressed():
 	Events.player_gain_move.emit(1)
+
+
+func _on_plus_move_button_2_pressed():
+	Events.player_gain_move.emit(999)
 
 
 func _on_plus_buy_button_pressed():
@@ -60,11 +74,15 @@ func _on_draw_button_pressed():
 
 
 func _on_plus_buy_button_2_pressed():
-	Events.player_gain_buy.emit(100)
+	Events.player_gain_buy.emit(999)
 
 
 func _on_enemies_button_pressed():
 	enemy_handler.progress_enemies()
+
+
+func _on_manager_enemy_pressed():
+	enemy_handler.progress_enemies(TEST_MANAGER)
 
 
 func _on_clear_enemies_button_pressed():
@@ -78,3 +96,4 @@ func _on_plus_fight_button_pressed():
 
 func _on_plus_gold_button_pressed():
 	player.stats.gold += 1
+

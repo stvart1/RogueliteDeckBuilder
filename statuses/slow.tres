@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Slow" load_steps=2 format=3 uid="uid://boekjwnnw724v"]
+[gd_resource type="Resource" script_class="Slow" load_steps=3 format=3 uid="uid://boekjwnnw724v"]
 
 [ext_resource type="Script" path="res://statuses/slow.gd" id="1_qc3qr"]
+[ext_resource type="Texture2D" uid="uid://psr6xk3k26oh" path="res://place_holder_art/tile_0114.png" id="1_tp80y"]
 
 [resource]
 script = ExtResource("1_qc3qr")
@@ -9,4 +10,5 @@ stacks = 1
 expieres = false
 stackable = false
 timing = 2
+icon = ExtResource("1_tp80y")
 tooltip = "Each move costs 1 more"

@@ -1,11 +1,10 @@
 class_name BoardEnemy
 extends VBoxContainer
 
-@export var enemy : EnemyStats
-
 @onready var enemy_visuals = %EnemyVisuals
 @onready var fight_button = $FightButton
 
+var enemy : EnemyStats :set = set_enemy
 var fight : int : set = set_fight
 var player 
 var enemy_handler
@@ -19,6 +18,13 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	enemy_handler = get_tree().get_first_node_in_group("enemy_handler")
 	update_button()
+
+
+func set_enemy(value: EnemyStats):
+	enemy = value
+	if not is_node_ready():
+		await ready
+	enemy_visuals.stats = value
 
 
 func set_fight(value: int):
@@ -55,4 +61,4 @@ func _on_center_container_mouse_exited():
 
 func _on_center_container_gui_input(event):
 	if mouse_over and event.is_action_pressed("right_mouse"):
-		Events.tooltip_requested.emit(enemy.art, enemy.name, enemy.description)
+		Events.tooltip_requested.emit(enemy.art, enemy.name, enemy.description, enemy_visuals.status_handler.get_children())

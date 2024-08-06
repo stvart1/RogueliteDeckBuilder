@@ -5,12 +5,16 @@ extends Area2D
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
 @onready var modifier_handler: ModifierHandler = $ModifierHandler
+@onready var status_handler = $StatusHandler
+
+var UID: String
 
 #var enemy_action_picker: EnemyActionPicker
 #var current_action: EnemyAction : set = set_current_action
 
 
-#func _ready() -> void:
+func _ready() -> void:
+	UID = str(randi_range(0, 999999))
 	#status_handler.status_owner = self
 
 #
@@ -22,6 +26,7 @@ extends Area2D
 func set_enemy_stats(value: EnemyStats) -> void:
 	stats = value
 	sprite_2d.texture = stats.art
+	stats.on_spawn(self)
 	#stats = value.create_instance()
 	#
 	#if not stats.stats_changed.is_connected(update_stats):
@@ -29,8 +34,8 @@ func set_enemy_stats(value: EnemyStats) -> void:
 		#stats.stats_changed.connect(update_action)
 	#
 	#update_enemy()
-#
-#
+
+
 #func setup_ai() -> void:
 	#if enemy_action_picker:
 		#enemy_action_picker.queue_free()

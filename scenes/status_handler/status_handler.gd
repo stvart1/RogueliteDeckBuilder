@@ -39,6 +39,8 @@ func add_status(status: Status) -> void:
 		new_status_ui.status = status
 		new_status_ui.status.status_applied.connect(_on_status_applied)
 		new_status_ui.status.initialize_status(status_owner)
+		
+		Events.stats_changed.emit()
 		return
 
 	# If it's unique and we already have it, we can return
@@ -49,6 +51,11 @@ func add_status(status: Status) -> void:
 	if status.stackable:
 		_get_status(status.id).stacks += status.stacks
 		return
+
+
+func remove_status(status: Status):
+	status.deinitialize_status(status_owner)
+	Events.stats_changed.emit()
 
 
 func _has_status(id: String) -> bool:

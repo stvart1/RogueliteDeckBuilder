@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://rs5ekht2of07"]
+[gd_scene load_steps=4 format=3 uid="uid://rs5ekht2of07"]
 
 [ext_resource type="Script" path="res://scenes/enemy/board_enemy.gd" id="1_tp23g"]
 [ext_resource type="PackedScene" uid="uid://xcmqojiv245m" path="res://scenes/enemy/enemy.tscn" id="1_xvayo"]
-[ext_resource type="Resource" uid="uid://baua4eplc6af6" path="res://enemies/test_enemy.tres" id="2_y8vhv"]
 [ext_resource type="Texture2D" uid="uid://bho3bya1v7e6o" path="res://place_holder_art/muscle.png" id="3_k2aiq"]
-[ext_resource type="PackedScene" uid="uid://bcwg4nnbo2nkg" path="res://scenes/status_handler/status_handler.tscn" id="5_x18b4"]
 
 [node name="BoardEnemy" type="VBoxContainer"]
 custom_minimum_size = Vector2(86, 100)
@@ -15,7 +13,6 @@ size_flags_vertical = 4
 theme_override_constants/separation = 1
 alignment = 1
 script = ExtResource("1_tp23g")
-enemy = ExtResource("2_y8vhv")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(80, 80)
@@ -28,9 +25,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 icon = ExtResource("3_k2aiq")
-
-[node name="StatusHandler" parent="." instance=ExtResource("5_x18b4")]
-layout_mode = 2
 
 [connection signal="gui_input" from="CenterContainer" to="." method="_on_center_container_gui_input"]
 [connection signal="mouse_entered" from="CenterContainer" to="." method="_on_center_container_mouse_entered"]

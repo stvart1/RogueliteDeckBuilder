@@ -10,11 +10,24 @@ const TEST_ENEMY = preload("res://enemies/test_enemy.tres")
 var max_enemies:= 6
 
 func  _ready():
-	Events.player_turn_ended.connect(progress_enemies)
 	Events.stats_changed_delay.connect(update_enemy_buttons)
+	Events.enemy_died.connect(enemy_died)
+	Events.player_turn_ended.connect(enemy_turn)
+
+func enemy_died(enemy: Enemy):
+	enemy.stats.on_death(enemy)
 
 
-func progress_enemies():
+func enemy_turn():
+	for boardenemy: BoardEnemy in enemy_grid_container.get_children():
+		boardenemy.enemy.turn(boardenemy.enemy_visuals)
+	
+	progress_enemies()
+	
+	Events.enemy_turn_ended.emit()
+
+
+func progress_enemies(_enemy: EnemyStats = TEST_ENEMY):
 	var enemy_array = enemy_grid_container.get_children() 
 	if enemy_array.size() >= max_enemies -1:
 		var x := 0
@@ -25,10 +38,13 @@ func progress_enemies():
 			x += 1
 	
 	var new_enemy := BOARD_ENEMY.instantiate()
+	
+	new_enemy.enemy = _enemy
+	
 	enemy_grid_container.add_child(new_enemy)
 	enemy_grid_container.move_child(new_enemy, 0)
-	new_enemy.enemy = TEST_ENEMY
-	new_enemy.enemy_visuals.stats = TEST_ENEMY
+	
+	new_enemy.fight = new_enemy.enemy.health
 
 
 func enemy_finished_track(enemy: BoardEnemy):

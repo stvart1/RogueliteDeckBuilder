@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://elxehtprb5ts"]
+
+[ext_resource type="Texture2D" uid="uid://ukld5o613i0a" path="res://place_holder_art/tile_0122.png" id="1_yowan"]
+[ext_resource type="Script" path="res://enemies/managers/obstructive_manager.gd" id="2_81qjn"]
+
+[resource]
+script = ExtResource("2_81qjn")
+health = 4
+art = ExtResource("1_yowan")
+tier = 1
+damage = 3
+name = "Obstructive Manager"
+gold_reward = 5
+description = "Increases all movement costs by 1 while chasing. Deals 3 damage on catch"

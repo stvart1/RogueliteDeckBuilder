@@ -22,6 +22,10 @@ func initialize_status(_target: Node) -> void:
 	pass
 
 
+func deinitialize_status(_target: Node):
+	pass
+
+
 func apply_status(_target: Node) -> void:
 	status_applied.emit(self)
 

@@ -25,3 +25,4 @@ func get_modified_value(base: int, type: Modifier.Type) -> int:
 		return base
 		
 	return modifier.get_modified_value(base)
+

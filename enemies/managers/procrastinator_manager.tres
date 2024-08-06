@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b5gfh8aruihmu"]
+
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://place_holder_art/tile_0121.png" id="1_61blf"]
+[ext_resource type="Script" path="res://enemies/managers/procrastinator_manager.gd" id="2_fnmpl"]
+
+[resource]
+script = ExtResource("2_fnmpl")
+health = 8
+art = ExtResource("1_61blf")
+tier = 1
+damage = 5
+name = "Procrastinator Manager"
+gold_reward = 4
+description = "Deals 5 damage at the end of the track"

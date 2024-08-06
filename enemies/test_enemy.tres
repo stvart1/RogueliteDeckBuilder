@@ -10,4 +10,5 @@ art = ExtResource("1_4g5ux")
 tier = 1
 damage = 1
 name = "Test Enemy 1"
+gold_reward = 0
 description = "The first test enemy, does 1 damage when it reaches the end of the track"

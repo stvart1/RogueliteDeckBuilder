@@ -1,7 +1,7 @@
 extends Node
 
 # view events
-signal tooltip_requested(icon: Texture, title: String, text: String)
+signal tooltip_requested(icon: Texture, title: String, text: String, array: Array)
 signal tooltip_hide_requested
 signal cardpile_view_requested(title: String, cardpile: CardPile)
 
@@ -30,11 +30,12 @@ signal card_drafted(card: Card)
 signal alter_card_cost(change: int)
 signal draft_refresh_button_pressed
 
-# Enemy-related events
-#signal enemy_action_completed(enemy: Enemy)
-#signal enemy_turn_ended
+ # Enemy-related events
 signal enemy_died(enemy: Enemy)
-#
+signal enemy_with_slow_died()
+#signal enemy_action_completed(enemy: Enemy)
+signal enemy_turn_ended
+
 ## Battle-related events
 #signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
 #signal battle_won

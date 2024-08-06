@@ -2,15 +2,22 @@ class_name Map
 extends Node2D
 
 const MAP_ROOM = preload("res://scenes/map/map_room.tscn")
+const TEST_MANAGER = preload("res://enemies/managers/micro_manager.tres")
+
+@export var enemies: Array[EnemyStats]
+@export var total_managers: Array[EnemyStats]
 
 @onready var map_generator: MapGenerator = $MapGenerator
 @onready var visuals = $Visuals
 @onready var rooms = $Visuals/Rooms
+@onready var modifier_handler = $ModifierHandler
 
 var map_data: Array[Array]
+var available_managers: Array[EnemyStats]
 var last_room: Room
-var player: Player
 var occupied_room: Room
+
+var player: Player
 var enemy_handler: EnemyHandler
 var shop
 
@@ -22,7 +29,10 @@ func _ready():
 	
 	last_room = Room.new()
 	occupied_room = Room.new()
-	Events.stats_changed.connect(update_available_rooms)
+	Events.stats_changed_delay.connect(update_available_rooms)
+	
+	available_managers = total_managers.duplicate(true)
+	available_managers.shuffle()
 
 
 func generate_new_map():
@@ -73,18 +83,22 @@ func _on_map_room_clicked(room: Room):
 				player.stats.fatigued = true
 			
 			Room.Type.OFFICE:
-				if room.has_key:
-					player.stats.has_key = true
+				if not room.visited:
+					if room.has_key:
+						player.stats.has_key = true
+					enemy_handler.progress_enemies(available_managers.pop_back())
 			
 			Room.Type.KIOSK:
 				player.stats.buy += 1
 			
 			Room.Type.SECURITY:
-				enemy_handler.progress_enemies()
+				enemy_handler.progress_enemies(enemies.pick_random())
 			
 			Room.Type.ELEVATOR:
 				if player.stats.has_key:
 					self.queue_free()
+		
+		room.visited = true
 
 
 func update_available_rooms():

@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://b5u0hsrjjyyle"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b5u0hsrjjyyle"]
 
-[ext_resource type="Texture2D" uid="uid://d2vujk8wvu6ia" path="res://place_holder_art/tile_0123.png" id="1_ooimc"]
-[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="2_ajog8"]
+[ext_resource type="Texture2D" uid="uid://bv2wpbh3uv4x3" path="res://place_holder_art/tile_0109.png" id="1_0725m"]
+[ext_resource type="Script" path="res://enemies/test_manager.gd" id="1_q8mgp"]
 
 [resource]
-script = ExtResource("2_ajog8")
-health = 2
-art = ExtResource("1_ooimc")
+script = ExtResource("1_q8mgp")
+health = 5
+art = ExtResource("1_0725m")
 tier = 1
-damage = 1
-name = "Test Enemy 1"
-gold_reward = 0
-description = "The first test enemy, does 1 damage when it reaches the end of the track"
+damage = 3
+name = "Test Manager 1"
+gold_reward = 4
+description = "The first test manager, does 3 damage when it reaches the end of the track"

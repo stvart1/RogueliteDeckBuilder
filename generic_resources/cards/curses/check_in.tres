@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bmnscilnllens"]
+
+[ext_resource type="Script" path="res://generic_resources/cards/curses/check_in.gd" id="1_sbgsl"]
+
+[resource]
+script = ExtResource("1_sbgsl")
+id = "checkin"
+rarity = 0
+title = "Check-in"
+exhausts = true
+target = 0
+price = 0
+tooltip_text = "Just want to make sure you're on task"

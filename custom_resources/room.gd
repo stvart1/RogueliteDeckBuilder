@@ -10,7 +10,7 @@ enum Type {UNASSIGNED, STOREROOM, FIRST_AID, WAITING_ROOM, EVENT, MYSTERY, PLAIN
 @export var pos: Vector2
 @export var type: Type
 @export var connections: Array
-@export var selected := false
+@export var visited := false
 @export var available : bool : set = _set_available
 @export var occupying: bool : set = _set_occupying
 @export var move_cost := 1

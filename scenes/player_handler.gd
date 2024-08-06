@@ -22,7 +22,7 @@ var character: CharacterStats
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
 	Events.card_drafted.connect(card_drafted)
-	Events.player_turn_ended.connect(discard_cards)
+	Events.enemy_turn_ended.connect(discard_cards)
 	Events.player_hand_discarded.connect(start_turn)
 	Events.player_draw_cards.connect(draw_cards)
 	

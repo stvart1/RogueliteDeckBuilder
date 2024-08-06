@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dv1cdjdl0ljep"]
+
+[ext_resource type="Texture2D" uid="uid://con6y7mc74c5a" path="res://place_holder_art/tile_0120.png" id="1_dyxiq"]
+[ext_resource type="Script" path="res://enemies/managers/micro_manager.gd" id="1_pkxqv"]
+
+[resource]
+script = ExtResource("1_pkxqv")
+health = 4
+art = ExtResource("1_dyxiq")
+tier = 1
+damage = 3
+name = "Micro Manager"
+gold_reward = 4
+description = "Adds a card to your draw pile at the end of every turn."
