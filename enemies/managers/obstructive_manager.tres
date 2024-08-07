@@ -5,10 +5,13 @@
 
 [resource]
 script = ExtResource("2_81qjn")
-health = 4
-art = ExtResource("1_yowan")
-tier = 1
-damage = 3
 name = "Obstructive Manager"
+type = 2
+level = 1
+health = 4
+damage = 3
 gold_reward = 5
-description = "Increases all movement costs by 1 while chasing. Deals 3 damage on catch"
+art = ExtResource("1_yowan")
+description = "Increases all movement costs by 1 while chasing. 
+Damage: 3
+Gold: 5"

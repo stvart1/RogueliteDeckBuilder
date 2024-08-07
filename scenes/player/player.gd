@@ -1,7 +1,6 @@
 class_name Player
 extends Node2D
 
-const MAP_OFFSET := Vector2(95, 109)
 #const WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 
 @export var stats: CharacterStats : set = set_character_stats
@@ -29,11 +28,11 @@ func _ready() -> void:
 
 
 func move_to_room(room: Room):
-	position = room.pos + MAP_OFFSET
+	position = room.pos + map.position
 
 
 func move_to_elevator(elevator_pos: Vector2):
-	position = elevator_pos + MAP_OFFSET
+	position = elevator_pos + map.position
 
 
 func set_character_stats(value: CharacterStats) -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://du7r7v1iaahuo" path="res://place_holder_art/rarity.png" id="2_6n2c3"]
 
 [node name="BuyUI" type="HBoxContainer"]
-custom_minimum_size = Vector2(0, 42)
+custom_minimum_size = Vector2(70, 42)
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0
@@ -19,4 +19,4 @@ stretch_mode = 5
 [node name="BuyLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "99"
+text = "999"

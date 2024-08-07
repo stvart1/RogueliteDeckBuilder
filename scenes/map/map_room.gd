@@ -32,7 +32,7 @@ func _ready():
 func room_status_changed():
 	var modified_cost: int = map.modifier_handler.get_modified_value(room.move_cost, Modifier.Type.MOVE_COST)
 	icon_button.disabled = !((room.available and player.stats.move >= modified_cost and not player.stats.fatigued) or room.occupying)
-	print("x: %s, y: %s; button disabled: %s, available: %s, player move: %s, move cost: %s, modified move cost: %s occupied: %s" % [room.xpos, room.ypos, icon_button.disabled, room.available, player.stats.move, room.move_cost, modified_cost, room.occupying])
+	#print("x: %s, y: %s; button disabled: %s, available: %s, player move: %s, move cost: %s, modified move cost: %s occupied: %s" % [room.xpos, room.ypos, icon_button.disabled, room.available, player.stats.move, room.move_cost, modified_cost, room.occupying])
 
 
 

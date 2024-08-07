@@ -36,6 +36,5 @@ func get_tooltip() -> String:
 
 
 func set_stacks(new_stacks: int) -> void:
-	print("setting stacks")
 	stacks = new_stacks
 	status_changed.emit()

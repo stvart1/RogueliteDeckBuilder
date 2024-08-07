@@ -11,11 +11,11 @@ const HALLWAY_CHANCE := (100 - FIRST_AID_CHANCE - STOREROOM_CHANCE - WAITINGROOM
 const X_DIST := 60
 const Y_DIST := 60
 const PLACEMENT_OFFSET := 10
-const WIDTH := 10
-const HEIGHT := 5
+const WIDTH := 15
+const HEIGHT := 7
 const PATHS := 4
 
-@export var office_count := 3
+@export var office_count := 2
 
 var random_room_type_weights = {
 	Room.Type.FIRST_AID: 0.0,
@@ -29,11 +29,13 @@ var random_room_type_total_weight := 0
 var map_data: Array[Array]
 
 
-func generate_map() -> Array[Array]:
+func generate_map(level: int) -> Array[Array]:
+	office_count = 2 + level
+	print("level: %s, office_count: %s" % [level, office_count])
 	map_data = _generate_initial_grid()
 	_setup_start_point()
 	_setup_offices()
-	_setup_roomweights()
+	_setup_roomweights(level)
 	_setup_rooms()
 	_setup_connections()
 	return map_data
@@ -60,7 +62,7 @@ func _generate_initial_grid() -> Array[Array]:
 
 
 func _setup_start_point():
-	var elevator := map_data[0][2] as Room
+	var elevator := map_data[0][floor(HEIGHT/2.0)] as Room
 	elevator.type = Room.Type.ELEVATOR
 
 
@@ -86,12 +88,12 @@ func _setup_offices():
 		
 
 
-func _setup_roomweights():
+func _setup_roomweights(level: int):
 	random_room_type_weights[Room.Type.FIRST_AID] = FIRST_AID_CHANCE
 	random_room_type_weights[Room.Type.STOREROOM] = random_room_type_weights[Room.Type.FIRST_AID] + STOREROOM_CHANCE
 	random_room_type_weights[Room.Type.KIOSK] = random_room_type_weights[Room.Type.STOREROOM] + KIOSK_CHANCE
 	random_room_type_weights[Room.Type.WAITING_ROOM] = random_room_type_weights[Room.Type.KIOSK] + WAITINGROOM_CHANCE
-	random_room_type_weights[Room.Type.SECURITY] = random_room_type_weights[Room.Type.WAITING_ROOM] + SECURITY_CHANCE
+	random_room_type_weights[Room.Type.SECURITY] = random_room_type_weights[Room.Type.WAITING_ROOM] + SECURITY_CHANCE * level
 	random_room_type_weights[Room.Type.PLAIN] = random_room_type_weights[Room.Type.SECURITY] + HALLWAY_CHANCE
 	
 	random_room_type_total_weight = random_room_type_weights[Room.Type.PLAIN]
@@ -104,8 +106,6 @@ func _setup_rooms():
 				room.type = _get_random_room_type()
 				if room.type == Room.Type.STOREROOM:
 					_set_room_storeroom(room)
-				else:
-					print(room.type)
 
 
 func _get_random_room_type() -> Room.Type:

@@ -13,7 +13,7 @@ signal card_aim_ended(card_ui: CardUI)
 signal card_played(card: Card)
 
 # Player-related events
-signal player_hand_drawn
+signal player_hand_drawn(player: Player)
 signal player_hand_discarded
 signal player_turn_ended
 signal player_hit
@@ -35,6 +35,7 @@ signal enemy_died(enemy: Enemy)
 signal enemy_with_slow_died()
 #signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
+signal spawn_enemy(type: EnemyStats.Type)
 
 ## Battle-related events
 #signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)
@@ -45,6 +46,7 @@ signal enemy_turn_ended
 #signal map_exited(room: Room)
 signal new_map_generated(elevator_pos: Vector2)
 signal room_clicked(room: Room)
+signal level_enetered(level: int)
 
 # Shop-related events
 #signal shop_entered(shop: Shop)

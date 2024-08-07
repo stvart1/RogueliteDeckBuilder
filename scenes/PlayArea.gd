@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var draw_pile_button = %DrawPileButton
 @onready var discard_pile_button = %DiscardPileButton
 
+var turn := 1
 
 func _ready() -> void:
 	Events.player_hand_drawn.connect(_on_player_hand_drawn)
@@ -23,6 +24,8 @@ func _on_player_hand_drawn() -> void:
 func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
 	Events.player_turn_ended.emit()
+	turn += 1
+	print(turn)
 
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value

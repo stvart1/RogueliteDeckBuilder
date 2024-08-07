@@ -15,7 +15,7 @@ extends Stats
 @export var starting_fight = 0
 @export var starting_buy = 0
 
-#@export var starting_relic: Relic
+@export var starting_relic: Relic
 
 var mana: int : set = set_mana
 var deck: CardPile
@@ -25,7 +25,7 @@ var move: int : set = set_move
 var fight: int : set = set_fight
 var buy: int : set = set_buy
 var gold: int : set = set_gold
-var has_key := false
+var has_key := false : set = set_has_key
 var fatigued := false : set = set_fatigue
 
 
@@ -46,6 +46,11 @@ func set_buy(value: int):
 
 func set_gold(value: int):
 	gold = clampi(value, 0 , 999)
+	Events.stats_changed.emit()
+
+
+func set_has_key(value: bool):
+	has_key = value
 	Events.stats_changed.emit()
 
 

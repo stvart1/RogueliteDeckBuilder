@@ -5,10 +5,13 @@
 
 [resource]
 script = ExtResource("1_pkxqv")
-health = 4
-art = ExtResource("1_dyxiq")
-tier = 1
-damage = 3
 name = "Micro Manager"
+type = 2
+level = 1
+health = 4
+damage = 3
 gold_reward = 4
-description = "Adds a card to your draw pile at the end of every turn."
+art = ExtResource("1_dyxiq")
+description = "Adds a card to your draw pile at the end of every turn.
+Damage: 3
+Gold: 4"

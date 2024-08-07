@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/ui/health_ui.gd" id="1_wfdh4"]
 
 [node name="HealthUI" type="HBoxContainer"]
-custom_minimum_size = Vector2(0, 42)
+custom_minimum_size = Vector2(86, 42)
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 0

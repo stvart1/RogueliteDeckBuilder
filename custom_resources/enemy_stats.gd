@@ -1,12 +1,15 @@
 class_name EnemyStats
 extends Resource
 
-@export var health: int
-@export var art: Texture
-@export var tier: int
-@export var damage: int
+enum Type {WORKER, SECURITY, MANAGER, BOSS}
+
 @export var name: String
+@export var type: Type
+@export var level: int
+@export var health: int
+@export var damage: int
 @export var gold_reward: int
+@export var art: Texture
 @export_multiline var description: String
 
 

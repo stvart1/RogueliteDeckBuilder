@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://j4gt2sii1mtk"]
+[gd_scene load_steps=5 format=3 uid="uid://j4gt2sii1mtk"]
 
 [ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://place_holder_art/tile_0121.png" id="1_b84ei"]
 [ext_resource type="Script" path="res://scenes/ui/tooltip_popup.gd" id="1_x1ti8"]
@@ -7,10 +7,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_70rvo"]
 font = ExtResource("2_n6nef")
 font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_y7723"]
-font = ExtResource("2_n6nef")
-font_size = 18
 
 [node name="TooltipPopup" type="Node2D"]
 script = ExtResource("1_x1ti8")
@@ -63,15 +59,13 @@ label_settings = SubResource("LabelSettings_70rvo")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="TooltipText" type="Label" parent="Popup/VBoxContainer"]
+[node name="TooltipText" type="RichTextLabel" parent="Popup/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+bbcode_enabled = true
 text = "Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. Tooltip text. "
-label_settings = SubResource("LabelSettings_y7723")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+fit_content = true
 
 [node name="StatusContainer" type="HBoxContainer" parent="Popup/VBoxContainer"]
 unique_name_in_owner = true

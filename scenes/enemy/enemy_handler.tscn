@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://5y44wp4db60"]
 
-[ext_resource type="Script" path="res://scenes/enemy_handler.gd" id="1_udkyl"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy_handler.gd" id="1_udkyl"]
 [ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="2_mdwel"]
 [ext_resource type="PackedScene" uid="uid://c35pkqpitei47" path="res://scenes/modifier_handler/modifier.tscn" id="3_67ax7"]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dw6vhngn1b5h8"]
+
+[ext_resource type="Texture2D" uid="uid://boklhiqs1414d" path="res://place_holder_art/tile_0115.png" id="1_0km6v"]
+[ext_resource type="Script" path="res://relics/firstaid_kit.gd" id="2_x1x2p"]
+
+[resource]
+script = ExtResource("2_x1x2p")
+icon = ExtResource("1_0km6v")
+id = "firstaidkit"
+name = "Firstaid Kit"
+description = "Heal 1 at the start of each turn"

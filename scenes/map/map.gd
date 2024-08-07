@@ -4,18 +4,17 @@ extends Node2D
 const MAP_ROOM = preload("res://scenes/map/map_room.tscn")
 const TEST_MANAGER = preload("res://enemies/managers/micro_manager.tres")
 
-@export var enemies: Array[EnemyStats]
-@export var total_managers: Array[EnemyStats]
+
 
 @onready var map_generator: MapGenerator = $MapGenerator
 @onready var visuals = $Visuals
-@onready var rooms = $Visuals/Rooms
+@onready var rooms = $Rooms
 @onready var modifier_handler = $ModifierHandler
 
 var map_data: Array[Array]
-var available_managers: Array[EnemyStats]
 var last_room: Room
 var occupied_room: Room
+var level := 1
 
 var player: Player
 var enemy_handler: EnemyHandler
@@ -31,16 +30,17 @@ func _ready():
 	occupied_room = Room.new()
 	Events.stats_changed_delay.connect(update_available_rooms)
 	
-	available_managers = total_managers.duplicate(true)
-	available_managers.shuffle()
+
 
 
 func generate_new_map():
-	map_data = map_generator.generate_map()
+	map_data = map_generator.generate_map(level)
 	create_map()
-	Events.new_map_generated.emit(map_data[0][2].pos)
-	map_data[0][2].occupying = true
-	occupied_room = map_data[0][2]
+	Events.new_map_generated.emit(map_data[0][floor(MapGenerator.HEIGHT/2.0)].pos)
+	map_data[0][floor(MapGenerator.HEIGHT/2.0)].occupying = true
+	occupied_room = map_data[0][floor(MapGenerator.HEIGHT/2.0)]
+	
+	Events.level_enetered.emit(level)
 
 func create_map():
 	for current_floor: Array in map_data:
@@ -86,17 +86,21 @@ func _on_map_room_clicked(room: Room):
 				if not room.visited:
 					if room.has_key:
 						player.stats.has_key = true
-					enemy_handler.progress_enemies(available_managers.pop_back())
+					enemy_handler.progress_enemies(EnemyStats.Type.MANAGER)
 			
 			Room.Type.KIOSK:
 				player.stats.buy += 1
 			
 			Room.Type.SECURITY:
-				enemy_handler.progress_enemies(enemies.pick_random())
+				enemy_handler.progress_enemies(EnemyStats.Type.SECURITY)
 			
 			Room.Type.ELEVATOR:
 				if player.stats.has_key:
-					self.queue_free()
+					level += 1
+					for maproom: MapRoom in rooms.get_children():
+						maproom.queue_free()
+					generate_new_map()
+					player.stats.has_key = false
 		
 		room.visited = true
 

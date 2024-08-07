@@ -15,6 +15,7 @@ const TEST_MANAGER = preload("res://enemies/test_manager.tres")
 @onready var map = $Map
 
 
+
 func _ready():
 	Events.card_drafted.connect(card_drafted)
 	character.deck = character.starting_deck

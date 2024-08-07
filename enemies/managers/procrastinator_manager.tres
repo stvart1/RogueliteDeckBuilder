@@ -5,10 +5,13 @@
 
 [resource]
 script = ExtResource("2_fnmpl")
-health = 8
-art = ExtResource("1_61blf")
-tier = 1
-damage = 5
 name = "Procrastinator Manager"
+type = 2
+level = 1
+health = 8
+damage = 5
 gold_reward = 4
-description = "Deals 5 damage at the end of the track"
+art = ExtResource("1_61blf")
+description = "Would have been premoted if they were better organised.
+Damage: 3
+Gold: 4"

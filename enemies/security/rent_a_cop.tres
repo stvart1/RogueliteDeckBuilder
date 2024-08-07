@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://dvb3orc884fuq"]
+
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_2yahs"]
+[ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://place_holder_art/tile_0110.png" id="1_d2c5t"]
+
+[resource]
+script = ExtResource("1_2yahs")
+name = "Rent-A-Cop"
+type = 1
+level = 1
+health = 2
+damage = 2
+gold_reward = 1
+art = ExtResource("1_d2c5t")
+description = "They probably should have noticed you before you walked into room.
+Damage: 2
+Gold: 1"
