@@ -79,11 +79,11 @@ func _on_plus_buy_button_2_pressed():
 
 
 func _on_enemies_button_pressed():
-	enemy_handler.progress_enemies()
+	enemy_handler.progress_enemies(EnemyStats.Type.WORKER)
 
 
 func _on_manager_enemy_pressed():
-	enemy_handler.progress_enemies(TEST_MANAGER)
+	enemy_handler.progress_enemies(EnemyStats.Type.MANAGER)
 
 
 func _on_clear_enemies_button_pressed():

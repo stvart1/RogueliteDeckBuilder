@@ -17,7 +17,7 @@ func _ready() -> void:
 	#discard_pile_button.pressed.connect(discard_pile_view.show_current_view.bind("Discard Pile"))
 
 
-func _on_player_hand_drawn() -> void:
+func _on_player_hand_drawn(_player) -> void:
 	end_turn_button.disabled = false
 
 

@@ -63,8 +63,11 @@ signal level_enetered(level: int)
 ## Treasure Room-related events
 #signal treasure_room_exited(found_relic: Relic)
 #
-## Relic-related events
+# Relic-related events
+signal  relic_gained(relic: Relic)
+signal activate_start_of_turn_relics
 #signal relic_tooltip_requested(relic: Relic)
+
 #
 ## Random Event room-related events
 #signal event_room_exited

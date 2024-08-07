@@ -13,10 +13,7 @@ func set_status(new_status: Status) -> void:
 	
 	status = new_status
 	icon.texture = status.icon
-	custom_minimum_size = icon.size
 	
-	if stacks.visible:
-		custom_minimum_size = stacks.size + stacks.position
 	if not status.status_changed.is_connected(_on_status_changed):
 		status.status_changed.connect(_on_status_changed)
 	

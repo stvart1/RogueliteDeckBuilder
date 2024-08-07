@@ -6,6 +6,7 @@ signal counter_update
 @export var icon: Texture
 @export var id: String
 @export var name: String
+@export var price: int
 @export var visible_counter:= false
 @export_multiline var description: String
 var counter: int : set = set_counter
@@ -17,3 +18,7 @@ func start_of_turn(_player: Player):
 func set_counter(value: int):
 	counter = value
 	counter_update.emit()
+
+
+func get_tooltip() -> String:
+	return description

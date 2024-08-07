@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://etpn0y3edc"]
+
+[ext_resource type="Texture2D" uid="uid://dhmtctwb5ymhc" path="res://place_holder_art/gold.png" id="1_meaej"]
+[ext_resource type="Script" path="res://generic_resources/cards/shoppable/strike_gold.gd" id="2_wc5y8"]
+
+[resource]
+script = ExtResource("2_wc5y8")
+gold = 1
+id = "strikegold"
+rarity = 3
+title = "Strike Gold"
+exhausts = false
+target = 0
+price = 4
+art = ExtResource("1_meaej")
+tooltip_text = "Gain %s gold"

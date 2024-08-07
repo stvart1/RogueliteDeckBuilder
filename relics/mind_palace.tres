@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bt5jhym7fe6ja"]
+
+[ext_resource type="Texture2D" uid="uid://chtnrxmaowwkd" path="res://place_holder_art/tile_0111.png" id="1_p6vkr"]
+[ext_resource type="Script" path="res://relics/mind_palace.gd" id="1_qvypj"]
+
+[resource]
+script = ExtResource("1_qvypj")
+icon = ExtResource("1_p6vkr")
+id = "mindpalace"
+name = "Mind Palace"
+price = 10
+visible_counter = false
+description = "Gain a free draft each turn"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dbgw4xcvce8pn"]
+
+[ext_resource type="Texture2D" uid="uid://313csfw3voyr" path="res://place_holder_art/arrow_small.png" id="1_bqqhd"]
+[ext_resource type="Script" path="res://relics/running_shoes.gd" id="2_d2pcc"]
+
+[resource]
+script = ExtResource("2_d2pcc")
+move = 1
+icon = ExtResource("1_bqqhd")
+id = "runningshoes"
+name = "Running Shoes"
+price = 10
+visible_counter = false
+description = "Gain %s move each turn"

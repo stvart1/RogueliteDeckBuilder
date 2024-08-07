@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="OpenMindedStatus" load_steps=2 format=3 uid="uid://1o6fbjtq46h6"]
+[gd_resource type="Resource" script_class="OpenMindedStatus" load_steps=3 format=3 uid="uid://1o6fbjtq46h6"]
 
+[ext_resource type="Texture2D" uid="uid://chtnrxmaowwkd" path="res://place_holder_art/tile_0111.png" id="1_g2od6"]
 [ext_resource type="Script" path="res://statuses/open_minded.gd" id="1_qlxwk"]
 
 [resource]
@@ -9,4 +10,5 @@ stacks = null
 expieres = false
 stackable = null
 timing = 2
-tooltip = null
+icon = ExtResource("1_g2od6")
+tooltip = "Free Draft"

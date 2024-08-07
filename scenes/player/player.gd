@@ -25,6 +25,7 @@ func _ready() -> void:
 		Events.room_clicked.connect(move_to_room)
 	
 	map = get_tree().get_first_node_in_group("map")
+	Events.relic_gained.emit(stats.starting_relic)
 
 
 func move_to_room(room: Room):

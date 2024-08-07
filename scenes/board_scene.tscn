@@ -34,7 +34,7 @@
 [ext_resource type="Script" path="res://scenes/shop_popup.gd" id="20_ir4ro"]
 [ext_resource type="Script" path="res://scenes/ui/CardPileViewer.gd" id="20_pw3qc"]
 [ext_resource type="PackedScene" uid="uid://drbypv8b3pnir" path="res://scenes/card/shop_card.tscn" id="21_ff8c5"]
-[ext_resource type="PackedScene" uid="uid://bqcru00ls07fy" path="res://scenes/relic_ui.tscn" id="28_hlusj"]
+[ext_resource type="Script" path="res://scenes/relic_container.gd" id="28_0rfk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mng3u"]
 size = Vector2(976, 446)
@@ -114,36 +114,45 @@ script = ExtResource("4_vf06v")
 [node name="KeycardCenterContainer" type="CenterContainer" parent="ResourceBar/ResourceBar"]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="Keycard" type="TextureRect" parent="ResourceBar/ResourceBar/KeycardCenterContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = ExtResource("19_nn3wa")
 
 [node name="Health" parent="ResourceBar/ResourceBar" instance=ExtResource("4_6s467")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 show_max_hp = true
 
 [node name="Gold" parent="ResourceBar/ResourceBar" instance=ExtResource("5_fmekr")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 42)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="Buy" parent="ResourceBar/ResourceBar" instance=ExtResource("8_ruwq4")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(61, 42)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="Move" parent="ResourceBar/ResourceBar" instance=ExtResource("5_xo70e")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(61, 42)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="Fight" parent="ResourceBar/ResourceBar" instance=ExtResource("6_3vi0n")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 42)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="RelicScrollContainer" type="ScrollContainer" parent="ResourceBar/ResourceBar"]
 custom_minimum_size = Vector2(420, 42)
@@ -151,11 +160,9 @@ layout_mode = 2
 vertical_scroll_mode = 0
 
 [node name="RelicContainer" type="HBoxContainer" parent="ResourceBar/ResourceBar/RelicScrollContainer"]
-custom_minimum_size = Vector2(0, 34)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-
-[node name="RelicUI" parent="ResourceBar/ResourceBar/RelicScrollContainer/RelicContainer" instance=ExtResource("28_hlusj")]
-layout_mode = 2
+script = ExtResource("28_0rfk8")
 
 [node name="PlayArea" type="CanvasLayer" parent="." groups=["ui_layer"]]
 script = ExtResource("12_fnm5l")
@@ -232,9 +239,9 @@ color = Color(0, 0, 0, 0.823529)
 
 [node name="ShopCardRow" type="HBoxContainer" parent="ShopPopup"]
 offset_left = 289.0
-offset_top = 135.0
+offset_top = 67.0
 offset_right = 719.0
-offset_bottom = 311.0
+offset_bottom = 243.0
 theme_override_constants/separation = 65
 alignment = 1
 
@@ -246,6 +253,15 @@ layout_mode = 2
 
 [node name="ShopCard3" parent="ShopPopup/ShopCardRow" instance=ExtResource("21_ff8c5")]
 layout_mode = 2
+
+[node name="ShopRelicRow" type="HBoxContainer" parent="ShopPopup"]
+custom_minimum_size = Vector2(430, 80)
+offset_left = 289.0
+offset_top = 290.0
+offset_right = 389.0
+offset_bottom = 370.0
+theme_override_constants/separation = 65
+alignment = 1
 
 [node name="ModifierHandler" parent="ShopPopup" instance=ExtResource("20_1ku4x")]
 

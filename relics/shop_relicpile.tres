@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RelicPile" load_steps=6 format=3 uid="uid://dltru6qorgqts"]
+
+[ext_resource type="Resource" uid="uid://dvs7s5bsbdr6a" path="res://relics/concealed_carry.tres" id="1_b8wqe"]
+[ext_resource type="Resource" uid="uid://dw6vhngn1b5h8" path="res://relics/firstaid_kit.tres" id="2_drqiv"]
+[ext_resource type="Resource" uid="uid://bt5jhym7fe6ja" path="res://relics/mind_palace.tres" id="3_fhuhf"]
+[ext_resource type="Resource" uid="uid://dbgw4xcvce8pn" path="res://relics/running_shoes.tres" id="4_fikcl"]
+[ext_resource type="Script" path="res://custom_resources/relic_pile.gd" id="5_p1gdf"]
+
+[resource]
+script = ExtResource("5_p1gdf")
+relics = Array[Resource("res://custom_resources/relic.gd")]([ExtResource("1_b8wqe"), ExtResource("2_drqiv"), ExtResource("3_fhuhf"), ExtResource("4_fikcl")])

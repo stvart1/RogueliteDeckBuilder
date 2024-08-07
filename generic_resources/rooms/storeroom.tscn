@@ -4,3 +4,4 @@
 
 [node name="Storeroom" type="Node"]
 script = ExtResource("1_uecfc")
+type = 1

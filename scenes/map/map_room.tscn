@@ -21,6 +21,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 theme = SubResource("Theme_qdlf7")
 theme_type_variation = &"Disabled"
+disabled = true
 texture_normal = ExtResource("2_vm03n")
 texture_disabled = ExtResource("3_lw7q2")
 ignore_texture_size = true

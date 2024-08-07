@@ -5,7 +5,11 @@
 
 [resource]
 script = ExtResource("2_x1x2p")
+healing = 1
+frequncy = 2
 icon = ExtResource("1_0km6v")
 id = "firstaidkit"
 name = "Firstaid Kit"
-description = "Heal 1 at the start of each turn"
+price = 10
+visible_counter = true
+description = "Heal %s every %s turns"

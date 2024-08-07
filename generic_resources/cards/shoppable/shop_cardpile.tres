@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=5 format=3 uid="uid://bpco5feh6cyp6"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://bpco5feh6cyp6"]
 
 [ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_mdbn6"]
 [ext_resource type="Resource" uid="uid://25u0kkapbu0o" path="res://generic_resources/cards/shoppable/deep_learning.tres" id="1_nrd75"]
 [ext_resource type="Resource" uid="uid://borc6c0hfgnjf" path="res://generic_resources/cards/shoppable/key_logger.tres" id="2_0ax81"]
 [ext_resource type="Resource" uid="uid://cokwoy23tbaw1" path="res://generic_resources/cards/shoppable/silencer.tres" id="3_lqeow"]
+[ext_resource type="Resource" uid="uid://etpn0y3edc" path="res://generic_resources/cards/shoppable/strike_gold.tres" id="4_ne0fo"]
 
 [resource]
 script = ExtResource("1_mdbn6")
-cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_nrd75"), ExtResource("2_0ax81"), ExtResource("3_lqeow")])
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_nrd75"), ExtResource("2_0ax81"), ExtResource("3_lqeow"), ExtResource("4_ne0fo")])

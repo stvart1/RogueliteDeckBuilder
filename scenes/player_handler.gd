@@ -25,6 +25,7 @@ func _ready() -> void:
 	Events.enemy_turn_ended.connect(discard_cards)
 	Events.player_hand_discarded.connect(start_turn)
 	Events.player_draw_cards.connect(draw_cards)
+	Events.relic_gained.emit(player.stats.starting_relic)
 	
 
 
@@ -33,8 +34,9 @@ func start_battle(char_stats: CharacterStats) -> void:
 	character.draw_pile = character.deck.custom_duplicate()
 	character.draw_pile.shuffle()
 	character.discard = CardPile.new()
+	Events.relic_gained.emit(character.starting_relic)
 	#relics.relics_activated.connect(_on_relics_activated)
-	#player.status_handler.statuses_applied.connect(_on_statuses_applied)
+	player.status_handler.statuses_applied.connect(_on_statuses_applied)
 	start_turn()
 
 
@@ -46,6 +48,7 @@ func start_turn() -> void:
 	character.fatigued = false
 	character.reset_mana()
 	draw_cards(character.cards_per_turn)
+	Events.activate_start_of_turn_relics.emit(player)
 	#relics.activate_relics_by_type(Relic.Type.START_OF_TURN)
 
 
@@ -113,12 +116,12 @@ func card_drafted(card: Card):
 	character.discard.add_card(card)
 
 
-#func _on_statuses_applied(type: Status.Type) -> void:
-	#match type:
-		#Status.Type.START_OF_TURN:
-			#draw_cards(character.cards_per_turn)
-		#Status.Type.END_OF_TURN:
-			#discard_cards()
+func _on_statuses_applied(type: Status.Timing) -> void:
+	match type:
+		Status.Timing.START_OF_TURN:
+			draw_cards(character.cards_per_turn)
+		Status.Timing.END_OF_TURN:
+			discard_cards()
 
 
 #func _on_relics_activated(type: Relic.Type) -> void:

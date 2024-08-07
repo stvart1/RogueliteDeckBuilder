@@ -74,6 +74,7 @@ func _on_map_room_clicked(room: Room):
 		match room.type:
 			Room.Type.STOREROOM:
 				shop.shop_cards = room.this_shop_cardpile
+				shop.shop_relics = room.this_shop_relics
 				shop.visible = true
 			
 			Room.Type.FIRST_AID:

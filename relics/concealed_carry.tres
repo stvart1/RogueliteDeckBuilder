@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dvs7s5bsbdr6a"]
+
+[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://place_holder_art/tile_0103.png" id="1_bmdu7"]
+[ext_resource type="Script" path="res://relics/concealed_carry.gd" id="1_v61rq"]
+
+[resource]
+script = ExtResource("1_v61rq")
+fight = 1
+icon = ExtResource("1_bmdu7")
+id = "concealcarry"
+name = "Conceal Carry"
+price = 10
+visible_counter = false
+description = "Gain %s fight at the start of each turn
+"

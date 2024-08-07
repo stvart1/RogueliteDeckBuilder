@@ -13,7 +13,7 @@ extends Node2D
 
 func _set_text(value: String):
 	text = value
-	tooltip_text.text = text
+	tooltip_text.text = "[center] %s [/center]" % text
 
 
 func _set_title(value: String):
