@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://dpm7tyofipkw5"]
+
+[ext_resource type="Texture2D" uid="uid://bv2wpbh3uv4x3" path="res://place_holder_art/tile_0109.png" id="1_7jjhk"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_ksmie"]
+[ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="2_0gsbh"]
+[ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="4_m3t0c"]
+[ext_resource type="Resource" uid="uid://dw6vhngn1b5h8" path="res://relics/firstaid_kit.tres" id="5_6oeh6"]
+
+[resource]
+script = ExtResource("1_ksmie")
+character_name = "Inspector"
+description = "None of this code is up to code."
+portrait = ExtResource("1_7jjhk")
+starting_deck = ExtResource("4_m3t0c")
+draftable_cards = ExtResource("2_0gsbh")
+cards_per_turn = 5
+max_mana = 0
+starting_move = 0
+starting_fight = 0
+starting_buy = 0
+starting_relic = ExtResource("5_6oeh6")
+max_health = 5
+art = ExtResource("1_7jjhk")

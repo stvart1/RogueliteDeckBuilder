@@ -49,7 +49,27 @@ func progress_enemies(type: EnemyStats.Type):
 	if type == EnemyStats.Type.MANAGER:
 		new_enemy.enemy = available_managers.pop_back()
 	else:
-		new_enemy.enemy = available_enemies.filter(func(enemy): return enemy.type == type).pick_random()
+		new_enemy.enemy = RNG.array_pick_random(available_enemies.filter(func(enemy): return enemy.type == type))
+	
+	enemy_grid_container.add_child(new_enemy)
+	enemy_grid_container.move_child(new_enemy, 0)
+	
+	new_enemy.fight = new_enemy.enemy.health
+
+
+func progress_enemies_by_enemy(enemy: EnemyStats):
+	var enemy_array = enemy_grid_container.get_children() 
+	if enemy_array.size() >= max_enemies -1:
+		var x := 0
+		for enemy_on_board: BoardEnemy in enemy_grid_container.get_children():
+			if x >= max_enemies -1:
+				enemy_finished_track(enemy_on_board)
+				enemy_on_board.queue_free()
+			x += 1
+	
+	var new_enemy := BOARD_ENEMY.instantiate()
+	
+	new_enemy.enemy = enemy
 	
 	enemy_grid_container.add_child(new_enemy)
 	enemy_grid_container.move_child(new_enemy, 0)
@@ -72,4 +92,4 @@ func _level_entered(new_level: int):
 	level = new_level
 	available_enemies = all_enemies.filter(func(enemy): return enemy.level == level)
 	available_managers = all_managers.filter(func(enemy): return enemy.level == level)
-	available_managers.shuffle()
+	RNG.array_shuffle(available_managers)

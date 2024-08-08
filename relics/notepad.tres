@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://fkk7ra82x0px"]
+
+[ext_resource type="Texture2D" uid="uid://bjfney7n3dhwo" path="res://place_holder_art/draw.png" id="1_kr1vx"]
+[ext_resource type="Script" path="res://relics/notepad.gd" id="1_sc12f"]
+
+[resource]
+script = ExtResource("1_sc12f")
+icon = ExtResource("1_kr1vx")
+id = "notepad"
+name = "Notepad"
+price = 10
+visible_counter = false
+description = "Draw an extra card each turn"

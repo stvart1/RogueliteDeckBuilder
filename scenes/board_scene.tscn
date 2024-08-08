@@ -1,40 +1,42 @@
-[gd_scene load_steps=39 format=3 uid="uid://c4cghsw6122aj"]
+[gd_scene load_steps=42 format=3 uid="uid://bk1j0ry2wodwx"]
 
-[ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="1_50su2"]
-[ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_doaey"]
-[ext_resource type="Resource" uid="uid://fwry13uso5ih" path="res://scenes/test.tres" id="2_6bv8v"]
-[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="3_tibae"]
-[ext_resource type="PackedScene" uid="uid://jlg46gnlu600" path="res://scenes/ui/health_ui.tscn" id="4_6s467"]
-[ext_resource type="PackedScene" uid="uid://dpg75fuxa5jlm" path="res://scenes/player/player.tscn" id="4_myp5y"]
-[ext_resource type="Script" path="res://scenes/ResourceBar.gd" id="4_vf06v"]
-[ext_resource type="PackedScene" uid="uid://d3n0b2llqdfoa" path="res://scenes/card_target_selector/card_target_selector.tscn" id="4_vnl3x"]
-[ext_resource type="PackedScene" uid="uid://dqcdkmgio64ef" path="res://scenes/ui/gold_ui.tscn" id="5_fmekr"]
-[ext_resource type="PackedScene" uid="uid://ds77ufvfvqn3k" path="res://scenes/ui/move_ui.tscn" id="5_xo70e"]
-[ext_resource type="PackedScene" uid="uid://bxgj3ykpuyk2e" path="res://scenes/ui/fight_ui.tscn" id="6_3vi0n"]
-[ext_resource type="PackedScene" uid="uid://5y44wp4db60" path="res://scenes/enemy/enemy_handler.tscn" id="6_emeeq"]
-[ext_resource type="Resource" uid="uid://d384vrpgclv3k" path="res://enemies/workers/level1_enemy1.tres" id="8_1fmkn"]
-[ext_resource type="PackedScene" uid="uid://baamlfnbthkdi" path="res://scenes/ui/buy_ui.tscn" id="8_ruwq4"]
-[ext_resource type="Script" path="res://scenes/map/map.gd" id="8_vxxnq"]
-[ext_resource type="Script" path="res://scenes/map/map_generator.gd" id="8_xe3cp"]
-[ext_resource type="Resource" uid="uid://doy21ln1ou8a6" path="res://enemies/workers/level1_enemy2.tres" id="9_mg041"]
-[ext_resource type="PackedScene" uid="uid://cuqw6uv2o8wh4" path="res://scenes/ui/draft_area.tscn" id="9_myced"]
-[ext_resource type="PackedScene" uid="uid://c4olmej38c3m2" path="res://scenes/ui/card_pile_opener.tscn" id="9_oi5x1"]
-[ext_resource type="Resource" uid="uid://dv1cdjdl0ljep" path="res://enemies/managers/micro_manager.tres" id="9_v2alk"]
-[ext_resource type="Resource" uid="uid://dvb3orc884fuq" path="res://enemies/security/rent_a_cop.tres" id="10_8ryys"]
-[ext_resource type="Resource" uid="uid://baua4eplc6af6" path="res://enemies/test_enemy.tres" id="10_l6urq"]
-[ext_resource type="Resource" uid="uid://elxehtprb5ts" path="res://enemies/managers/obstructive_manager.tres" id="10_wq5uh"]
-[ext_resource type="PackedScene" uid="uid://c35pkqpitei47" path="res://scenes/modifier_handler/modifier.tscn" id="10_yfl0j"]
-[ext_resource type="Resource" uid="uid://b5gfh8aruihmu" path="res://enemies/managers/procrastinator_manager.tres" id="11_j2oiq"]
-[ext_resource type="Script" path="res://scenes/player_handler.gd" id="11_pv5xn"]
-[ext_resource type="Script" path="res://scenes/PlayArea.gd" id="12_fnm5l"]
-[ext_resource type="Resource" uid="uid://b5u0hsrjjyyle" path="res://enemies/test_manager.tres" id="12_hbl3f"]
-[ext_resource type="PackedScene" uid="uid://j4gt2sii1mtk" path="res://scenes/ui/tooltip_popup.tscn" id="19_3c61y"]
-[ext_resource type="Texture2D" uid="uid://bglc5m5wg6bje" path="res://place_holder_art/keycard.png" id="19_nn3wa"]
-[ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="20_1ku4x"]
-[ext_resource type="Script" path="res://scenes/shop_popup.gd" id="20_ir4ro"]
-[ext_resource type="Script" path="res://scenes/ui/CardPileViewer.gd" id="20_pw3qc"]
-[ext_resource type="PackedScene" uid="uid://drbypv8b3pnir" path="res://scenes/card/shop_card.tscn" id="21_ff8c5"]
-[ext_resource type="Script" path="res://scenes/relic_container.gd" id="28_0rfk8"]
+[ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_rhaeu"]
+[ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="3_0udn4"]
+[ext_resource type="Resource" uid="uid://bgx642yyeckyx" path="res://scenes/run/run_startup.tres" id="3_6odpp"]
+[ext_resource type="PackedScene" uid="uid://d3n0b2llqdfoa" path="res://scenes/card_target_selector/card_target_selector.tscn" id="4_se6ba"]
+[ext_resource type="PackedScene" uid="uid://cuqw6uv2o8wh4" path="res://scenes/ui/draft_area.tscn" id="5_lvveb"]
+[ext_resource type="PackedScene" uid="uid://5y44wp4db60" path="res://scenes/enemy/enemy_handler.tscn" id="6_00alq"]
+[ext_resource type="Resource" uid="uid://d384vrpgclv3k" path="res://enemies/workers/level1_enemy1.tres" id="7_y1hi7"]
+[ext_resource type="Resource" uid="uid://doy21ln1ou8a6" path="res://enemies/workers/level1_enemy2.tres" id="8_k8rl2"]
+[ext_resource type="Resource" uid="uid://baua4eplc6af6" path="res://enemies/test_enemy.tres" id="9_m3ktp"]
+[ext_resource type="Resource" uid="uid://dvb3orc884fuq" path="res://enemies/security/rent_a_cop.tres" id="10_tic42"]
+[ext_resource type="Resource" uid="uid://dv1cdjdl0ljep" path="res://enemies/managers/micro_manager.tres" id="11_dedww"]
+[ext_resource type="Resource" uid="uid://elxehtprb5ts" path="res://enemies/managers/obstructive_manager.tres" id="12_tdw8u"]
+[ext_resource type="Resource" uid="uid://b5gfh8aruihmu" path="res://enemies/managers/procrastinator_manager.tres" id="13_hxyex"]
+[ext_resource type="Resource" uid="uid://b5u0hsrjjyyle" path="res://enemies/test_manager.tres" id="14_ukxrp"]
+[ext_resource type="Script" path="res://scenes/map/map.gd" id="15_nxh1b"]
+[ext_resource type="Script" path="res://scenes/map/map_generator.gd" id="16_ym8hd"]
+[ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="17_qqvwt"]
+[ext_resource type="PackedScene" uid="uid://c35pkqpitei47" path="res://scenes/modifier_handler/modifier.tscn" id="18_otq4f"]
+[ext_resource type="PackedScene" uid="uid://dpg75fuxa5jlm" path="res://scenes/player/player.tscn" id="19_fnjtt"]
+[ext_resource type="Script" path="res://scenes/player_handler.gd" id="20_q42hq"]
+[ext_resource type="Script" path="res://scenes/resource_bar.gd" id="21_s55nq"]
+[ext_resource type="Texture2D" uid="uid://bglc5m5wg6bje" path="res://place_holder_art/keycard.png" id="22_en3ck"]
+[ext_resource type="PackedScene" uid="uid://jlg46gnlu600" path="res://scenes/ui/health_ui.tscn" id="23_e50jl"]
+[ext_resource type="PackedScene" uid="uid://dqcdkmgio64ef" path="res://scenes/ui/gold_ui.tscn" id="24_mbjg3"]
+[ext_resource type="PackedScene" uid="uid://baamlfnbthkdi" path="res://scenes/ui/buy_ui.tscn" id="25_m7uuc"]
+[ext_resource type="PackedScene" uid="uid://ds77ufvfvqn3k" path="res://scenes/ui/move_ui.tscn" id="26_0gtra"]
+[ext_resource type="PackedScene" uid="uid://bxgj3ykpuyk2e" path="res://scenes/ui/fight_ui.tscn" id="27_xui1y"]
+[ext_resource type="Script" path="res://scenes/relic_container.gd" id="28_nfg1e"]
+[ext_resource type="Script" path="res://scenes/play_area.gd" id="29_l2qki"]
+[ext_resource type="PackedScene" uid="uid://c4olmej38c3m2" path="res://scenes/ui/card_pile_opener.tscn" id="30_fsbsy"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="31_w4lwv"]
+[ext_resource type="Script" path="res://scenes/shop_popup.gd" id="32_8jeu7"]
+[ext_resource type="PackedScene" uid="uid://drbypv8b3pnir" path="res://scenes/card/shop_card.tscn" id="33_4edi4"]
+[ext_resource type="Script" path="res://scenes/ui/CardPileViewer.gd" id="34_62r4u"]
+[ext_resource type="PackedScene" uid="uid://j4gt2sii1mtk" path="res://scenes/ui/tooltip_popup.tscn" id="35_wdpwj"]
+[ext_resource type="FontFile" uid="uid://dxp6sg2p03r1v" path="res://art/Roboto-Bold.ttf" id="36_vjmer"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="36_xv3qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mng3u"]
 size = Vector2(976, 446)
@@ -45,13 +47,17 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_h40q4"]
 font_size = 30
 
+[sub_resource type="LabelSettings" id="LabelSettings_a5kv5"]
+font = ExtResource("36_vjmer")
+font_size = 48
+
 [node name="BoardScene" type="Node2D"]
-script = ExtResource("1_doaey")
-character = ExtResource("2_6bv8v")
+script = ExtResource("1_rhaeu")
+run_startup = ExtResource("3_6odpp")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-texture = ExtResource("1_50su2")
+texture = ExtResource("3_0udn4")
 
 [node name="CardDropArea" type="Area2D" parent="."]
 visible = false
@@ -61,37 +67,36 @@ collision_layer = 2
 position = Vector2(488, 223)
 shape = SubResource("RectangleShape2D_mng3u")
 
-[node name="CardTargetSelector" parent="." instance=ExtResource("4_vnl3x")]
+[node name="CardTargetSelector" parent="." instance=ExtResource("4_se6ba")]
 
-[node name="DraftArea" parent="." instance=ExtResource("9_myced")]
+[node name="DraftArea" parent="." instance=ExtResource("5_lvveb")]
 position = Vector2(983, 363)
 
-[node name="EnemyHandler" parent="." instance=ExtResource("6_emeeq")]
-all_enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("8_1fmkn"), ExtResource("9_mg041"), ExtResource("10_l6urq"), ExtResource("10_8ryys")])
-all_managers = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("9_v2alk"), ExtResource("10_wq5uh"), ExtResource("11_j2oiq"), ExtResource("12_hbl3f")])
+[node name="EnemyHandler" parent="." instance=ExtResource("6_00alq")]
+all_enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("7_y1hi7"), ExtResource("8_k8rl2"), ExtResource("9_m3ktp"), ExtResource("10_tic42")])
+all_managers = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("11_dedww"), ExtResource("12_tdw8u"), ExtResource("13_hxyex"), ExtResource("14_ukxrp")])
 
 [node name="Map" type="Node2D" parent="." groups=["map"]]
 position = Vector2(55, 42)
-script = ExtResource("8_vxxnq")
+script = ExtResource("15_nxh1b")
 
 [node name="Rooms" type="Node2D" parent="Map"]
 
 [node name="Visuals" type="Node2D" parent="Map"]
 
 [node name="MapGenerator" type="Node" parent="Map"]
-script = ExtResource("8_xe3cp")
+script = ExtResource("16_ym8hd")
 
-[node name="ModifierHandler" parent="Map" instance=ExtResource("20_1ku4x")]
+[node name="ModifierHandler" parent="Map" instance=ExtResource("17_qqvwt")]
 
-[node name="MoveCostModifier" parent="Map/ModifierHandler" instance=ExtResource("10_yfl0j")]
+[node name="MoveCostModifier" parent="Map/ModifierHandler" instance=ExtResource("18_otq4f")]
 type = 7
 
-[node name="Player" parent="." instance=ExtResource("4_myp5y")]
+[node name="Player" parent="." instance=ExtResource("19_fnjtt")]
 position = Vector2(140, 129)
-stats = ExtResource("2_6bv8v")
 
 [node name="PlayerHandler" type="Node" parent="." node_paths=PackedStringArray("player", "hand") groups=["player_handler"]]
-script = ExtResource("11_pv5xn")
+script = ExtResource("20_q42hq")
 player = NodePath("../Player")
 hand = NodePath("../PlayArea/PlayerCards/Hand")
 
@@ -109,7 +114,7 @@ offset_top = 454.0
 offset_right = 968.0
 offset_bottom = 496.0
 theme_override_constants/separation = 18
-script = ExtResource("4_vf06v")
+script = ExtResource("21_s55nq")
 
 [node name="KeycardCenterContainer" type="CenterContainer" parent="ResourceBar/ResourceBar"]
 custom_minimum_size = Vector2(42, 42)
@@ -121,34 +126,34 @@ size_flags_vertical = 0
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("19_nn3wa")
+texture = ExtResource("22_en3ck")
 
-[node name="Health" parent="ResourceBar/ResourceBar" instance=ExtResource("4_6s467")]
+[node name="Health" parent="ResourceBar/ResourceBar" instance=ExtResource("23_e50jl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 show_max_hp = true
 
-[node name="Gold" parent="ResourceBar/ResourceBar" instance=ExtResource("5_fmekr")]
+[node name="Gold" parent="ResourceBar/ResourceBar" instance=ExtResource("24_mbjg3")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Buy" parent="ResourceBar/ResourceBar" instance=ExtResource("8_ruwq4")]
+[node name="Buy" parent="ResourceBar/ResourceBar" instance=ExtResource("25_m7uuc")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Move" parent="ResourceBar/ResourceBar" instance=ExtResource("5_xo70e")]
+[node name="Move" parent="ResourceBar/ResourceBar" instance=ExtResource("26_0gtra")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="Fight" parent="ResourceBar/ResourceBar" instance=ExtResource("6_3vi0n")]
+[node name="Fight" parent="ResourceBar/ResourceBar" instance=ExtResource("27_xui1y")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -160,12 +165,14 @@ layout_mode = 2
 vertical_scroll_mode = 0
 
 [node name="RelicContainer" type="HBoxContainer" parent="ResourceBar/ResourceBar/RelicScrollContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
-script = ExtResource("28_0rfk8")
+script = ExtResource("28_nfg1e")
 
 [node name="PlayArea" type="CanvasLayer" parent="." groups=["ui_layer"]]
-script = ExtResource("12_fnm5l")
+layer = 2
+script = ExtResource("29_l2qki")
 
 [node name="PlayerCards" type="HBoxContainer" parent="PlayArea"]
 custom_minimum_size = Vector2(948, 0)
@@ -175,7 +182,7 @@ offset_right = 963.0
 offset_bottom = 658.0
 theme_override_constants/separation = 6
 
-[node name="DrawPileButton" parent="PlayArea/PlayerCards" node_paths=PackedStringArray("counter") instance=ExtResource("9_oi5x1")]
+[node name="DrawPileButton" parent="PlayArea/PlayerCards" node_paths=PackedStringArray("counter") instance=ExtResource("30_fsbsy")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -196,10 +203,10 @@ layout_direction = 3
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
-script = ExtResource("3_tibae")
+script = ExtResource("31_w4lwv")
 player = NodePath("../../../Player")
 
-[node name="DiscardPileButton" parent="PlayArea/PlayerCards" node_paths=PackedStringArray("counter") instance=ExtResource("9_oi5x1")]
+[node name="DiscardPileButton" parent="PlayArea/PlayerCards" node_paths=PackedStringArray("counter") instance=ExtResource("30_fsbsy")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -224,8 +231,9 @@ offset_bottom = 704.0
 text = "End Turn"
 
 [node name="ShopPopup" type="CanvasLayer" parent="." groups=["shop"]]
+layer = 2
 visible = false
-script = ExtResource("20_ir4ro")
+script = ExtResource("32_8jeu7")
 
 [node name="GrayOut" type="ColorRect" parent="ShopPopup"]
 anchors_preset = 15
@@ -245,13 +253,13 @@ offset_bottom = 243.0
 theme_override_constants/separation = 65
 alignment = 1
 
-[node name="ShopCard" parent="ShopPopup/ShopCardRow" instance=ExtResource("21_ff8c5")]
+[node name="ShopCard" parent="ShopPopup/ShopCardRow" instance=ExtResource("33_4edi4")]
 layout_mode = 2
 
-[node name="ShopCard2" parent="ShopPopup/ShopCardRow" instance=ExtResource("21_ff8c5")]
+[node name="ShopCard2" parent="ShopPopup/ShopCardRow" instance=ExtResource("33_4edi4")]
 layout_mode = 2
 
-[node name="ShopCard3" parent="ShopPopup/ShopCardRow" instance=ExtResource("21_ff8c5")]
+[node name="ShopCard3" parent="ShopPopup/ShopCardRow" instance=ExtResource("33_4edi4")]
 layout_mode = 2
 
 [node name="ShopRelicRow" type="HBoxContainer" parent="ShopPopup"]
@@ -263,7 +271,7 @@ offset_bottom = 370.0
 theme_override_constants/separation = 65
 alignment = 1
 
-[node name="ModifierHandler" parent="ShopPopup" instance=ExtResource("20_1ku4x")]
+[node name="ModifierHandler" parent="ShopPopup" instance=ExtResource("17_qqvwt")]
 
 [node name="Label" type="Label" parent="ShopPopup"]
 offset_left = 406.0
@@ -274,13 +282,14 @@ text = "Storeroom"
 label_settings = SubResource("LabelSettings_dg1wj")
 
 [node name="CardPileView" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="CardPileViewer" type="ColorRect" parent="CardPileView"]
 visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 0.784314)
-script = ExtResource("20_pw3qc")
+script = ExtResource("34_62r4u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardPileView/CardPileViewer"]
 layout_mode = 0
@@ -312,11 +321,13 @@ theme_override_constants/v_separation = 20
 columns = 8
 
 [node name="Tooltip" type="CanvasLayer" parent="."]
+layer = 4
 
-[node name="TooltipPopup" parent="Tooltip" instance=ExtResource("19_3c61y")]
+[node name="TooltipPopup" parent="Tooltip" instance=ExtResource("35_wdpwj")]
 visible = false
 
 [node name="DebugButton" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="PlusMoveButton" type="Button" parent="DebugButton"]
 offset_right = 8.0
@@ -380,6 +391,74 @@ offset_right = 566.0
 offset_bottom = 31.0
 text = "+1 Gold"
 
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 99
+visible = false
+script = ExtResource("36_xv3qc")
+
+[node name="PauseGrayOut" type="ColorRect" parent="PauseMenu"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.929412)
+
+[node name="PauseLabel" type="Label" parent="PauseMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 38.0
+offset_right = 67.5
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_a5kv5")
+
+[node name="ContinueButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -149.0
+offset_right = 104.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Continue"
+
+[node name="MenuButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -56.0
+offset_right = 104.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 31.0
+offset_right = 104.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Quit"
+
 [connection signal="pressed" from="PlayArea/PlayerCards/DrawPileButton" to="PlayArea/PlayerCards/DrawPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/PlayerCards/DiscardPileButton" to="PlayArea/PlayerCards/DiscardPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/EndTurnButton" to="PlayArea" method="_on_end_turn_button_pressed"]
@@ -395,3 +474,6 @@ text = "+1 Gold"
 [connection signal="pressed" from="DebugButton/ManagerEnemy" to="." method="_on_manager_enemy_pressed"]
 [connection signal="pressed" from="DebugButton/ClearEnemiesButton" to="." method="_on_clear_enemies_button_pressed"]
 [connection signal="pressed" from="DebugButton/PlusGoldButton" to="." method="_on_plus_gold_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]

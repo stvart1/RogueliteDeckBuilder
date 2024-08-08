@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=7 format=3 uid="uid://fwry13uso5ih"]
+
+[ext_resource type="Texture2D" uid="uid://bue8imscpldys" path="res://place_holder_art/tile_0097.png" id="1_on3bn"]
+[ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="2_tw6hu"]
+[ext_resource type="Texture2D" uid="uid://bpgk3uxxwda42" path="res://place_holder_art/tile_0098.png" id="3_jl64m"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="4_85fod"]
+[ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="5_8ll2p"]
+[ext_resource type="Resource" uid="uid://fkk7ra82x0px" path="res://relics/notepad.tres" id="6_i4swg"]
+
+[resource]
+script = ExtResource("4_85fod")
+character_name = "Tester"
+description = "Testser"
+portrait = ExtResource("3_jl64m")
+starting_deck = ExtResource("5_8ll2p")
+draftable_cards = ExtResource("2_tw6hu")
+cards_per_turn = 5
+max_mana = 0
+starting_move = 0
+starting_fight = 0
+starting_buy = 0
+starting_relic = ExtResource("6_i4swg")
+max_health = 5
+art = ExtResource("1_on3bn")

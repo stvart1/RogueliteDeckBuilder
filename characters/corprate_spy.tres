@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://cvg1yd2f36abk"]
+
+[ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="1_b3x04"]
+[ext_resource type="Texture2D" uid="uid://cwf6dyi56tgo" path="res://place_holder_art/tile_0088.png" id="1_dxtqv"]
+[ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_ymvbv"]
+[ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="3_r7y74"]
+[ext_resource type="Resource" uid="uid://dvs7s5bsbdr6a" path="res://relics/concealed_carry.tres" id="4_rvkok"]
+
+[resource]
+script = ExtResource("1_ymvbv")
+character_name = "Corprate Spy"
+description = "That is a gun in their pocket and they aren't happy to see you."
+portrait = ExtResource("1_dxtqv")
+starting_deck = ExtResource("3_r7y74")
+draftable_cards = ExtResource("1_b3x04")
+cards_per_turn = 5
+max_mana = 0
+starting_move = 0
+starting_fight = 0
+starting_buy = 0
+starting_relic = ExtResource("4_rvkok")
+max_health = 4
+art = ExtResource("1_dxtqv")

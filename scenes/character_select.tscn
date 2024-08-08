@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://1l8bu5ah3m7p"]
+
+[ext_resource type="Script" path="res://scenes/character_select.gd" id="1_ask8s"]
+[ext_resource type="Resource" uid="uid://bgx642yyeckyx" path="res://scenes/run/run_startup.tres" id="2_iev4c"]
+[ext_resource type="Texture2D" uid="uid://cvtonr5sinxbx" path="res://place_holder_art/shopkeeper_blink.png" id="3_1qpvv"]
+[ext_resource type="Texture2D" uid="uid://cwf6dyi56tgo" path="res://place_holder_art/tile_0088.png" id="4_qum1a"]
+[ext_resource type="Texture2D" uid="uid://bv2wpbh3uv4x3" path="res://place_holder_art/tile_0109.png" id="5_gx3lf"]
+[ext_resource type="Texture2D" uid="uid://01cnuv5m4n6f" path="res://place_holder_art/tile_0112.png" id="6_0f5ra"]
+
+[sub_resource type="Gradient" id="Gradient_i6u1f"]
+colors = PackedColorArray(0, 0, 0, 1, 0.101327, 0.0245526, 0.256563, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hd53v"]
+gradient = SubResource("Gradient_i6u1f")
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6flg"]
+font_size = 28
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ask8s")
+run_startup = ExtResource("2_iev4c")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture1D_hd53v")
+
+[node name="SelectButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 646.0
+offset_right = 689.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 30
+text = "Select"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -379.0
+offset_right = 379.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 96
+text = "Character Select"
+horizontal_alignment = 1
+
+[node name="CharacterPortrait" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 71.0
+offset_top = 186.0
+offset_right = 471.0
+offset_bottom = 586.0
+texture = ExtResource("3_1qpvv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 161.0
+offset_right = 1171.0
+offset_bottom = 448.0
+
+[node name="CharacterName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "TEST CHARAC"
+horizontal_alignment = 1
+
+[node name="CharacterDescription" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(561, 0)
+layout_mode = 2
+text = "Something about this character"
+label_settings = SubResource("LabelSettings_a6flg")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 516.0
+offset_right = 1050.0
+offset_bottom = 616.0
+theme_override_constants/separation = 40
+
+[node name="CorprateSpyButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_qum1a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="InspectorButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_gx3lf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="JournalistButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("6_0f5ra")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CorprateSpyButton" to="." method="_on_corprate_spy_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/InspectorButton" to="." method="_on_inspector_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/JournalistButton" to="." method="_on_journalist_button_pressed"]

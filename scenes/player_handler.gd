@@ -23,9 +23,8 @@ func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
 	Events.card_drafted.connect(card_drafted)
 	Events.enemy_turn_ended.connect(discard_cards)
-	Events.player_hand_discarded.connect(start_turn)
+	#Events.player_hand_discarded.connect(start_turn)
 	Events.player_draw_cards.connect(draw_cards)
-	Events.relic_gained.emit(player.stats.starting_relic)
 	
 
 
@@ -40,6 +39,10 @@ func start_battle(char_stats: CharacterStats) -> void:
 	start_turn()
 
 
+
+
+
+
 func start_turn() -> void:
 	character.block = 0
 	character.move = 0
@@ -47,7 +50,7 @@ func start_turn() -> void:
 	character.buy = 0
 	character.fatigued = false
 	character.reset_mana()
-	draw_cards(character.cards_per_turn)
+	draw_cards(player.modifier_handler.get_modified_value(character.cards_per_turn, Modifier.Type.DRAW_PER_TURN))
 	Events.activate_start_of_turn_relics.emit(player)
 	#relics.activate_relics_by_type(Relic.Type.START_OF_TURN)
 

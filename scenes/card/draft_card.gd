@@ -20,7 +20,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 
 func update() -> void:
-	if not card_container or not draft_button:
+	if not card_container or not draft_button or not player.stats:
 		return
 	
 	var modified_price : int = draft_area.modifier_handler.get_modified_value(card.price, Modifier.Type.DRAFT_COST)

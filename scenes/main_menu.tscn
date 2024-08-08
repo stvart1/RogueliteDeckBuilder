@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cke3ml48cmpss"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_g357k"]
+[ext_resource type="Texture2D" uid="uid://cipvl2eio15um" path="res://place_holder_art/MainMenuBG.png" id="1_lmoad"]
+[ext_resource type="Resource" uid="uid://bgx642yyeckyx" path="res://scenes/run/run_startup.tres" id="2_0inrg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g357k")
+run_startup = ExtResource("2_0inrg")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_lmoad")
+offset = Vector2(640, 360)
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 78.0
+offset_right = 907.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 44
+text = "Start"
+
+[node name="LoadButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 237.0
+offset_right = 907.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 44
+text = "Load"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 404.0
+offset_right = 907.0
+offset_bottom = 498.0
+theme_override_font_sizes/font_size = 44
+text = "Quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

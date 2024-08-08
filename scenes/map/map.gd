@@ -5,7 +5,6 @@ const MAP_ROOM = preload("res://scenes/map/map_room.tscn")
 const TEST_MANAGER = preload("res://enemies/managers/micro_manager.tres")
 
 
-
 @onready var map_generator: MapGenerator = $MapGenerator
 @onready var visuals = $Visuals
 @onready var rooms = $Rooms
@@ -108,5 +107,6 @@ func _on_map_room_clicked(room: Room):
 
 func update_available_rooms():
 	for room_to_set: Room in occupied_room.connections:
-		room_to_set.available = true
-		room_to_set.occupying = false
+		if room_to_set:
+			room_to_set.available = true
+			room_to_set.occupying = false

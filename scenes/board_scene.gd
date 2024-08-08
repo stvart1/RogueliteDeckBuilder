@@ -3,8 +3,10 @@ extends Node2D
 
 const TOOLTIP_POPUP = preload("res://scenes/ui/tooltip_popup.tscn")
 const TEST_MANAGER = preload("res://enemies/test_manager.tres")
+const MAIN_MENU_PATH = "res://scenes/main_menu.tscn"
 
-@export var character: CharacterStats 
+@export var character: CharacterStats : set = set_character
+@export var run_startup: RunStartup
 
 @onready var resource_bar = $ResourceBar/ResourceBar
 @onready var player = $Player
@@ -13,17 +15,94 @@ const TEST_MANAGER = preload("res://enemies/test_manager.tres")
 @onready var enemy_handler = $EnemyHandler
 @onready var tooltip_popup = $Tooltip/TooltipPopup
 @onready var map = $Map
+@onready var pause_menu = %PauseMenu
+@onready var draft_area = $DraftArea
 
+@onready var draw_pile_button = %DrawPileButton
+@onready var hand = %Hand
+@onready var discard_pile_button = %DiscardPileButton
 
+@onready var relic_container = %RelicContainer
+
+var save_data: SaveGame
 
 func _ready():
 	Events.card_drafted.connect(card_drafted)
-	character.deck = character.starting_deck
-	player_handler.start_battle(character)
-	play_area.char_stats = character
-	play_area.initialize_card_pile_ui()
 	Events.tooltip_requested.connect(show_tooltip)
+	Events.player_hand_discarded.connect(save_run)
+	match run_startup.type:
+		RunStartup.Type.NEW_RUN:
+			character = run_startup.character
+			_start_new_run()
+		RunStartup.Type.CONTINUE_RUN:
+			_load_run()
+		_:
+			print("RunStartup mismatch")
+
+func _start_new_run(): 
 	map.generate_new_map()
+	save_data = SaveGame.new()
+	character.deck = character.starting_deck.custom_duplicate()
+	player_handler.start_battle(character)
+	play_area.initialize_card_pile_ui()
+
+
+func save_run():
+	save_data.rng_seed = RNG.instance.seed
+	save_data.rng_state = RNG.instance.state
+	save_data.char_stats = player.stats
+	save_data.current_deck = draw_pile_button.card_pile
+	save_data.current_discard = discard_pile_button.card_pile
+	save_data.current_hand = []
+	for cardui: CardUI in hand.get_children():
+		save_data.current_hand.append(cardui.card)
+	save_data.relics = relic_container.owned_relics
+	save_data.map_data = map.map_data.duplicate(true)
+	save_data.last_room = map.occupied_room
+	save_data.level = map.level
+	save_data.enemy_track = []
+	for boardenemy: BoardEnemy in enemy_handler.enemy_grid_container.get_children():
+		save_data.enemy_track.append(boardenemy.enemy)
+	save_data.draft_row = []
+	for draftcard: DraftCard in draft_area.cards.get_children():
+		save_data.draft_row.append(draftcard.card)
+	save_data.draft_deck = draft_area.available_cards
+	save_data.available_enemies = enemy_handler.available_enemies
+	save_data.available_managers = enemy_handler.available_managers
+	
+	save_data.save_data()
+	
+	player_handler.start_turn()
+
+
+func _load_run():
+	save_data = SaveGame.load_data()
+	
+	RNG.set_from_save_data(save_data.rng_seed, save_data.rng_state)
+	character = save_data.char_stats
+	player_handler.character.draw_pile = save_data.current_deck
+	player_handler.character.discard = save_data.current_discard
+	for card: Card in save_data.current_hand:
+		hand.add_card(card)
+	for relic: Relic in save_data.relics.relics:
+		Events.relic_gained.emit(relic)
+	map.map_data = map.map_generator.setup_connections(save_data.map_data.duplicate(true))
+	map.occupied_room = save_data.last_room
+	map.level = save_data.level
+	
+	for enemystat: EnemyStats in save_data.enemy_track:
+		enemy_handler.progress_enemies_by_enemy(enemystat)
+	draft_area.load_draft_area(save_data.draft_row)
+	draft_area.available_cards = save_data.draft_deck
+	enemy_handler.available_enemies = save_data.available_enemies
+	enemy_handler.available_managers = save_data.available_managers
+	
+	play_area.initialize_card_pile_ui()
+	
+	map.create_map()
+	player.position = map.position + map.occupied_room.pos
+	
+	player_handler.start_turn()
 
 
 func show_tooltip(icon: Texture, title: String, text: String, array: Array = []):
@@ -63,7 +142,11 @@ func set_character(value: CharacterStats):
 		await ready
 	
 	character = value
-	player_handler.start_battle(character)
+	
+	play_area.char_stats = character
+	player.stats = character
+	player_handler.character = character
+	#
 
 
 #func _on_end_turn_button_pressed():
@@ -98,3 +181,17 @@ func _on_plus_fight_button_pressed():
 func _on_plus_gold_button_pressed():
 	player.stats.gold += 1
 
+
+
+func _on_continue_button_pressed():
+	pause_menu.hide()
+
+
+func _on_quit_button_pressed():
+	#save_run()
+	get_tree().quit()
+
+
+func _on_menu_button_pressed():
+	#save_run()
+	get_tree().change_scene_to_file(MAIN_MENU_PATH)

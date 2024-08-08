@@ -56,8 +56,22 @@ func _fill_draft_area(amount: int):
 		cards.add_child(new_draft_card)
 			#new draftcard to card
 		new_draft_card.card = card
-		#new_draft_card.current_card_ui.tooltip_requested.connect(card_tooltip_popup.show_tooltip)
-		#new_draft_card.update(run_stats)
+	
+	update_cards()
+
+
+func load_draft_area(draft_cards_array: Array[Card]):
+	for draftcard: DraftCard in cards.get_children():
+		draftcard.queue_free()
+	
+	
+	for card: Card in draft_cards_array:
+			#create new draftcard interface
+		var new_draft_card := DRAFT_CARD.instantiate() as DraftCard
+			#add new interface to draft grid
+		cards.add_child(new_draft_card)
+			#new draftcard to card
+		new_draft_card.card = card
 	
 	update_cards()
 

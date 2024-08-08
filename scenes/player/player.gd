@@ -25,7 +25,6 @@ func _ready() -> void:
 		Events.room_clicked.connect(move_to_room)
 	
 	map = get_tree().get_first_node_in_group("map")
-	Events.relic_gained.emit(stats.starting_relic)
 
 
 func move_to_room(room: Room):
@@ -38,6 +37,7 @@ func move_to_elevator(elevator_pos: Vector2):
 
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value
+	#Events.relic_gained.emit(stats.starting_relic)
 	
 	if not Events.stats_changed.is_connected(update_stats):
 		Events.stats_changed.connect(update_stats)

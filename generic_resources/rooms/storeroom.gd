@@ -11,7 +11,7 @@ var this_shop_relics: RelicPile : set = set_shop_relicpile
 func set_shop_cardpile(new_card_pool: CardPile):
 	this_shop_cardpile = CardPile.new()
 	for i : int in 3:
-		this_shop_cardpile.cards.append(new_card_pool.cards.pick_random())
+		this_shop_cardpile.cards.append(RNG.array_pick_random(new_card_pool.cards))
 
 
 

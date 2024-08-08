@@ -1,5 +1,5 @@
 class_name Room
-extends Node
+extends Resource
 
 signal room_status_change
 

@@ -22,6 +22,9 @@ texture = ExtResource("1_au01w")
 [node name="DraftCostModifierModifier" parent="ModifierHandler" instance=ExtResource("3_s2eg3")]
 type = 5
 
+[node name="DrawPerTurnModifier" parent="ModifierHandler" instance=ExtResource("3_s2eg3")]
+type = 9
+
 [node name="StatusHandler" parent="." node_paths=PackedStringArray("status_owner") instance=ExtResource("5_77ttw")]
 status_owner = NodePath("..")
 

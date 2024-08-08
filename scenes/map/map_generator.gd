@@ -37,7 +37,7 @@ func generate_map(level: int) -> Array[Array]:
 	_setup_offices()
 	_setup_roomweights(level)
 	_setup_rooms()
-	_setup_connections()
+	map_data = setup_connections(map_data)
 	return map_data
 
 
@@ -118,31 +118,33 @@ func _get_random_room_type() -> Room.Type:
 	return Room.Type.UNASSIGNED
 
 
-func _setup_connections():
-	for current_colomn in map_data:
+func setup_connections(mapdata: Array[Array]):
+	for current_colomn in mapdata:
 		for room: Room in current_colomn:
 			if room.type != Room.Type.UNASSIGNED:
-				_setup_connections_for_room(room)
+				_setup_connections_for_room(mapdata, room)
+	return mapdata
 
 
-func _setup_connections_for_room(room: Room):
+func _setup_connections_for_room(mapdata: Array[Array], room: Room):
 	var room_to_add : Room
+	room.connections = []
 	
 	if room.xpos > 0 :
-		room_to_add = map_data[room.xpos - 1][room.ypos]
+		room_to_add = mapdata[room.xpos - 1][room.ypos]
 		if room_to_add.type != Room.Type.UNASSIGNED:
 			room.connections.append(room_to_add)
 	
 	if room.xpos < (WIDTH - 1) :
-		room_to_add = map_data[room.xpos + 1][room.ypos]
+		room_to_add = mapdata[room.xpos + 1][room.ypos]
 		room.connections.append(room_to_add)
 	
 	if room.ypos > 0 :
-		room_to_add = map_data[room.xpos][room.ypos - 1]
+		room_to_add = mapdata[room.xpos][room.ypos - 1]
 		room.connections.append(room_to_add)
 	
 	if room.ypos < (HEIGHT - 1) :
-		room_to_add = map_data[room.xpos][room.ypos + 1]
+		room_to_add = mapdata[room.xpos][room.ypos + 1]
 		room.connections.append(room_to_add)
 
 func _set_room_storeroom(room: Room):

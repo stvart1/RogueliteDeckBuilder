@@ -12,8 +12,13 @@ signal counter_update
 var counter: int : set = set_counter
 
 
+func on_aquire(_player: Player):
+	pass
+
+
 func start_of_turn(_player: Player):
 	pass
+
 
 func set_counter(value: int):
 	counter = value
