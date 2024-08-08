@@ -66,8 +66,9 @@ func _on_map_room_clicked(room: Room):
 		room.occupying = true
 		occupied_room = room
 		last_room.occupying = false
-		for room_to_set: Room in last_room.connections:
-			room_to_set.available = false
+		for pos: Vector2i in last_room.connections:
+			var connected_room: Room = map_data[pos.x][pos.y]
+			connected_room.available = false
 		update_available_rooms()
 		
 		match room.type:
@@ -106,7 +107,8 @@ func _on_map_room_clicked(room: Room):
 
 
 func update_available_rooms():
-	for room_to_set: Room in occupied_room.connections:
-		if room_to_set:
-			room_to_set.available = true
-			room_to_set.occupying = false
+	for pos: Vector2i in occupied_room.connections:
+		var room: Room = map_data[pos.x][pos.y]
+		if room:
+			room.available = true
+			room.occupying = false

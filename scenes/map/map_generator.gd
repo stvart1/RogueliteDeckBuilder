@@ -128,24 +128,32 @@ func setup_connections(mapdata: Array[Array]):
 
 func _setup_connections_for_room(mapdata: Array[Array], room: Room):
 	var room_to_add : Room
+	var room_pos: Vector2i
 	room.connections = []
 	
 	if room.xpos > 0 :
 		room_to_add = mapdata[room.xpos - 1][room.ypos]
 		if room_to_add.type != Room.Type.UNASSIGNED:
-			room.connections.append(room_to_add)
+			room_pos = Vector2i(room_to_add.xpos, room_to_add.ypos)
+			room.connections.append(room_pos)
 	
 	if room.xpos < (WIDTH - 1) :
 		room_to_add = mapdata[room.xpos + 1][room.ypos]
-		room.connections.append(room_to_add)
+		if room_to_add.type != Room.Type.UNASSIGNED:
+			room_pos = Vector2i(room_to_add.xpos, room_to_add.ypos)
+			room.connections.append(room_pos)
 	
 	if room.ypos > 0 :
 		room_to_add = mapdata[room.xpos][room.ypos - 1]
-		room.connections.append(room_to_add)
+		if room_to_add.type != Room.Type.UNASSIGNED:
+			room_pos = Vector2i(room_to_add.xpos, room_to_add.ypos)
+			room.connections.append(room_pos)
 	
 	if room.ypos < (HEIGHT - 1) :
 		room_to_add = mapdata[room.xpos][room.ypos + 1]
-		room.connections.append(room_to_add)
+		if room_to_add.type != Room.Type.UNASSIGNED:
+			room_pos = Vector2i(room_to_add.xpos, room_to_add.ypos)
+			room.connections.append(room_pos)
 
 func _set_room_storeroom(room: Room):
 	var temp_room = Room.new()

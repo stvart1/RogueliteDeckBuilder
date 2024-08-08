@@ -86,7 +86,8 @@ func _load_run():
 		hand.add_card(card)
 	for relic: Relic in save_data.relics.relics:
 		Events.relic_gained.emit(relic)
-	map.map_data = map.map_generator.setup_connections(save_data.map_data.duplicate(true))
+	#map.map_data = map.map_generator.setup_connections(save_data.map_data.duplicate(true))
+	map.map_data = save_data.map_data.duplicate(true)
 	map.occupied_room = save_data.last_room
 	map.level = save_data.level
 	

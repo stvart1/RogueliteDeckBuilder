@@ -87,6 +87,6 @@ func _on_status_applied(status: Status) -> void:
 		status.duration -= 1
 
 
-func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse"):
-		Events.status_tooltip_requested.emit(_get_all_statuses())
+#func _on_gui_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("right_mouse"):
+		#Events.status_tooltip_requested.emit(_get_all_statuses())

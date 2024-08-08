@@ -9,11 +9,11 @@ enum Type {UNASSIGNED, STOREROOM, FIRST_AID, WAITING_ROOM, EVENT, MYSTERY, PLAIN
 @export var ypos: int
 @export var pos: Vector2
 @export var type: Type
-@export var connections: Array
+@export var connections: Array[Vector2i]
 @export var visited := false
 @export var available : bool : set = _set_available
 @export var occupying: bool : set = _set_occupying
-@export var move_cost := 1
+@export var move_cost := 0
 
 
 func _set_available(value: bool):
