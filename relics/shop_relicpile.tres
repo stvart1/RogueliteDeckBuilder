@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RelicPile" load_steps=7 format=3 uid="uid://dltru6qorgqts"]
+[gd_resource type="Resource" script_class="RelicPile" load_steps=8 format=3 uid="uid://dltru6qorgqts"]
 
 [ext_resource type="Resource" uid="uid://dvs7s5bsbdr6a" path="res://relics/concealed_carry.tres" id="1_b8wqe"]
 [ext_resource type="Resource" uid="uid://dw6vhngn1b5h8" path="res://relics/firstaid_kit.tres" id="2_drqiv"]
@@ -6,7 +6,8 @@
 [ext_resource type="Resource" uid="uid://dbgw4xcvce8pn" path="res://relics/running_shoes.tres" id="4_fikcl"]
 [ext_resource type="Resource" uid="uid://3t7ng2k7ojrn" path="res://relics/coffee.tres" id="5_c1fby"]
 [ext_resource type="Script" path="res://custom_resources/relic_pile.gd" id="5_p1gdf"]
+[ext_resource type="Resource" uid="uid://fkk7ra82x0px" path="res://relics/notepad.tres" id="6_v5k6x"]
 
 [resource]
 script = ExtResource("5_p1gdf")
-relics = Array[Resource("res://custom_resources/relic.gd")]([ExtResource("1_b8wqe"), ExtResource("2_drqiv"), ExtResource("3_fhuhf"), ExtResource("4_fikcl"), ExtResource("5_c1fby")])
+relics = Array[Resource("res://custom_resources/relic.gd")]([ExtResource("1_b8wqe"), ExtResource("2_drqiv"), ExtResource("3_fhuhf"), ExtResource("4_fikcl"), ExtResource("5_c1fby"), ExtResource("6_v5k6x")])
