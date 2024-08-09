@@ -169,6 +169,6 @@ func _set_room_storeroom(room: Room):
 	room.pos = temp_room.pos
 	room.move_cost = temp_room.move_cost
 	room.this_shop_cardpile = Storeroom.SHOP_CARDPILE.custom_duplicate()
-	room.this_shop_relics = Storeroom.SHOP_RELICPILE.custom_duplicate()
+	room.set_relic_pool_from_default()
 	map_data[room.xpos].remove_at(room.ypos)
 	map_data[room.xpos].insert(room.ypos, room)

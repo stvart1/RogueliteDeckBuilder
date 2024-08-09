@@ -24,6 +24,10 @@ func _ready():
 func update() -> void:
 	if not relic_container or not buy_button:
 		return
+	if not relic:
+		relic_container.queue_free()
+		buy_button.queue_free()
+		return
 	
 	var modified_price : int = shop.modifier_handler.get_modified_value(relic.price, Modifier.Type.DRAFT_COST)
 	buy_button.text = str(modified_price)
@@ -37,6 +41,8 @@ func update() -> void:
 func set_relic(new_relic: Relic) -> void:
 	if not is_node_ready():
 		await ready
+	if not new_relic:
+		return
 	
 	relic = new_relic
 	
@@ -49,7 +55,6 @@ func _on_buy_button_pressed():
 	Events.relic_gained.emit(relic)
 	relic_container.queue_free()
 	buy_button.queue_free()
-	map.occupied_room.this_shop_relics.relics.erase(relic)
 	player.stats.gold -= relic.price
 
 

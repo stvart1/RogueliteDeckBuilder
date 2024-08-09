@@ -5,9 +5,9 @@ const SHOP_CARDPILE = preload("res://generic_resources/cards/shoppable/shop_card
 const SHOP_RELICPILE = preload("res://relics/shop_relicpile.tres")
 
 var this_shop_cardpile: CardPile : set = set_shop_cardpile
-var this_shop_relics: RelicPile : set = set_shop_relicpile
+var this_shop_relics: Array[Relic]
 var relic_container: RelicContainer
-var relic_pool: Array[Relic]
+var relic_pool: Array[Relic] : set = set_relic_pool
 
 
 func set_signals():
@@ -15,16 +15,17 @@ func set_signals():
 
 
 func remove_from_current_relics(relic_to_remove: Relic):
-	var pre_size := this_shop_relics.relics.size()
+	var pre_size := this_shop_relics.size()
 	
-	for relic: Relic in this_shop_relics.relics:
+	for relic: Relic in this_shop_relics:
 		if relic.id == relic_to_remove.id:
-			this_shop_relics.relics.erase(relic)
+			this_shop_relics.erase(relic)
+			break
 	
 	update_pool()
 	
-	if pre_size > this_shop_relics.relics.size() and not visited:
-		this_shop_relics.relics.append(relic_pool.pop_back())
+	if pre_size > this_shop_relics.size() and not visited:
+		this_shop_relics.append(relic_pool.pop_back())
 
 
 func update_pool():
@@ -36,20 +37,22 @@ func update_pool():
 	RNG.array_shuffle(relic_pool)
 
 
-
 func set_shop_cardpile(new_card_pool: CardPile):
 	this_shop_cardpile = CardPile.new()
 	for i : int in 3:
 		this_shop_cardpile.cards.append(RNG.array_pick_random(new_card_pool.cards))
 
 
-
-func set_shop_relicpile(new_relic_pool: RelicPile):
-	this_shop_relics = RelicPile.new()
-	relic_pool = new_relic_pool.duplicate_relics()
+func set_relic_pool(new_relic_pool: Array[Relic]):
+	this_shop_relics = []
+	relic_pool = new_relic_pool.duplicate(true)
 	
 	update_pool()
 	
 	for i : int in 3:
 		if relic_pool.size()>0:
-			this_shop_relics.relics.append(relic_pool.pop_back())
+			this_shop_relics.append(relic_pool.pop_back())
+
+
+func set_relic_pool_from_default():
+	set_relic_pool(SHOP_RELICPILE.relics)

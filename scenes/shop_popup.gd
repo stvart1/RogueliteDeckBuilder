@@ -53,6 +53,21 @@ func set_shop_relics(relics_to_set: RelicPile):
 	update_relics()
 
 
+func set_shop_relics_array(relics_to_set: Array[Relic]):
+	shop_relics = RelicPile.new()
+	shop_relics.relics = relics_to_set
+	
+	for relic: Relic in shop_relics.relics:
+		#	create new shoprelic interface
+		var new_shop_relic := SHOP_RELIC.instantiate() as ShopRelic
+		#	add new interface to shop grid
+		shop_relic_row.add_child(new_shop_relic)
+		#	add relic to new relic_ui
+		new_shop_relic.relic = relic
+	
+	update_relics()
+
+
 func _on_gray_out_gui_input(event):
 	if event.is_action_pressed("right_mouse") or event.is_action_pressed("left_mouse"):
 		for shopcard: ShopCard in shop_card_row.get_children():
