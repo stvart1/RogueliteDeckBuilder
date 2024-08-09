@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bk1j0ry2wodwx"]
+[gd_scene load_steps=34 format=3 uid="uid://bk1j0ry2wodwx"]
 
 [ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_rhaeu"]
 [ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="3_0udn4"]
@@ -6,14 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d3n0b2llqdfoa" path="res://scenes/card_target_selector/card_target_selector.tscn" id="4_se6ba"]
 [ext_resource type="PackedScene" uid="uid://cuqw6uv2o8wh4" path="res://scenes/ui/draft_area.tscn" id="5_lvveb"]
 [ext_resource type="PackedScene" uid="uid://5y44wp4db60" path="res://scenes/enemy/enemy_handler.tscn" id="6_00alq"]
-[ext_resource type="Resource" uid="uid://d384vrpgclv3k" path="res://enemies/workers/level1_enemy1.tres" id="7_y1hi7"]
-[ext_resource type="Resource" uid="uid://doy21ln1ou8a6" path="res://enemies/workers/level1_enemy2.tres" id="8_k8rl2"]
-[ext_resource type="Resource" uid="uid://baua4eplc6af6" path="res://enemies/test_enemy.tres" id="9_m3ktp"]
-[ext_resource type="Resource" uid="uid://dvb3orc884fuq" path="res://enemies/security/rent_a_cop.tres" id="10_tic42"]
-[ext_resource type="Resource" uid="uid://dv1cdjdl0ljep" path="res://enemies/managers/micro_manager.tres" id="11_dedww"]
-[ext_resource type="Resource" uid="uid://elxehtprb5ts" path="res://enemies/managers/obstructive_manager.tres" id="12_tdw8u"]
-[ext_resource type="Resource" uid="uid://b5gfh8aruihmu" path="res://enemies/managers/procrastinator_manager.tres" id="13_hxyex"]
-[ext_resource type="Resource" uid="uid://b5u0hsrjjyyle" path="res://enemies/test_manager.tres" id="14_ukxrp"]
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="15_nxh1b"]
 [ext_resource type="Script" path="res://scenes/map/map_generator.gd" id="16_ym8hd"]
 [ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="17_qqvwt"]
@@ -73,8 +65,6 @@ shape = SubResource("RectangleShape2D_mng3u")
 position = Vector2(983, 363)
 
 [node name="EnemyHandler" parent="." instance=ExtResource("6_00alq")]
-all_enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("7_y1hi7"), ExtResource("8_k8rl2"), ExtResource("9_m3ktp"), ExtResource("10_tic42")])
-all_managers = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("11_dedww"), ExtResource("12_tdw8u"), ExtResource("13_hxyex"), ExtResource("14_ukxrp")])
 
 [node name="Map" type="Node2D" parent="." groups=["map"]]
 position = Vector2(55, 42)

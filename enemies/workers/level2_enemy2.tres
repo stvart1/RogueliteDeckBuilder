@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://dap7e1f6sheu3"]
+
+[ext_resource type="Texture2D" uid="uid://d2vujk8wvu6ia" path="res://place_holder_art/tile_0123.png" id="1_qoqvh"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="2_45a6c"]
+
+[resource]
+script = ExtResource("2_45a6c")
+name = "Receptionist"
+type = 0
+level = 2
+health = 2
+damage = 3
+gold_reward = 1
+art = ExtResource("1_qoqvh")
+description = "Cutting words but not dedicated to the company"

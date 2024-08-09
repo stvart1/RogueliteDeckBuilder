@@ -1,4 +1,4 @@
-class_name Slow
+class_name SlowStatus
 extends Status
 
 var UID: String

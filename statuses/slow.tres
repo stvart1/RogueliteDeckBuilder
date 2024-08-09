@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Slow" load_steps=3 format=3 uid="uid://boekjwnnw724v"]
+[gd_resource type="Resource" script_class="SlowStatus" load_steps=3 format=3 uid="uid://boekjwnnw724v"]
 
 [ext_resource type="Script" path="res://statuses/slow.gd" id="1_qc3qr"]
-[ext_resource type="Texture2D" uid="uid://psr6xk3k26oh" path="res://place_holder_art/tile_0114.png" id="1_tp80y"]
+[ext_resource type="Texture2D" uid="uid://clbji84e7ec6m" path="res://place_holder_art/tile_0126.png" id="1_snkef"]
 
 [resource]
 script = ExtResource("1_qc3qr")
 id = "slow"
-stacks = 1
+stacks = 0
 expieres = false
 stackable = false
 timing = 2
-icon = ExtResource("1_tp80y")
-tooltip = "Each move costs 1 more"
+icon = ExtResource("1_snkef")
+tooltip = "Movement costs 1 more"

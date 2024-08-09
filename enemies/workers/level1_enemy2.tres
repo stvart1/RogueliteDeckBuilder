@@ -5,13 +5,11 @@
 
 [resource]
 script = ExtResource("2_2s88o")
-health = 1
-art = ExtResource("1_ws10l")
+name = "Temp. Worker"
+type = 0
 level = 1
+health = 1
 damage = 2
-name = "Receptionist"
 gold_reward = 1
-description = "Cutting words but not dedicated to the company
-Damage: 2
-Gold: 1
-"
+art = ExtResource("1_ws10l")
+description = "Happy to do the absolute minimum"

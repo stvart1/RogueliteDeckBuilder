@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BureaucracyStatus" load_steps=3 format=3 uid="uid://dtw8pwuafh6y6"]
+
+[ext_resource type="Texture2D" uid="uid://c7c8cgkuro8b3" path="res://place_holder_art/discard.png" id="1_6or0h"]
+[ext_resource type="Script" path="res://statuses/bureaucracy .gd" id="1_ayoxx"]
+
+[resource]
+script = ExtResource("1_ayoxx")
+id = "bureaucracy"
+stacks = 0
+expieres = false
+stackable = false
+timing = 2
+icon = ExtResource("1_6or0h")
+tooltip = "Draw 1 less card per turn"

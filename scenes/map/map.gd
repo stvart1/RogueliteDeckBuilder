@@ -2,7 +2,7 @@ class_name Map
 extends Node2D
 
 const MAP_ROOM = preload("res://scenes/map/map_room.tscn")
-const TEST_MANAGER = preload("res://enemies/managers/micro_manager.tres")
+const TEST_MANAGER = preload("res://enemies/test_manager.tres")
 
 
 @onready var map_generator: MapGenerator = $MapGenerator
@@ -98,6 +98,7 @@ func _on_map_room_clicked(room: Room):
 			Room.Type.ELEVATOR:
 				if player.stats.has_key:
 					level += 1
+					player.stats.has_key = false
 					for maproom: MapRoom in rooms.get_children():
 						maproom.queue_free()
 					generate_new_map()

@@ -7,8 +7,8 @@ const TEST_ENEMY = preload("res://enemies/test_enemy.tres")
 @onready var modifier_handler = $ModifierHandler
 @onready var enemy_grid_container = $EnemyGridContainer
 
-@export var all_enemies: Array[EnemyStats] = []
-@export var all_managers: Array[EnemyStats] = []
+@export var all_enemies: Array[EnemyStats]
+@export var all_managers: Array[EnemyStats]
 
 var max_enemies:= 6
 var level := 0
@@ -16,6 +16,7 @@ var available_managers: Array[EnemyStats]
 var available_enemies: Array[EnemyStats]
 
 func  _ready():
+	print(all_enemies)
 	Events.stats_changed_delay.connect(update_enemy_buttons)
 	Events.enemy_died.connect(enemy_died)
 	Events.player_turn_ended.connect(enemy_turn)
@@ -93,3 +94,6 @@ func _level_entered(new_level: int):
 	available_enemies = all_enemies.filter(func(enemy): return enemy.level == level)
 	available_managers = all_managers.filter(func(enemy): return enemy.level == level)
 	RNG.array_shuffle(available_managers)
+	for boardenemy: BoardEnemy in enemy_grid_container.get_children():
+		boardenemy.queue_free()
+

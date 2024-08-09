@@ -5,9 +5,11 @@ const BOARD_SCENE = preload("res://scenes/board_scene.tscn")
 
 @export var run_startup: RunStartup
 
+@onready var load_button = $LoadButton
+
 
 func _ready():
-	pass # Replace with function body.
+	load_button.disabled = SaveGame.load_data() == null
 
 
 func _on_start_button_pressed():

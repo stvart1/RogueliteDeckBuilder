@@ -30,6 +30,7 @@ func _ready():
 	Events.card_drafted.connect(card_drafted)
 	Events.tooltip_requested.connect(show_tooltip)
 	Events.player_hand_discarded.connect(save_run)
+	Events.player_died.connect(game_over)
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			character = run_startup.character
@@ -122,6 +123,11 @@ func show_tooltip(icon: Texture, title: String, text: String, array: Array = [])
 	tooltip_popup.visible = true
 
 
+func game_over():
+	SaveGame.delete_data()
+	get_tree().change_scene_to_file(MAIN_MENU_PATH)
+
+
 func card_drafted(card: Card):
 	character.deck.add_card(card)
 
@@ -167,7 +173,7 @@ func _on_enemies_button_pressed():
 
 
 func _on_manager_enemy_pressed():
-	enemy_handler.progress_enemies(EnemyStats.Type.MANAGER)
+	enemy_handler.progress_enemies_by_enemy(TEST_MANAGER)
 
 
 func _on_clear_enemies_button_pressed():

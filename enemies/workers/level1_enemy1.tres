@@ -5,13 +5,11 @@
 
 [resource]
 script = ExtResource("1_1nhma")
-health = 2
-art = ExtResource("1_nn1ax")
+name = "Intern"
+type = 0
 level = 1
+health = 2
 damage = 1
-name = "Office Worker"
 gold_reward = 1
-description = "Office worker
-Damage: 1
-Gold: 1
-Does nothing but chase you down"
+art = ExtResource("1_nn1ax")
+description = "Makes a mean coffe"

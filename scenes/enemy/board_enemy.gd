@@ -61,4 +61,4 @@ func _on_center_container_mouse_exited():
 
 func _on_center_container_gui_input(event):
 	if mouse_over and event.is_action_pressed("right_mouse"):
-		Events.tooltip_requested.emit(enemy.art, enemy.name, enemy.description, enemy_visuals.status_handler.get_children())
+		Events.tooltip_requested.emit(enemy.art, enemy.name, ("%s\nDamage: %s\nGold: %s" % [enemy.description, enemy.damage, enemy.gold_reward]), enemy_visuals.status_handler.get_children())

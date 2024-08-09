@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://crg4sw4gh2asa"]
+
+[ext_resource type="Script" path="res://enemies/managers/level2/bureaucratic_manager.gd" id="1_u4gpc"]
+[ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://place_holder_art/tile_0121.png" id="1_wbh12"]
+
+[resource]
+script = ExtResource("1_u4gpc")
+name = "Bureaucratic Manager"
+type = 2
+level = 2
+health = 6
+damage = 4
+gold_reward = 6
+art = ExtResource("1_wbh12")
+description = "Red tape causes you to draw 1 less card a turn"

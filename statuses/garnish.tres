@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GarnishStatus" load_steps=3 format=3 uid="uid://x3ltgctomlyb"]
+
+[ext_resource type="Texture2D" uid="uid://dwwohw571cr2a" path="res://place_holder_art/tile_0092.png" id="1_ih76w"]
+[ext_resource type="Script" path="res://statuses/garnish.gd" id="1_oeqjn"]
+
+[resource]
+script = ExtResource("1_oeqjn")
+id = "garnish"
+stacks = 0
+expieres = false
+stackable = false
+timing = 2
+icon = ExtResource("1_ih76w")
+tooltip = "Cards cost 1 more to draft"

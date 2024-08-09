@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://elxehtprb5ts"]
 
 [ext_resource type="Texture2D" uid="uid://ukld5o613i0a" path="res://place_holder_art/tile_0122.png" id="1_yowan"]
-[ext_resource type="Script" path="res://enemies/managers/obstructive_manager.gd" id="2_81qjn"]
+[ext_resource type="Script" path="res://enemies/managers/level1/obstructive_manager.gd" id="2_81qjn"]
 
 [resource]
 script = ExtResource("2_81qjn")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cdgf23u4lcb0k"]
+
+[ext_resource type="Texture2D" uid="uid://c24y6l0ivlqp7" path="res://place_holder_art/tile_0108.png" id="1_8jqst"]
+[ext_resource type="Script" path="res://enemies/managers/level2/hiring_manager.gd" id="2_lgx6k"]
+
+[resource]
+script = ExtResource("2_lgx6k")
+name = "Hiring Manager"
+type = 2
+level = 2
+health = 6
+damage = 4
+gold_reward = 6
+art = ExtResource("1_8jqst")
+description = "Hires a new worker every round"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://dnyqq67cumk7k"]
+
+[ext_resource type="Texture2D" uid="uid://b8bq77uq4fif2" path="res://place_holder_art/tile_0124.png" id="1_oc3gh"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="2_mti6g"]
+
+[resource]
+script = ExtResource("2_mti6g")
+name = "Office Admin"
+type = 0
+level = 2
+health = 3
+damage = 2
+gold_reward = 1
+art = ExtResource("1_oc3gh")
+description = "Can you put in for a gift for the manager?"

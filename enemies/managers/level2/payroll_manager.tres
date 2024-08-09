@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cbgw3qs433r3o"]
+
+[ext_resource type="Texture2D" uid="uid://dwwohw571cr2a" path="res://place_holder_art/tile_0092.png" id="1_1q3os"]
+[ext_resource type="Script" path="res://enemies/managers/level2/payroll_manager.gd" id="2_xj5cr"]
+
+[resource]
+script = ExtResource("2_xj5cr")
+name = "Payroll Manager"
+type = 2
+level = 2
+health = 5
+damage = 5
+gold_reward = 6
+art = ExtResource("1_1q3os")
+description = "Cards cost 1 more to draft"

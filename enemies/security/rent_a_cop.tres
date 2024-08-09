@@ -12,6 +12,4 @@ health = 2
 damage = 2
 gold_reward = 1
 art = ExtResource("1_d2c5t")
-description = "They probably should have noticed you before you walked into room.
-Damage: 2
-Gold: 1"
+description = "They probably should have noticed you before you walked into room."

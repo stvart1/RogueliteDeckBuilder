@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b5gfh8aruihmu"]
 
 [ext_resource type="Texture2D" uid="uid://cgopx2ponr1qi" path="res://place_holder_art/tile_0121.png" id="1_61blf"]
-[ext_resource type="Script" path="res://enemies/managers/procrastinator_manager.gd" id="2_fnmpl"]
+[ext_resource type="Script" path="res://enemies/managers/level1/procrastinator_manager.gd" id="2_fnmpl"]
 
 [resource]
 script = ExtResource("2_fnmpl")
