@@ -81,7 +81,8 @@ func _on_map_room_clicked(room: Room):
 				player.stats.heal(1)
 			
 			Room.Type.WAITING_ROOM:
-				player.stats.fatigued = true
+				if not player.stats.has_coffee:
+					player.stats.fatigued = true
 			
 			Room.Type.OFFICE:
 				if not room.visited:
@@ -113,3 +114,33 @@ func update_available_rooms():
 		if room:
 			room.available = true
 			room.occupying = false
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("up"):
+			if occupied_room.ypos > 0:
+				for maproom: MapRoom in rooms.get_children():
+					if (maproom.room.xpos == occupied_room.xpos) and (maproom.room.ypos == occupied_room.ypos - 1):
+						maproom._on_icon_pressed()
+						return
+	
+	if event.is_action_pressed("down"):
+			if occupied_room.ypos < MapGenerator.HEIGHT - 1:
+				for maproom: MapRoom in rooms.get_children():
+					if (maproom.room.xpos == occupied_room.xpos) and (maproom.room.ypos == occupied_room.ypos + 1):
+						maproom._on_icon_pressed()
+						return
+	
+	if event.is_action_pressed("left"):
+			if occupied_room.xpos > 0:
+				for maproom: MapRoom in rooms.get_children():
+					if (maproom.room.xpos == occupied_room.xpos - 1) and (maproom.room.ypos == occupied_room.ypos):
+						maproom._on_icon_pressed()
+						return
+	
+	if event.is_action_pressed("right"):
+			if occupied_room.xpos < MapGenerator.WIDTH - 1:
+				for maproom: MapRoom in rooms.get_children():
+					if (maproom.room.xpos == occupied_room.xpos + 1) and (maproom.room.ypos == occupied_room.ypos):
+						maproom._on_icon_pressed()
+						return

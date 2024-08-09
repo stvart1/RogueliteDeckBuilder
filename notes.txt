@@ -26,16 +26,16 @@ secutiry		20%
 hallway			reminder(55%)
 
 
-enum Type {UNASSIGNED, STOREROOM, FIRST_AID, WAITING_ROOM, EVENT, MYSTERY, PLAIN, OFFICE, KIOSK, SECURITY, ELEVATOR}
+floor mods:
+	room chances
+		more enemies
+			more offices?
+	movement cost
+	draft costs
+	enemy toughness
+	gold rewards
+	draws
 
 
-
-
-var random_room_type_weights = {
-	Room.Type.FIRST_AID: 0.0,
-	Room.Type.STOREROOM: 0.0,
-	Room.Type.KIOSK: 0.0,
-	Room.Type.WAITING_ROOM: 0.0,
-	Room.Type.SECURITY: 0.0,
-	Room.Type.PLAIN: 0.0
-}
+Relics:
+	Coffe: No fatigue

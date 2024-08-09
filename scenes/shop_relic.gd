@@ -10,7 +10,7 @@ extends VBoxContainer
 var player: Player
 var shop: ShopPopup
 var map: Map
-var mouse_over_card := false
+var mouse_over_relic := false
 
 
 func _ready():
@@ -53,17 +53,14 @@ func _on_buy_button_pressed():
 	player.stats.gold -= relic.price
 
 
-func _on_card_container_mouse_entered():
-	mouse_over_card = true
-	print(mouse_over_card)
+func _on_relic_container_mouse_entered():
+	mouse_over_relic = true
 
 
-func _on_card_container_mouse_exited():
-	mouse_over_card = false
-	print(mouse_over_card)
+func _on_relic_container_mouse_exited():
+	mouse_over_relic = false
 
 
-func _on_card_container_gui_input(event):
-	if event.is_action_pressed("right_mouse") and mouse_over_card:
-		pass
-		#Events.tooltip_requested.emit(card.art, card.title, card.get_default_tooltip())
+func _on_relic_container_gui_input(event):
+	if event.is_action_pressed("right_mouse") and mouse_over_relic:
+		Events.tooltip_requested.emit(relic.icon, relic.name, relic.get_tooltip())

@@ -16,7 +16,6 @@ var available_managers: Array[EnemyStats]
 var available_enemies: Array[EnemyStats]
 
 func  _ready():
-	print(all_enemies)
 	Events.stats_changed_delay.connect(update_enemy_buttons)
 	Events.enemy_died.connect(enemy_died)
 	Events.player_turn_ended.connect(enemy_turn)

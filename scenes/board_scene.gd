@@ -17,6 +17,8 @@ const MAIN_MENU_PATH = "res://scenes/main_menu.tscn"
 @onready var map = $Map
 @onready var pause_menu = %PauseMenu
 @onready var draft_area = $DraftArea
+@onready var shop_popup = $ShopPopup
+@onready var card_pile_viewer = $CardPileView/CardPileViewer
 
 @onready var draw_pile_button = %DrawPileButton
 @onready var hand = %Hand
@@ -52,6 +54,7 @@ func save_run():
 	save_data.rng_seed = RNG.instance.seed
 	save_data.rng_state = RNG.instance.state
 	save_data.char_stats = player.stats
+	save_data.current_hp = player.stats.health
 	save_data.current_deck = draw_pile_button.card_pile
 	save_data.current_discard = discard_pile_button.card_pile
 	save_data.current_hand = []
@@ -81,6 +84,7 @@ func _load_run():
 	
 	RNG.set_from_save_data(save_data.rng_seed, save_data.rng_state)
 	character = save_data.char_stats
+	player.stats.health = save_data.current_hp
 	player_handler.character.draw_pile = save_data.current_deck
 	player_handler.character.discard = save_data.current_discard
 	for card: Card in save_data.current_hand:
@@ -202,3 +206,8 @@ func _on_quit_button_pressed():
 func _on_menu_button_pressed():
 	#save_run()
 	get_tree().change_scene_to_file(MAIN_MENU_PATH)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("space") and not pause_menu.visible and not tooltip_popup.visible and not shop_popup.visible and not card_pile_viewer.visible:
+		play_area._on_end_turn_button_pressed()

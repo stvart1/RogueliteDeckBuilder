@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="1_510b2"]
 [ext_resource type="Texture2D" uid="uid://01cnuv5m4n6f" path="res://place_holder_art/tile_0112.png" id="1_lhvp6"]
 [ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_r4rhr"]
-[ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="3_io2tj"]
+[ext_resource type="Resource" uid="uid://c44ae6ohduwbn" path="res://characters/journalist_starter_deck.tres" id="4_rd63r"]
 [ext_resource type="Resource" uid="uid://fkk7ra82x0px" path="res://relics/notepad.tres" id="5_ngrlq"]
 
 [resource]
@@ -11,7 +11,7 @@ script = ExtResource("1_r4rhr")
 character_name = "Journalist"
 description = "Take note"
 portrait = ExtResource("1_lhvp6")
-starting_deck = ExtResource("3_io2tj")
+starting_deck = ExtResource("4_rd63r")
 draftable_cards = ExtResource("1_510b2")
 cards_per_turn = 5
 max_mana = 0

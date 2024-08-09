@@ -30,4 +30,7 @@ text = "999"
 icon = ExtResource("3_sp4q5")
 expand_icon = true
 
+[connection signal="gui_input" from="RelicContainer" to="." method="_on_relic_container_gui_input"]
+[connection signal="mouse_entered" from="RelicContainer" to="." method="_on_relic_container_mouse_entered"]
+[connection signal="mouse_exited" from="RelicContainer" to="." method="_on_relic_container_mouse_exited"]
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

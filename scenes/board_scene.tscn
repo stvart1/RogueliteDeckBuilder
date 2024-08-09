@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://bk1j0ry2wodwx"]
+[gd_scene load_steps=42 format=3 uid="uid://bk1j0ry2wodwx"]
 
 [ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_rhaeu"]
 [ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="3_0udn4"]
 [ext_resource type="Resource" uid="uid://bgx642yyeckyx" path="res://scenes/run/run_startup.tres" id="3_6odpp"]
 [ext_resource type="PackedScene" uid="uid://d3n0b2llqdfoa" path="res://scenes/card_target_selector/card_target_selector.tscn" id="4_se6ba"]
+[ext_resource type="Script" path="res://scenes/LowHPWarning.gd" id="4_xvccv"]
 [ext_resource type="PackedScene" uid="uid://cuqw6uv2o8wh4" path="res://scenes/ui/draft_area.tscn" id="5_lvveb"]
 [ext_resource type="PackedScene" uid="uid://5y44wp4db60" path="res://scenes/enemy/enemy_handler.tscn" id="6_00alq"]
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="15_nxh1b"]
@@ -30,6 +31,95 @@
 [ext_resource type="FontFile" uid="uid://dxp6sg2p03r1v" path="res://art/Roboto-Bold.ttf" id="36_vjmer"]
 [ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="36_xv3qc"]
 
+[sub_resource type="Gradient" id="Gradient_7yy2u"]
+offsets = PackedFloat32Array(0, 0.25)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wuygs"]
+gradient = SubResource("Gradient_7yy2u")
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(0.5, 0.5)
+repeat = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ngd5"]
+gradient = SubResource("Gradient_7yy2u")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 0.5)
+repeat = 2
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
+[sub_resource type="Animation" id="Animation_yhtpr"]
+resource_name = "pulse"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 3.4822, 1, 0.297302),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n5eea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kekha"]
+resource_name = "single_hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 3.03143, 3.03143),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pulse"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flplm"]
+_data = {
+"RESET": SubResource("Animation_n5eea"),
+"pulse": SubResource("Animation_yhtpr"),
+"single_hit": SubResource("Animation_kekha")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mng3u"]
 size = Vector2(976, 446)
 
@@ -50,6 +140,24 @@ run_startup = ExtResource("3_6odpp")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("3_0udn4")
+
+[node name="LowHPWarning" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 976.0
+offset_bottom = 446.0
+texture = SubResource("GradientTexture2D_wuygs")
+script = ExtResource("4_xvccv")
+
+[node name="LowHPWarning2" type="TextureRect" parent="LowHPWarning"]
+layout_mode = 0
+offset_right = 976.0
+offset_bottom = 446.0
+texture = SubResource("GradientTexture2D_6ngd5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LowHPWarning"]
+libraries = {
+"": SubResource("AnimationLibrary_flplm")
+}
 
 [node name="CardDropArea" type="Area2D" parent="."]
 visible = false

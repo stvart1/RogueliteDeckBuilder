@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bpgk3uxxwda42" path="res://place_holder_art/tile_0098.png" id="3_jl64m"]
 [ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="4_85fod"]
 [ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="5_8ll2p"]
-[ext_resource type="Resource" uid="uid://bpwxaxaysn881" path="res://relics/test_relic.tres" id="6_ps06q"]
+[ext_resource type="Resource" uid="uid://3t7ng2k7ojrn" path="res://relics/coffee.tres" id="6_t4ob2"]
 
 [resource]
 script = ExtResource("4_85fod")
@@ -19,6 +19,6 @@ max_mana = 0
 starting_move = 0
 starting_fight = 0
 starting_buy = 0
-starting_relic = ExtResource("6_ps06q")
-max_health = 5
+starting_relic = ExtResource("6_t4ob2")
+max_health = 99
 art = ExtResource("1_on3bn")

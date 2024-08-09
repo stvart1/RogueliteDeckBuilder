@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2wpbh3uv4x3" path="res://place_holder_art/tile_0109.png" id="1_7jjhk"]
 [ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_ksmie"]
 [ext_resource type="Resource" uid="uid://v0ha2k34niir" path="res://generic_resources/cards/draftable/draftable_cards.tres" id="2_0gsbh"]
-[ext_resource type="Resource" uid="uid://d2jmj5dk36v12" path="res://generic_resources/cards/starter/starter_deck.tres" id="4_m3t0c"]
+[ext_resource type="Resource" uid="uid://b8jmy1t0l46o3" path="res://characters/inspector_starter_deck.tres" id="4_pug48"]
 [ext_resource type="Resource" uid="uid://dw6vhngn1b5h8" path="res://relics/firstaid_kit.tres" id="5_6oeh6"]
 
 [resource]
@@ -11,7 +11,7 @@ script = ExtResource("1_ksmie")
 character_name = "Inspector"
 description = "None of this code is up to code."
 portrait = ExtResource("1_7jjhk")
-starting_deck = ExtResource("4_m3t0c")
+starting_deck = ExtResource("4_pug48")
 draftable_cards = ExtResource("2_0gsbh")
 cards_per_turn = 5
 max_mana = 0

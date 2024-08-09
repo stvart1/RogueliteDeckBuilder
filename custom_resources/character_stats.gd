@@ -28,6 +28,8 @@ var gold: int : set = set_gold
 var has_key := false : set = set_has_key
 var fatigued := false : set = set_fatigue
 
+var has_coffee:= false
+
 
 func set_move(value: int):
 	move = clampi(value, 0, 999)

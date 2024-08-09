@@ -30,6 +30,8 @@ var map_data: Array[Array]
 
 
 func generate_map(level: int) -> Array[Array]:
+	#if not is_node_ready():
+		#await ready
 	office_count = 2 + level
 	print("level: %s, office_count: %s" % [level, office_count])
 	map_data = _generate_initial_grid()
@@ -159,6 +161,8 @@ func _set_room_storeroom(room: Room):
 	var temp_room = Room.new()
 	temp_room = room
 	room = Storeroom.new()
+	room.set_signals()
+	room.relic_container = get_tree().current_scene.relic_container
 	room.type  = temp_room.type
 	room.xpos = temp_room.xpos
 	room.ypos = temp_room.ypos

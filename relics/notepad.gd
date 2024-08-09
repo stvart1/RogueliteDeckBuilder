@@ -10,3 +10,5 @@ func on_aquire(player: Player):
 		draw_modifier_value = ModifierValue.create_new_modifier(id, ModifierValue.Type.FLAT)
 		draw_modifier_value.value = 1
 		draw_modifier.add_new_value(draw_modifier_value)
+
+

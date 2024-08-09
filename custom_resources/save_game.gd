@@ -6,10 +6,10 @@ const SAVE_PATH := "user://savegame.res"
 @export var rng_seed: int
 @export var rng_state: int
 @export var char_stats: CharacterStats
+@export var current_hp: int
 @export var current_deck: CardPile
 @export var current_discard: CardPile
 @export var current_hand: Array[Card]
-@export var current_health: int
 @export var relics: RelicPile
 @export var map_data: Array[Array]
 @export var last_room: Room
