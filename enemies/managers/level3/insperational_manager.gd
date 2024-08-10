@@ -14,12 +14,11 @@ func on_spawn(enemy_set: Enemy):
 	enemy.counter.visible = true
 
 func turn(_enemy: Enemy):
-	enemy = _enemy
 	counter += 1
 	if counter >= frequency:
 		for enemy_buffing: BoardEnemy in enemy_handler.enemy_grid_container.get_children():
-			if enemy_buffing.enemy != self:
-				enemy_buffing.fight += 1
+			if enemy_buffing.enemy == self:
+				enemy_buffing.enemy.health += 1
 		counter = 0
 
 

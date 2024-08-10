@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cic82nxlagxjr"]
+
+[ext_resource type="Texture2D" uid="uid://dc7crere7e7ow" path="res://place_holder_art/tile_0099.png" id="1_so25v"]
+[ext_resource type="Script" path="res://enemies/managers/level3/insperational_manager.gd" id="2_f4h1a"]
+
+[resource]
+script = ExtResource("2_f4h1a")
+frequency = 2
+name = "Insperational Manager"
+type = 2
+level = 3
+health = 6
+damage = 6
+gold_reward = 7
+art = ExtResource("1_so25v")
+description = "Makes other enemies tougher"

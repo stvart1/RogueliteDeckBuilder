@@ -11,6 +11,7 @@ signal card_drag_ended(card_ui: CardUI)
 signal card_aim_started(card_ui: CardUI)
 signal card_aim_ended(card_ui: CardUI)
 signal card_played(card: Card)
+signal discard_card
 
 # Player-related events
 signal player_hand_drawn(player: Player)
@@ -36,6 +37,7 @@ signal enemy_with_slow_died()
 #signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
 signal spawn_enemy(type: EnemyStats.Type)
+signal spawn_specific_enemy(enemystats: EnemyStats)
 
 ## Battle-related events
 #signal battle_over_screen_requested(text: String, type: BattleOverPanel.Type)

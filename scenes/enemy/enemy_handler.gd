@@ -14,12 +14,15 @@ var max_enemies:= 6
 var level := 0
 var available_managers: Array[EnemyStats]
 var available_enemies: Array[EnemyStats]
+var player: Player
 
 func  _ready():
 	Events.stats_changed_delay.connect(update_enemy_buttons)
 	Events.enemy_died.connect(enemy_died)
 	Events.player_turn_ended.connect(enemy_turn)
 	Events.level_enetered.connect(_level_entered)
+	Events.spawn_specific_enemy.connect(progress_enemies_by_enemy)
+	player = get_tree().get_first_node_in_group("player")
 
 func enemy_died(enemy: Enemy):
 	enemy.stats.on_death(enemy)
@@ -55,6 +58,8 @@ func progress_enemies(type: EnemyStats.Type):
 	enemy_grid_container.move_child(new_enemy, 0)
 	
 	new_enemy.fight = new_enemy.enemy.health
+	if not new_enemy.enemy.enemy_dealing_damage.is_connected(enemy_deal_damage):
+		new_enemy.enemy.enemy_dealing_damage.connect(enemy_deal_damage)
 
 
 func progress_enemies_by_enemy(enemy: EnemyStats):
@@ -75,11 +80,12 @@ func progress_enemies_by_enemy(enemy: EnemyStats):
 	enemy_grid_container.move_child(new_enemy, 0)
 	
 	new_enemy.fight = new_enemy.enemy.health
+	if not new_enemy.enemy.enemy_dealing_damage.is_connected(enemy_deal_damage):
+		new_enemy.enemy.enemy_dealing_damage.connect(enemy_deal_damage)
 
 
 func enemy_finished_track(enemy: BoardEnemy):
-	var player = get_tree().get_first_node_in_group("player")
-	player.take_damage(enemy.enemy.damage, Modifier.Type.DMG_TAKEN)
+	enemy_deal_damage(enemy.enemy.damage)
 	print("oof")
 
 
@@ -96,3 +102,7 @@ func _level_entered(new_level: int):
 	for boardenemy: BoardEnemy in enemy_grid_container.get_children():
 		boardenemy.queue_free()
 
+
+func enemy_deal_damage(damage: int):
+	#var mod_damage : int = enemy.modifier_handler.get_modified_value(damage, Modifier.Type.DMG_DEALT)
+	player.take_damage(damage, Modifier.Type.DMG_TAKEN)

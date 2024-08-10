@@ -422,7 +422,6 @@ columns = 8
 layer = 4
 
 [node name="TooltipPopup" parent="Tooltip" instance=ExtResource("35_wdpwj")]
-visible = false
 
 [node name="DebugButton" type="CanvasLayer" parent="."]
 layer = 10
@@ -491,6 +490,7 @@ text = "+1 Gold"
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 layer = 99
 visible = false
 script = ExtResource("36_xv3qc")
@@ -560,8 +560,10 @@ text = "Quit"
 [connection signal="pressed" from="PlayArea/PlayerCards/DrawPileButton" to="PlayArea/PlayerCards/DrawPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/PlayerCards/DiscardPileButton" to="PlayArea/PlayerCards/DiscardPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/EndTurnButton" to="PlayArea" method="_on_end_turn_button_pressed"]
+[connection signal="visibility_changed" from="ShopPopup" to="ShopPopup" method="_on_visibility_changed"]
 [connection signal="gui_input" from="ShopPopup/GrayOut" to="ShopPopup" method="_on_gray_out_gui_input"]
 [connection signal="gui_input" from="CardPileView/CardPileViewer" to="CardPileView/CardPileViewer" method="_on_gui_input"]
+[connection signal="visibility_changed" from="CardPileView/CardPileViewer" to="CardPileView/CardPileViewer" method="_on_visibility_changed"]
 [connection signal="pressed" from="DebugButton/PlusMoveButton" to="." method="_on_plus_move_button_pressed"]
 [connection signal="pressed" from="DebugButton/PlusMoveButton2" to="." method="_on_plus_move_button_2_pressed"]
 [connection signal="pressed" from="DebugButton/PlusBuyButton" to="." method="_on_plus_buy_button_pressed"]
@@ -572,6 +574,6 @@ text = "Quit"
 [connection signal="pressed" from="DebugButton/ManagerEnemy" to="." method="_on_manager_enemy_pressed"]
 [connection signal="pressed" from="DebugButton/ClearEnemiesButton" to="." method="_on_clear_enemies_button_pressed"]
 [connection signal="pressed" from="DebugButton/PlusGoldButton" to="." method="_on_plus_gold_button_pressed"]
-[connection signal="pressed" from="PauseMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="PauseMenu/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MenuButton" to="PauseMenu" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]

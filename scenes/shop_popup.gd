@@ -87,3 +87,19 @@ func update_relics():
 	for shop_relic: ShopRelic in shop_relic_row.get_children():
 		if not shop_relic.is_queued_for_deletion():
 			shop_relic.update()
+
+
+func _on_visibility_changed():
+	if visible:
+		map.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		map.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("space"):
+		for shopcard: ShopCard in shop_card_row.get_children():
+			shopcard.queue_free()
+		for shoprelic: ShopRelic in shop_relic_row.get_children():
+			shoprelic.queue_free()
+		visible = false

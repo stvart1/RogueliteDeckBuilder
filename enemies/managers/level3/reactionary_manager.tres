@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dforiel7p0sak"]
+
+[ext_resource type="Texture2D" uid="uid://con6y7mc74c5a" path="res://place_holder_art/tile_0120.png" id="1_4uimh"]
+[ext_resource type="Script" path="res://enemies/managers/level3/reactionary_manager.gd" id="2_e173l"]
+
+[resource]
+script = ExtResource("2_e173l")
+name = "Reactionary Manager"
+type = 2
+level = 3
+health = 6
+damage = 6
+gold_reward = 7
+art = ExtResource("1_4uimh")
+description = "Deals damage every time a card is played"

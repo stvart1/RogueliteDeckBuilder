@@ -25,6 +25,7 @@ func set_enemy(value: EnemyStats):
 	if not is_node_ready():
 		await ready
 	enemy_visuals.stats = value
+	enemy_visuals.stats.enemy_stat_change.connect(func(): fight = enemy.health)
 
 
 func set_fight(value: int):
@@ -61,4 +62,4 @@ func _on_center_container_mouse_exited():
 
 func _on_center_container_gui_input(event):
 	if mouse_over and event.is_action_pressed("right_mouse"):
-		Events.tooltip_requested.emit(enemy.art, enemy.name, ("%s\nDamage: %s\nGold: %s" % [enemy.description, enemy.damage, enemy.gold_reward]), enemy_visuals.status_handler.get_children())
+		Events.tooltip_requested.emit(enemy.art, enemy.name, ("%s\nDamage: %s\nGold: %s" % [enemy.get_description(), enemy.damage, enemy.gold_reward]), enemy_visuals.status_handler.get_children())

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://coev6mt7fsjs0"]
+
+[ext_resource type="Texture2D" uid="uid://d2vujk8wvu6ia" path="res://place_holder_art/tile_0123.png" id="1_dbine"]
+[ext_resource type="Script" path="res://enemies/workers/level3_enemy1.gd" id="2_wjje4"]
+
+[resource]
+script = ExtResource("2_wjje4")
+frequency = 0
+name = "IT worker"
+type = 0
+level = 3
+health = 3
+damage = 4
+gold_reward = 1
+art = ExtResource("1_dbine")
+description = "Always emailing about office updates (checks in every %s rounts)"

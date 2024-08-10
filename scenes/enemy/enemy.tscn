@@ -21,12 +21,23 @@ texture = ExtResource("1_ix4l3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kvyb5")
 
-[node name="ModifierHandler" parent="." instance=ExtResource("3_uiwp4")]
-
-[node name="Modifier" parent="ModifierHandler" instance=ExtResource("4_amqbo")]
+[node name="Counter" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(19, 23)
+offset_left = 21.0
+offset_top = 17.0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "99"
+horizontal_alignment = 2
 
 [node name="StatusHandler" type="GridContainer" parent="." node_paths=PackedStringArray("status_owner")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_lfov5")
 status_owner = NodePath("..")
+
+[node name="ModifierHandler" parent="." instance=ExtResource("3_uiwp4")]
+
+[node name="DmgDealtModifier" parent="ModifierHandler" instance=ExtResource("4_amqbo")]

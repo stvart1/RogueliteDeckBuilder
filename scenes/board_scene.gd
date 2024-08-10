@@ -194,18 +194,7 @@ func _on_plus_gold_button_pressed():
 
 
 
-func _on_continue_button_pressed():
-	pause_menu.hide()
 
-
-func _on_quit_button_pressed():
-	#save_run()
-	get_tree().quit()
-
-
-func _on_menu_button_pressed():
-	#save_run()
-	get_tree().change_scene_to_file(MAIN_MENU_PATH)
 
 
 func _input(event: InputEvent) -> void:

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_mti6g")
-name = "Office Admin"
+name = "Office Assistant"
 type = 0
 level = 2
 health = 3

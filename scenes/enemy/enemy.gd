@@ -6,6 +6,7 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = %Sprite2D
 @onready var modifier_handler: ModifierHandler = $ModifierHandler
 @onready var status_handler = $StatusHandler
+@onready var counter = %Counter
 
 var UID: String
 

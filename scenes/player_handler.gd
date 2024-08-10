@@ -25,6 +25,7 @@ func _ready() -> void:
 	Events.enemy_turn_ended.connect(discard_cards)
 	#Events.player_hand_discarded.connect(start_turn)
 	Events.player_draw_cards.connect(draw_cards)
+	Events.discard_card.connect(discard_card)
 	
 
 
@@ -96,6 +97,18 @@ func discard_cards() -> void:
 		func():
 			Events.player_hand_discarded.emit()
 	)
+
+
+func discard_card():
+	if hand.get_child_count() == 0:
+		return
+	var tween := create_tween()
+	
+	var card_ui: CardUI = hand.get_child(RNG.instance.randi_range(0, hand.get_child_count() - 1))
+
+	tween.tween_callback(character.discard.add_card.bind(card_ui.card))
+	tween.tween_callback(hand.discard_card.bind(card_ui))
+	tween.tween_interval(HAND_DISCARD_INTERVAL)
 
 
 func reshuffle_deck_from_discard() -> void:

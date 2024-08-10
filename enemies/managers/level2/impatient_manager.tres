@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ife852bw0j74"]
+
+[ext_resource type="Script" path="res://enemies/managers/level2/impatient_manager.gd" id="1_esvi0"]
+[ext_resource type="Texture2D" uid="uid://cvtonr5sinxbx" path="res://place_holder_art/shopkeeper_blink.png" id="1_vi0xa"]
+
+[resource]
+script = ExtResource("1_esvi0")
+frequency = 0
+name = "Impatient manager"
+type = 2
+level = 2
+health = 4
+damage = 4
+gold_reward = 6
+art = ExtResource("1_vi0xa")
+description = "Gains 1 fight every %s turns."

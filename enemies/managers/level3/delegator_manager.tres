@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dmlbufit8abr6"]
+
+[ext_resource type="Script" path="res://enemies/managers/level3/delegator_manager.gd" id="1_bgqvn"]
+[ext_resource type="Texture2D" uid="uid://chtnrxmaowwkd" path="res://place_holder_art/tile_0111.png" id="1_n5iej"]
+
+[resource]
+script = ExtResource("1_bgqvn")
+name = "Delegator Manager"
+type = 2
+level = 3
+health = 6
+damage = 6
+gold_reward = 7
+art = ExtResource("1_n5iej")
+description = "His 4 delegated workers pop out on defeat"

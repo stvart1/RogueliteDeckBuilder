@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://clnhxn34lxle3"]
+
+[ext_resource type="Texture2D" uid="uid://1u3b3hwqd8yh" path="res://place_holder_art/tile_0110.png" id="1_ptdsm"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="2_c3g6b"]
+
+[resource]
+script = ExtResource("2_c3g6b")
+name = "Fixer"
+type = 1
+level = 3
+health = 4
+damage = 4
+gold_reward = 2
+art = ExtResource("1_ptdsm")
+description = "Are we going to have a problem?"

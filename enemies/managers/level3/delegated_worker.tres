@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://cnkn3rs5bqnpx"]
+
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="1_ir8qe"]
+[ext_resource type="Texture2D" uid="uid://dpfqok8tuy4r7" path="res://place_holder_art/tile_0084.png" id="1_jh5gf"]
+
+[resource]
+script = ExtResource("1_ir8qe")
+name = "Delegated Worker"
+type = 0
+level = 3
+health = 3
+damage = 3
+gold_reward = 0
+art = ExtResource("1_jh5gf")
+description = ""

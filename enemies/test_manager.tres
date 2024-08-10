@@ -5,11 +5,12 @@
 
 [resource]
 script = ExtResource("1_q8mgp")
+frequency = 2
 name = "Test Manager 1"
-type = 1
+type = 2
 level = 0
 health = 5
 damage = 3
 gold_reward = 4
 art = ExtResource("1_0725m")
-description = "The first test manager, does 3 damage when it reaches the end of the track"
+description = "gets bigger every %s turns"

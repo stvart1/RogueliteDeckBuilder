@@ -10,6 +10,11 @@ extends Node2D
 @onready var tooltip_title = %TooltipTitle
 @onready var status_container = %StatusContainer
 
+var map: Map
+
+func _ready():
+	map = get_tree().get_first_node_in_group("map")
+
 
 func _set_text(value: String):
 	text = value
@@ -28,6 +33,20 @@ func _set_icon(value: Texture):
 
 func _on_gray_out_gui_input(event):
 	if event.is_action_pressed("right_mouse") or event.is_action_pressed("left_mouse"):
+		visible = false
+		for node in status_container.get_children():
+			node.queue_free()
+
+
+func _on_visibility_changed():
+	if visible:
+		map.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		map.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("space"):
 		visible = false
 		for node in status_container.get_children():
 			node.queue_free()
