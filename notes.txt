@@ -38,4 +38,11 @@ floor mods:
 
 
 Relics:
-	Coffe: No fatigue
+	on movement:
+		Draw
+		heal
+		etc
+	
+
+Enemies:
+	Damage on movement

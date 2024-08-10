@@ -21,8 +21,7 @@ func update_stats(stats: CharacterStats):
 	fight.update_stats(stats)
 	move.update_stats(stats)
 	gold.update_stats(stats)
-	if stats.has_key:
-		keycard.visible = stats.has_key
+	keycard.visible = stats.has_key
 
 
 
