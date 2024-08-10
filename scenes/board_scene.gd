@@ -33,6 +33,7 @@ func _ready():
 	Events.tooltip_requested.connect(show_tooltip)
 	Events.player_hand_discarded.connect(save_run)
 	Events.player_died.connect(game_over)
+	Events.game_finished.connect(game_over)
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			character = run_startup.character

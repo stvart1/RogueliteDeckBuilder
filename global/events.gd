@@ -1,5 +1,8 @@
 extends Node
 
+
+signal game_finished
+
 # view events
 signal tooltip_requested(icon: Texture, title: String, text: String, array: Array)
 signal tooltip_hide_requested

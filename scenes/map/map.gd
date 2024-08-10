@@ -105,7 +105,10 @@ func _on_map_room_clicked(room: Room):
 					player.stats.has_key = false
 					for maproom: MapRoom in rooms.get_children():
 						maproom.queue_free()
-					generate_new_map()
+					if level <= 3:
+						generate_new_map()
+					else:
+						Events.game_finished.emit()
 					player.stats.has_key = false
 		
 		room.visited = true
