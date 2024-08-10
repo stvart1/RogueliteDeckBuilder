@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bk1j0ry2wodwx"]
+[gd_scene load_steps=53 format=3 uid="uid://bk1j0ry2wodwx"]
 
 [ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_rhaeu"]
 [ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="3_0udn4"]
@@ -7,11 +7,20 @@
 [ext_resource type="Script" path="res://scenes/LowHPWarning.gd" id="4_xvccv"]
 [ext_resource type="PackedScene" uid="uid://cuqw6uv2o8wh4" path="res://scenes/ui/draft_area.tscn" id="5_lvveb"]
 [ext_resource type="PackedScene" uid="uid://5y44wp4db60" path="res://scenes/enemy/enemy_handler.tscn" id="6_00alq"]
+[ext_resource type="Texture2D" uid="uid://dmnh5xxe2xne0" path="res://place_holder_art/player_heart.png" id="12_etusb"]
+[ext_resource type="Texture2D" uid="uid://dhmtctwb5ymhc" path="res://place_holder_art/gold.png" id="13_soj4a"]
+[ext_resource type="Texture2D" uid="uid://dpfqok8tuy4r7" path="res://place_holder_art/tile_0084.png" id="14_1kuqu"]
+[ext_resource type="Texture2D" uid="uid://b1nj6u7dxl3mh" path="res://place_holder_art/tile_0085.png" id="15_jwpns"]
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="15_nxh1b"]
+[ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://place_holder_art/tile_0087.png" id="16_kn5wx"]
 [ext_resource type="Script" path="res://scenes/map/map_generator.gd" id="16_ym8hd"]
+[ext_resource type="Texture2D" uid="uid://bxa8pkakcodgw" path="res://place_holder_art/tile_0082.png" id="17_2ynjb"]
 [ext_resource type="PackedScene" uid="uid://12rfq5pjfu5g" path="res://scenes/modifier_handler/modifier_handler.tscn" id="17_qqvwt"]
+[ext_resource type="Texture2D" uid="uid://dl3a87y1bxtt8" path="res://place_holder_art/tile_0096.png" id="18_7p4pn"]
 [ext_resource type="PackedScene" uid="uid://c35pkqpitei47" path="res://scenes/modifier_handler/modifier.tscn" id="18_otq4f"]
 [ext_resource type="PackedScene" uid="uid://dpg75fuxa5jlm" path="res://scenes/player/player.tscn" id="19_fnjtt"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://place_holder_art/tile_0101.png" id="19_iammo"]
+[ext_resource type="Texture2D" uid="uid://2egbj0w2asc2" path="res://place_holder_art/expose.png" id="20_k3hs5"]
 [ext_resource type="Script" path="res://scenes/player_handler.gd" id="20_q42hq"]
 [ext_resource type="Script" path="res://scenes/resource_bar.gd" id="21_s55nq"]
 [ext_resource type="Texture2D" uid="uid://bglc5m5wg6bje" path="res://place_holder_art/keycard.png" id="22_en3ck"]
@@ -22,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bxgj3ykpuyk2e" path="res://scenes/ui/fight_ui.tscn" id="27_xui1y"]
 [ext_resource type="Script" path="res://scenes/relic_container.gd" id="28_nfg1e"]
 [ext_resource type="Script" path="res://scenes/play_area.gd" id="29_l2qki"]
+[ext_resource type="PackedScene" uid="uid://b7xovqjg132m3" path="res://scenes/ui/floor_choice.tscn" id="29_rj7ho"]
 [ext_resource type="PackedScene" uid="uid://c4olmej38c3m2" path="res://scenes/ui/card_pile_opener.tscn" id="30_fsbsy"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="31_w4lwv"]
 [ext_resource type="Script" path="res://scenes/shop_popup.gd" id="32_8jeu7"]
@@ -123,6 +133,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mng3u"]
 size = Vector2(976, 446)
 
+[sub_resource type="LabelSettings" id="LabelSettings_omha2"]
+font_size = 36
+
 [sub_resource type="LabelSettings" id="LabelSettings_dg1wj"]
 font_size = 32
 
@@ -189,6 +202,151 @@ script = ExtResource("16_ym8hd")
 
 [node name="MoveCostModifier" parent="Map/ModifierHandler" instance=ExtResource("18_otq4f")]
 type = 7
+
+[node name="LegendButton" type="Button" parent="Map"]
+offset_left = 855.0
+offset_top = 372.0
+offset_right = 920.0
+offset_bottom = 403.0
+text = "Legend"
+
+[node name="LegendLayer" type="CanvasLayer" parent="Map"]
+visible = false
+
+[node name="Grayout" type="ColorRect" parent="Map/LegendLayer"]
+offset_right = 976.0
+offset_bottom = 446.0
+color = Color(0.235294, 0.235294, 0.235294, 0.952941)
+
+[node name="Label" type="Label" parent="Map/LegendLayer"]
+offset_left = 394.0
+offset_top = 4.0
+offset_right = 521.0
+offset_bottom = 54.0
+text = "Legend"
+label_settings = SubResource("LabelSettings_omha2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Map/LegendLayer"]
+offset_left = 151.0
+offset_top = 92.0
+offset_right = 840.0
+offset_bottom = 378.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_etusb")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "First aid room: Heal 1 hp on entering"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("13_soj4a")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Storeroom: Spend Gold on relics and rare cards "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("14_1kuqu")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Info Kiosk: Gain 1 insight on entry"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("15_jwpns")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Waiting Room: Gain fatigue on entry (no movement until end of turn)
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("16_kn5wx")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Security: Adds a security guard to the enemy track"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("17_2ynjb")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Hallway: Connects rooms, no effects"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("18_7p4pn")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Office: Adds a manager to the enemy track on first visit. One office per floor contains a keycard"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("19_iammo")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+text = "Elevator: Entry and exit from the floor. Find the key card to exit to a higher floor"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map/LegendLayer/VBoxContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+texture = ExtResource("20_k3hs5")
+
+[node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+text = "Undiscovered: Get within 1 tile to reveal room type"
+
+[node name="HideLegendButton" type="Button" parent="Map/LegendLayer"]
+unique_name_in_owner = true
+offset_left = 932.0
+offset_top = 416.0
+offset_right = 976.0
+offset_bottom = 447.0
+text = "Hide"
 
 [node name="Player" parent="." instance=ExtResource("19_fnjtt")]
 position = Vector2(140, 129)
@@ -381,6 +539,7 @@ label_settings = SubResource("LabelSettings_dg1wj")
 
 [node name="CardPileView" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="CardPileViewer" type="ColorRect" parent="CardPileView"]
 visible = false
@@ -420,11 +579,13 @@ columns = 8
 
 [node name="Tooltip" type="CanvasLayer" parent="."]
 layer = 4
+visible = false
 
 [node name="TooltipPopup" parent="Tooltip" instance=ExtResource("35_wdpwj")]
 
 [node name="DebugButton" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="PlusMoveButton" type="Button" parent="DebugButton"]
 offset_right = 8.0
@@ -487,6 +648,12 @@ offset_left = 499.0
 offset_right = 566.0
 offset_bottom = 31.0
 text = "+1 Gold"
+
+[node name="LevelChoice" type="CanvasLayer" parent="."]
+layer = 11
+visible = false
+
+[node name="FloorChoice" parent="LevelChoice" instance=ExtResource("29_rj7ho")]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -557,6 +724,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 text = "Quit"
 
+[connection signal="pressed" from="Map/LegendButton" to="Map" method="_on_legend_button_pressed"]
+[connection signal="pressed" from="Map/LegendLayer/HideLegendButton" to="Map" method="_on_hide_legend_button_pressed"]
 [connection signal="pressed" from="PlayArea/PlayerCards/DrawPileButton" to="PlayArea/PlayerCards/DrawPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/PlayerCards/DiscardPileButton" to="PlayArea/PlayerCards/DiscardPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/EndTurnButton" to="PlayArea" method="_on_end_turn_button_pressed"]

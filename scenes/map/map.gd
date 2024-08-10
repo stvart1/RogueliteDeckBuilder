@@ -9,6 +9,9 @@ const TEST_MANAGER = preload("res://enemies/test_manager.tres")
 @onready var visuals = $Visuals
 @onready var rooms = $Rooms
 @onready var modifier_handler = $ModifierHandler
+@onready var legend_button = $LegendButton
+@onready var legend_layer = $LegendLayer
+@onready var hide_legend_button = %HideLegendButton
 
 var map_data: Array[Array]
 var last_room: Room
@@ -144,3 +147,11 @@ func _input(event: InputEvent) -> void:
 					if (maproom.room.xpos == occupied_room.xpos + 1) and (maproom.room.ypos == occupied_room.ypos):
 						maproom._on_icon_pressed()
 						return
+
+
+func _on_legend_button_pressed():
+	legend_layer.visible = true
+
+
+func _on_hide_legend_button_pressed():
+	legend_layer.visible = false
