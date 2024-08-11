@@ -7,3 +7,7 @@ func on_spawn(_enemy: Enemy):
 
 func played_card(_card: Card):
 	Events.discard_card.emit()
+
+
+func on_death(_enemy: Enemy):
+	Events.discard_card.disconnect(played_card)

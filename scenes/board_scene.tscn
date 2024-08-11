@@ -539,7 +539,6 @@ label_settings = SubResource("LabelSettings_dg1wj")
 
 [node name="CardPileView" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 
 [node name="CardPileViewer" type="ColorRect" parent="CardPileView"]
 visible = false
@@ -579,7 +578,6 @@ columns = 8
 
 [node name="Tooltip" type="CanvasLayer" parent="."]
 layer = 4
-visible = false
 
 [node name="TooltipPopup" parent="Tooltip" instance=ExtResource("35_wdpwj")]
 

@@ -56,10 +56,11 @@ func update_player() -> void:
 
 
 func update_stats() -> void:
-	Events.stats_update.emit(stats)
-	get_tree().create_timer(0.2, false).timeout.connect(
-		func():Events.stats_changed_delay.emit()
-	)
+	if not self.is_queued_for_deletion():
+		Events.stats_update.emit(stats)
+		get_tree().create_timer(0.2, false).timeout.connect(
+			func():Events.stats_changed_delay.emit()
+		)
 
 
 func take_damage(damage: int, which_modifier: Modifier.Type) -> void:
