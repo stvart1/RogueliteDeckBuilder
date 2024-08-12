@@ -56,7 +56,7 @@ func update_player() -> void:
 
 
 func update_stats() -> void:
-	if not self.is_queued_for_deletion():
+	if get_tree():
 		Events.stats_update.emit(stats)
 		get_tree().create_timer(0.2, false).timeout.connect(
 			func():Events.stats_changed_delay.emit()

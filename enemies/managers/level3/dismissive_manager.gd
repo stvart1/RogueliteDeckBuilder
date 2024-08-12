@@ -10,4 +10,4 @@ func played_card(_card: Card):
 
 
 func on_death(_enemy: Enemy):
-	Events.discard_card.disconnect(played_card)
+	Events.card_played.disconnect(played_card)

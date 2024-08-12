@@ -48,11 +48,13 @@ func progress_enemies(type: EnemyStats.Type):
 			x += 1
 	
 	var new_enemy := BOARD_ENEMY.instantiate()
-	
+	var temp : EnemyStats
 	if type == EnemyStats.Type.MANAGER:
-		new_enemy.enemy = available_managers.pop_back()
+		temp = available_managers.pop_back()
+		new_enemy.enemy = temp.duplicate()
 	else:
-		new_enemy.enemy = RNG.array_pick_random(available_enemies.filter(func(enemy): return enemy.type == type))
+		temp = RNG.array_pick_random(available_enemies.filter(func(enemy): return enemy.type == type))
+		new_enemy.enemy = temp.duplicate()
 	
 	enemy_grid_container.add_child(new_enemy)
 	enemy_grid_container.move_child(new_enemy, 0)
@@ -74,7 +76,7 @@ func progress_enemies_by_enemy(enemy: EnemyStats):
 	
 	var new_enemy := BOARD_ENEMY.instantiate()
 	
-	new_enemy.enemy = enemy
+	new_enemy.enemy = enemy.duplicate()
 	
 	enemy_grid_container.add_child(new_enemy)
 	enemy_grid_container.move_child(new_enemy, 0)

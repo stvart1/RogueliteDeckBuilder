@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_q8mgp")
-tick_damage = 2
+frequency = 2
 name = "Test Manager 1"
 type = 2
 level = 0

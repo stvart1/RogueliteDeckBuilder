@@ -17,7 +17,7 @@ func turn(_enemy: Enemy):
 	counter += 1
 	if counter >= frequency:
 		for enemy_buffing: BoardEnemy in enemy_handler.enemy_grid_container.get_children():
-			if enemy_buffing.enemy == self:
+			if enemy_buffing.enemy != self:
 				enemy_buffing.enemy.health += 1
 		counter = 0
 
