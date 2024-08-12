@@ -96,15 +96,12 @@ func _setup_roomweights(level: int):
 	random_room_type_weights[Room.Type.FIRST_AID] = FIRST_AID_CHANCE
 	random_room_type_weights[Room.Type.STOREROOM] = random_room_type_weights[Room.Type.FIRST_AID] + STOREROOM_CHANCE
 	random_room_type_weights[Room.Type.KIOSK] = random_room_type_weights[Room.Type.STOREROOM] + KIOSK_CHANCE
-	random_room_type_weights[Room.Type.WAITING_ROOM] = random_room_type_weights[Room.Type.KIOSK] + WAITINGROOM_CHANCE
-	random_room_type_weights[Room.Type.SECURITY] = random_room_type_weights[Room.Type.WAITING_ROOM] + modifier_handler.get_modified_value(SECURITY_CHANCE * level ,Modifier.Type.SECURITY_CHANCE)
+	random_room_type_weights[Room.Type.WAITING_ROOM] = random_room_type_weights[Room.Type.KIOSK] + modifier_handler.get_modified_value(WAITINGROOM_CHANCE, Modifier.Type.WAITING_ROOM_CHANCE)
+	random_room_type_weights[Room.Type.SECURITY] = random_room_type_weights[Room.Type.WAITING_ROOM] + modifier_handler.get_modified_value(SECURITY_CHANCE,Modifier.Type.SECURITY_CHANCE) * level
 	random_room_type_weights[Room.Type.PLAIN] = random_room_type_weights[Room.Type.SECURITY] + HALLWAY_CHANCE
 	
 	random_room_type_total_weight = random_room_type_weights[Room.Type.PLAIN]
 	
-	print(random_room_type_weights[Room.Type.SECURITY]-random_room_type_weights[Room.Type.WAITING_ROOM])
-	print(random_room_type_total_weight)
-	print((random_room_type_weights[Room.Type.SECURITY]-random_room_type_weights[Room.Type.WAITING_ROOM])/random_room_type_total_weight)
 
 
 func _setup_rooms():

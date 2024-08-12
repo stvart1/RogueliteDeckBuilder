@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bk1j0ry2wodwx"]
+[gd_scene load_steps=59 format=3 uid="uid://bk1j0ry2wodwx"]
 
 [ext_resource type="Script" path="res://scenes/board_scene.gd" id="1_rhaeu"]
 [ext_resource type="Texture2D" uid="uid://cp0tbcvnregcx" path="res://art/board_layout.png" id="3_0udn4"]
@@ -40,6 +40,12 @@
 [ext_resource type="PackedScene" uid="uid://j4gt2sii1mtk" path="res://scenes/ui/tooltip_popup.tscn" id="35_wdpwj"]
 [ext_resource type="FontFile" uid="uid://dxp6sg2p03r1v" path="res://art/Roboto-Bold.ttf" id="36_vjmer"]
 [ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="36_xv3qc"]
+[ext_resource type="Resource" uid="uid://dys0mxb3ltkrb" path="res://floor_mods/gold_boon.tres" id="39_d2qsb"]
+[ext_resource type="Resource" uid="uid://mxv7h8liuk4n" path="res://floor_mods/security_chance_bane.tres" id="40_20ds1"]
+[ext_resource type="Resource" uid="uid://ckgu3m56vhdux" path="res://floor_mods/draws_bane.tres" id="41_36vuj"]
+[ext_resource type="Resource" uid="uid://cik33ta3aamkm" path="res://floor_mods/draws_boon.tres" id="42_svahe"]
+[ext_resource type="Resource" uid="uid://bl0cpopuj6jed" path="res://floor_mods/first_aid_boon.tres" id="43_l6s2r"]
+[ext_resource type="Resource" uid="uid://088dohmmpf5d" path="res://floor_mods/waiting_bane.tres" id="44_boidy"]
 
 [sub_resource type="Gradient" id="Gradient_7yy2u"]
 offsets = PackedFloat32Array(0, 0.25)
@@ -203,10 +209,16 @@ script = ExtResource("16_ym8hd")
 [node name="SecurityModifier" parent="Map/MapGenerator/ModifierHandler" instance=ExtResource("18_otq4f")]
 type = 10
 
+[node name="WaitingModifier" parent="Map/MapGenerator/ModifierHandler" instance=ExtResource("18_otq4f")]
+type = 12
+
 [node name="ModifierHandler" parent="Map" instance=ExtResource("17_qqvwt")]
 
 [node name="MoveCostModifier" parent="Map/ModifierHandler" instance=ExtResource("18_otq4f")]
 type = 7
+
+[node name="FirstAidModifier" parent="Map/ModifierHandler" instance=ExtResource("18_otq4f")]
+type = 13
 
 [node name="LegendButton" type="Button" parent="Map"]
 offset_left = 855.0
@@ -656,6 +668,7 @@ layer = 11
 
 [node name="FloorChoice" parent="LevelChoice" instance=ExtResource("29_rj7ho")]
 visible = false
+floor_mods = Array[Resource("res://custom_resources/floor_modifier.gd")]([ExtResource("39_d2qsb"), ExtResource("40_20ds1"), ExtResource("41_36vuj"), ExtResource("42_svahe"), ExtResource("43_l6s2r"), ExtResource("44_boidy")])
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

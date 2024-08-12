@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://088dohmmpf5d"]
+
+[ext_resource type="Script" path="res://floor_mods/waiting_bane.gd" id="1_v8yx1"]
+
+[resource]
+script = ExtResource("1_v8yx1")
+type = 0
+boon = false
+name = "Forseen delays"
+description = "Rooms are %s more likely to be waiting rooms"

@@ -38,7 +38,7 @@ func selected():
 
 func floor_cleared(_level: int):
 	var target = enemy_handler
-	var security_modifier: Modifier = target.modifier_handler.get_modifier(Modifier.Type.GOLD_EARNING)
+	var security_modifier: Modifier = target.modifier_handler.get_modifier(Modifier.Type.SECURITY_CHANCE)
 	#assert(draft_cost_modifier, "No draft cost modifier")
 	
 	var security_modifier_value := security_modifier.get_value(name)

@@ -80,7 +80,7 @@ func _on_map_room_clicked(room: Room):
 				shop.visible = true
 			
 			Room.Type.FIRST_AID:
-				player.stats.heal(1)
+				player.stats.heal(modifier_handler.get_modified_value(1,Modifier.Type.FIRST_AID_HEALING))
 			
 			Room.Type.WAITING_ROOM:
 				if not player.stats.has_coffee:

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bl0cpopuj6jed"]
+
+[ext_resource type="Script" path="res://floor_mods/first_aid_boon.gd" id="1_5qgw2"]
+
+[resource]
+script = ExtResource("1_5qgw2")
+type = 1
+boon = true
+name = "Well stocked first aid kits"
+description = "First aid rooms heal an additional %s health"
