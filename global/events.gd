@@ -48,10 +48,12 @@ signal spawn_specific_enemy(enemystats: EnemyStats)
 #signal status_tooltip_requested(statuses: Array[Status])
 #
 # Map-related events
-#signal map_exited(room: Room)
+signal generate_map
 signal new_map_generated(elevator_pos: Vector2)
 signal room_clicked(room: Room)
 signal level_enetered(level: int)
+signal floor_mods_selected(mods: Array[FloorModifier])
+#signal map_exited(room: Room)
 
 # Shop-related events
 #signal shop_entered(shop: Shop)

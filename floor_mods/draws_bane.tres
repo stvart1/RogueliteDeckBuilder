@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ckgu3m56vhdux"]
+
+[ext_resource type="Script" path="res://floor_mods/draws_bane.gd" id="1_8mq8q"]
+
+[resource]
+script = ExtResource("1_8mq8q")
+type = 1
+boon = false
+name = "Busted Speakers"
+description = "Discard a card every %s turns"

@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7xovqjg132m3"]
+[gd_scene load_steps=8 format=3 uid="uid://b7xovqjg132m3"]
 
 [ext_resource type="Script" path="res://scenes/ui/floor_choice.gd" id="1_4m2ck"]
 [ext_resource type="PackedScene" uid="uid://uybt0k4ajwyr" path="res://scenes/ui/floor_option.tscn" id="2_neoyw"]
+[ext_resource type="Resource" uid="uid://dys0mxb3ltkrb" path="res://floor_mods/gold_boon.tres" id="2_r1i1y"]
+[ext_resource type="Resource" uid="uid://mxv7h8liuk4n" path="res://floor_mods/security_chance_bane.tres" id="3_5l1pu"]
+[ext_resource type="Resource" uid="uid://ckgu3m56vhdux" path="res://floor_mods/draws_bane.tres" id="4_sakwh"]
+[ext_resource type="Resource" uid="uid://cik33ta3aamkm" path="res://floor_mods/draws_boon.tres" id="5_hmvil"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x6qxx"]
 font_size = 59
 
 [node name="FloorChoice" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 script = ExtResource("1_4m2ck")
+floor_mods = Array[Resource("res://custom_resources/floor_modifier.gd")]([ExtResource("2_r1i1y"), ExtResource("3_5l1pu"), ExtResource("4_sakwh"), ExtResource("5_hmvil")])
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -48,7 +52,7 @@ offset_right = 485.0
 offset_bottom = 267.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 50
 
 [node name="FloorOption" parent="FloorOptions" instance=ExtResource("2_neoyw")]
 layout_mode = 2

@@ -34,6 +34,7 @@ func _ready():
 	Events.player_hand_discarded.connect(save_run)
 	Events.player_died.connect(game_over)
 	Events.game_finished.connect(game_over)
+	Events.floor_mods_selected.connect(func(mods): save_data.flood_mods.append_array(mods))
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			character = run_startup.character
@@ -44,11 +45,16 @@ func _ready():
 			print("RunStartup mismatch")
 
 func _start_new_run(): 
-	map.generate_new_map()
 	save_data = SaveGame.new()
 	character.deck = character.starting_deck.custom_duplicate()
 	player_handler.start_battle(character)
 	play_area.initialize_card_pile_ui()
+	Events.level_enetered.emit(1)
+	Events.new_map_generated.connect(start_first_turn, CONNECT_ONE_SHOT)
+
+
+func start_first_turn(_elevatorpos: Vector2i):
+	player_handler.start_turn()
 
 
 func save_run():
@@ -76,7 +82,6 @@ func save_run():
 	save_data.available_managers = enemy_handler.available_managers
 	
 	save_data.save_data()
-	
 	player_handler.start_turn()
 
 

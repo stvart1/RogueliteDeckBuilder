@@ -12,6 +12,7 @@ const SAVE_PATH := "user://savegame.res"
 @export var current_hand: Array[Card]
 @export var relics: RelicPile
 @export var map_data: Array[Array]
+@export var flood_mods: Array[FloorModifier]
 @export var last_room: Room
 @export var level: int
 @export var enemy_track: Array[EnemyStats]

@@ -198,6 +198,11 @@ script = ExtResource("15_nxh1b")
 [node name="MapGenerator" type="Node" parent="Map"]
 script = ExtResource("16_ym8hd")
 
+[node name="ModifierHandler" parent="Map/MapGenerator" instance=ExtResource("17_qqvwt")]
+
+[node name="SecurityModifier" parent="Map/MapGenerator/ModifierHandler" instance=ExtResource("18_otq4f")]
+type = 10
+
 [node name="ModifierHandler" parent="Map" instance=ExtResource("17_qqvwt")]
 
 [node name="MoveCostModifier" parent="Map/ModifierHandler" instance=ExtResource("18_otq4f")]
@@ -583,7 +588,6 @@ layer = 4
 
 [node name="DebugButton" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="PlusMoveButton" type="Button" parent="DebugButton"]
 offset_right = 8.0
@@ -649,9 +653,9 @@ text = "+1 Gold"
 
 [node name="LevelChoice" type="CanvasLayer" parent="."]
 layer = 11
-visible = false
 
 [node name="FloorChoice" parent="LevelChoice" instance=ExtResource("29_rj7ho")]
+visible = false
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

@@ -10,22 +10,45 @@ font_size = 30
 
 [node name="FloorOption" type="HBoxContainer"]
 custom_minimum_size = Vector2(970, 140)
+theme_override_constants/separation = 30
 script = ExtResource("1_f62ap")
 
 [node name="FloorLabel" type="Label" parent="."]
-custom_minimum_size = Vector2(150, 44)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(171, 44)
 layout_mode = 2
-text = "Floor %s:"
+text = "Floor 999s: "
 label_settings = SubResource("LabelSettings_jfsnd")
 vertical_alignment = 1
 
-[node name="FloorDescription" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BoonDescription" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Gain more gold
-BUT
-Enemies are tougher"
+text = " TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST "
 label_settings = SubResource("LabelSettings_xkgxi")
+autowrap_mode = 2
+
+[node name="ButLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BUT"
+label_settings = SubResource("LabelSettings_xkgxi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BaneDescription" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = " TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST "
+label_settings = SubResource("LabelSettings_xkgxi")
+autowrap_mode = 2
 
 [node name="SelectButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -34,3 +57,5 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 22
 text = "Select"
+
+[connection signal="pressed" from="SelectButton" to="." method="_on_select_button_pressed"]

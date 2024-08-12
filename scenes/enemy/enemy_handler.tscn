@@ -55,3 +55,6 @@ columns = 2
 
 [node name="FightCostModifier" parent="ModifierHandler" instance=ExtResource("3_67ax7")]
 type = 2
+
+[node name="GoldModifier" parent="ModifierHandler" instance=ExtResource("3_67ax7")]
+type = 11

@@ -26,7 +26,10 @@ func _ready() -> void:
 	#Events.player_hand_discarded.connect(start_turn)
 	Events.player_draw_cards.connect(draw_cards)
 	Events.discard_card.connect(discard_card)
-	
+
+
+
+
 
 
 func start_battle(char_stats: CharacterStats) -> void:
@@ -37,11 +40,6 @@ func start_battle(char_stats: CharacterStats) -> void:
 	Events.relic_gained.emit(character.starting_relic)
 	#relics.relics_activated.connect(_on_relics_activated)
 	player.status_handler.statuses_applied.connect(_on_statuses_applied)
-	start_turn()
-
-
-
-
 
 
 func start_turn() -> void:

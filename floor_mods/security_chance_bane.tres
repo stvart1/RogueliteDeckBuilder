@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://mxv7h8liuk4n"]
+
+[ext_resource type="Script" path="res://floor_mods/security_chance_bane.gd" id="1_fdlly"]
+
+[resource]
+script = ExtResource("1_fdlly")
+type = 0
+boon = false
+name = "High Security"
+description = "Increases the odds of security by %s percent"

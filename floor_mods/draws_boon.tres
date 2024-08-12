@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cik33ta3aamkm"]
+
+[ext_resource type="Script" path="res://floor_mods/draws_boon.gd" id="1_fxdlt"]
+
+[resource]
+script = ExtResource("1_fxdlt")
+type = 1
+boon = true
+name = "Calming Music"
+description = "Draw an extra card every %s turns"

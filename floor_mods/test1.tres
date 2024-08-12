@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dujc03cfvfi6j"]
+
+[ext_resource type="Script" path="res://floor_mods/test1.gd" id="1_33akk"]
+
+[resource]
+script = ExtResource("1_33akk")
+type = 0
+boon = false
+name = "test"
+description = ""

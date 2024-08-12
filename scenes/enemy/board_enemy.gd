@@ -36,7 +36,7 @@ func set_fight(value: int):
 func _on_fight_button_pressed():
 	fight_button.disabled = true
 	player.stats.fight -= enemy_handler.modifier_handler.get_modified_value(fight, Modifier.Type.FIGHT_COST)
-	player.stats.gold += enemy.gold_reward
+	player.stats.gold += enemy_handler.modifier_handler.get_modified_value(enemy.gold_reward, Modifier.Type.GOLD_EARNING)
 	Events.enemy_died.emit(enemy_visuals)
 	self.queue_free()
 

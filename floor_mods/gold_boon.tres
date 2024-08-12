@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dys0mxb3ltkrb"]
+
+[ext_resource type="Script" path="res://floor_mods/gold_boon.gd" id="1_kee61"]
+
+[resource]
+script = ExtResource("1_kee61")
+type = 1
+boon = true
+name = "Quaterly Bonus"
+description = "Each enemy on the floor drops %s extra gold"

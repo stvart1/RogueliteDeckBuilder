@@ -17,6 +17,8 @@ const PATHS := 4
 
 @export var office_count := 2
 
+@onready var modifier_handler = $ModifierHandler
+
 var random_room_type_weights = {
 	Room.Type.FIRST_AID: 0.0,
 	Room.Type.STOREROOM: 0.0,
@@ -95,10 +97,14 @@ func _setup_roomweights(level: int):
 	random_room_type_weights[Room.Type.STOREROOM] = random_room_type_weights[Room.Type.FIRST_AID] + STOREROOM_CHANCE
 	random_room_type_weights[Room.Type.KIOSK] = random_room_type_weights[Room.Type.STOREROOM] + KIOSK_CHANCE
 	random_room_type_weights[Room.Type.WAITING_ROOM] = random_room_type_weights[Room.Type.KIOSK] + WAITINGROOM_CHANCE
-	random_room_type_weights[Room.Type.SECURITY] = random_room_type_weights[Room.Type.WAITING_ROOM] + SECURITY_CHANCE * level
+	random_room_type_weights[Room.Type.SECURITY] = random_room_type_weights[Room.Type.WAITING_ROOM] + modifier_handler.get_modified_value(SECURITY_CHANCE * level ,Modifier.Type.SECURITY_CHANCE)
 	random_room_type_weights[Room.Type.PLAIN] = random_room_type_weights[Room.Type.SECURITY] + HALLWAY_CHANCE
 	
 	random_room_type_total_weight = random_room_type_weights[Room.Type.PLAIN]
+	
+	print(random_room_type_weights[Room.Type.SECURITY]-random_room_type_weights[Room.Type.WAITING_ROOM])
+	print(random_room_type_total_weight)
+	print((random_room_type_weights[Room.Type.SECURITY]-random_room_type_weights[Room.Type.WAITING_ROOM])/random_room_type_total_weight)
 
 
 func _setup_rooms():

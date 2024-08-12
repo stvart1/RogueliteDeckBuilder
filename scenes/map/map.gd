@@ -31,7 +31,7 @@ func _ready():
 	last_room = Room.new()
 	occupied_room = Room.new()
 	Events.stats_changed_delay.connect(update_available_rooms)
-	
+	Events.generate_map.connect(generate_new_map)
 
 
 
@@ -42,7 +42,6 @@ func generate_new_map():
 	map_data[0][floor(MapGenerator.HEIGHT/2.0)].occupying = true
 	occupied_room = map_data[0][floor(MapGenerator.HEIGHT/2.0)]
 	
-	Events.level_enetered.emit(level)
 
 func create_map():
 	for current_floor: Array in map_data:
@@ -106,10 +105,9 @@ func _on_map_room_clicked(room: Room):
 					for maproom: MapRoom in rooms.get_children():
 						maproom.queue_free()
 					if level <= 3:
-						generate_new_map()
+						Events.level_enetered.emit(level)
 					else:
 						Events.game_finished.emit()
-					player.stats.has_key = false
 		
 		room.visited = true
 
