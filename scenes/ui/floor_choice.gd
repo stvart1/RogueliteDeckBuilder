@@ -20,6 +20,10 @@ func _ready():
 func level_entered(level_ent: int):
 	if not is_node_ready():
 		await ready
+	
+	for floor_option: FloorOption in floor_options.get_children():
+		floor_option.queue_free()
+	
 	visible = true
 	level = level_ent
 	var floor_number:= RNG.instance.randi_range(level*10+6, level*10+9)
