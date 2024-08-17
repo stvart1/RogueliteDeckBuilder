@@ -34,7 +34,7 @@ func _ready():
 	Events.player_hand_discarded.connect(save_run)
 	Events.player_died.connect(game_over)
 	Events.game_finished.connect(game_over)
-	Events.floor_mods_selected.connect(func(mods): save_data.flood_mods.append_array(mods))
+	Events.floor_mods_selected.connect(save_floor_mods)
 	match run_startup.type:
 		RunStartup.Type.NEW_RUN:
 			character = run_startup.character
@@ -85,6 +85,11 @@ func save_run():
 	player_handler.start_turn()
 
 
+func save_floor_mods(mods: Array[FloorModifier]):
+	save_data.flood_mods = mods
+	return
+
+
 func _load_run():
 	save_data = SaveGame.load_data()
 	
@@ -99,6 +104,8 @@ func _load_run():
 		Events.relic_gained.emit(relic)
 	#map.map_data = map.map_generator.setup_connections(save_data.map_data.duplicate(true))
 	map.map_data = save_data.map_data.duplicate(true)
+	for floormod: FloorModifier in save_data.flood_mods:
+		floormod.selected()
 	map.occupied_room = save_data.last_room
 	map.level = save_data.level
 	

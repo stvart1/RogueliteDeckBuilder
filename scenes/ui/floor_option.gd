@@ -41,5 +41,5 @@ func _on_select_button_pressed():
 	boon.selected()
 	bane.selected()
 	Events.generate_map.emit()
-	var mods:= [boon, bane]
+	var mods: Array[FloorModifier] = [boon, bane]
 	Events.floor_mods_selected.emit(mods)
