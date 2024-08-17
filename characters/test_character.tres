@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("4_85fod")
 character_name = "Tester"
-description = "Testser"
+description = "Test character, click a character below for a more accurate experience."
 portrait = ExtResource("3_jl64m")
 starting_deck = ExtResource("5_8ll2p")
 draftable_cards = ExtResource("2_tw6hu")

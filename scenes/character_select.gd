@@ -23,7 +23,7 @@ func set_current_character(new_char: CharacterStats):
 	character = new_char
 	character_portrait.texture = character.portrait
 	character_name.text = character.character_name
-	character_description.text = character.description
+	character_description.text = "%s \n\n Max Health: %s\n Staring Relic: %s: %s" % [character.description, character.max_health, character.starting_relic.name, character.starting_relic.get_tooltip()]
 
 
 func _on_select_button_pressed():
