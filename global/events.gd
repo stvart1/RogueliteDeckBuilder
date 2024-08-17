@@ -53,7 +53,7 @@ signal new_map_generated(elevator_pos: Vector2)
 signal room_clicked(room: Room)
 signal level_enetered(level: int)
 signal floor_mods_selected(mods: Array[FloorModifier])
-#signal map_exited(room: Room)
+signal floor_exited
 
 # Shop-related events
 #signal shop_entered(shop: Shop)

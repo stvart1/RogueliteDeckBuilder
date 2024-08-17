@@ -112,10 +112,10 @@ func discard_card():
 func reshuffle_deck_from_discard() -> void:
 	if not character.draw_pile.empty():
 		return
-
+	
 	while not character.discard.empty():
 		character.draw_pile.add_card(character.discard.draw_card())
-
+	
 	character.draw_pile.shuffle()
 
 
@@ -123,7 +123,7 @@ func _on_card_played(card: Card) -> void:
 	if card.exhausts:
 		return
 	
-	character.discard.add_card(card)
+	character.played_pile.add_card(card)
 
 
 func card_drafted(card: Card):

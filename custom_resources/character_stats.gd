@@ -21,6 +21,7 @@ var mana: int : set = set_mana
 var deck: CardPile
 var discard: CardPile
 var draw_pile: CardPile
+var played_pile: CardPile
 var move: int : set = set_move
 var fight: int : set = set_fight
 var buy: int : set = set_buy
@@ -104,4 +105,5 @@ func create_instance() -> Resource:
 	instance.deck = instance.starting_deck.duplicate()
 	instance.draw_pile = CardPile.new()
 	instance.discard = CardPile.new()
+	instance.played_pile = CardPile.new()
 	return instance
