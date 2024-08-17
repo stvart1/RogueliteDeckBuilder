@@ -33,7 +33,7 @@ func selected():
 
 
 func floor_cleared(_level: int):
-	var target = enemy_handler
+	var target = map
 	var heal_modifier: Modifier = target.modifier_handler.get_modifier(Modifier.Type.FIRST_AID_HEALING)
 	#assert(draft_cost_modifier, "No draft cost modifier")
 	

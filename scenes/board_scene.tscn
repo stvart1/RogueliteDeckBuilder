@@ -245,9 +245,9 @@ label_settings = SubResource("LabelSettings_omha2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Map/LegendLayer"]
 offset_left = 151.0
-offset_top = 92.0
-offset_right = 840.0
-offset_bottom = 378.0
+offset_top = 63.0
+offset_right = 915.0
+offset_bottom = 349.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
 layout_mode = 2
@@ -328,10 +328,12 @@ layout_mode = 2
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 texture = ExtResource("18_7p4pn")
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
-text = "Office: Adds a manager to the enemy track on first visit. One office per floor contains a keycard"
+text = "Office: Adds a manager to the enemy track on first visit. One office per floor contains a keycard. 
+Costs 1 extra to move into"
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="Map/LegendLayer/VBoxContainer"]
 layout_mode = 2
@@ -356,6 +358,12 @@ texture = ExtResource("20_k3hs5")
 [node name="Label" type="Label" parent="Map/LegendLayer/VBoxContainer/HBoxContainer9"]
 layout_mode = 2
 text = "Undiscovered: Get within 1 tile to reveal room type"
+
+[node name="FloorModsLabel" type="Label" parent="Map/LegendLayer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(764, 0)
+layout_mode = 2
+autowrap_mode = 2
 
 [node name="HideLegendButton" type="Button" parent="Map/LegendLayer"]
 unique_name_in_owner = true
@@ -479,20 +487,40 @@ alignment = 1
 script = ExtResource("31_w4lwv")
 player = NodePath("../../../Player")
 
-[node name="DiscardPileButton" parent="PlayArea/PlayerCards" node_paths=PackedStringArray("counter") instance=ExtResource("30_fsbsy")]
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayArea/PlayerCards"]
+layout_mode = 2
+
+[node name="PlayedPileButton" parent="PlayArea/PlayerCards/VBoxContainer" node_paths=PackedStringArray("counter") instance=ExtResource("30_fsbsy")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+counter = NodePath("Counter")
+title = "Played Cards"
+
+[node name="Counter" type="Label" parent="PlayArea/PlayerCards/VBoxContainer/PlayedPileButton"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+offset_left = 23.0
+offset_top = -5.0
+offset_right = 51.0
+offset_bottom = 18.0
+text = "999"
+horizontal_alignment = 2
+
+[node name="DiscardPileButton" parent="PlayArea/PlayerCards/VBoxContainer" node_paths=PackedStringArray("counter") instance=ExtResource("30_fsbsy")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 counter = NodePath("Counter")
 title = "Discard"
 
-[node name="Counter" type="Label" parent="PlayArea/PlayerCards/DiscardPileButton"]
+[node name="Counter" type="Label" parent="PlayArea/PlayerCards/VBoxContainer/DiscardPileButton"]
 custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 offset_left = 23.0
-offset_top = -1.0
+offset_top = 51.0
 offset_right = 51.0
-offset_bottom = 22.0
+offset_bottom = 74.0
 text = "999"
 horizontal_alignment = 2
 
@@ -663,6 +691,12 @@ offset_right = 566.0
 offset_bottom = 31.0
 text = "+1 Gold"
 
+[node name="KeycardButton" type="Button" parent="DebugButton"]
+offset_left = 571.0
+offset_right = 673.0
+offset_bottom = 31.0
+text = "Get Keycard"
+
 [node name="LevelChoice" type="CanvasLayer" parent="."]
 layer = 11
 
@@ -742,7 +776,8 @@ text = "Quit"
 [connection signal="pressed" from="Map/LegendButton" to="Map" method="_on_legend_button_pressed"]
 [connection signal="pressed" from="Map/LegendLayer/HideLegendButton" to="Map" method="_on_hide_legend_button_pressed"]
 [connection signal="pressed" from="PlayArea/PlayerCards/DrawPileButton" to="PlayArea/PlayerCards/DrawPileButton" method="_on_pressed"]
-[connection signal="pressed" from="PlayArea/PlayerCards/DiscardPileButton" to="PlayArea/PlayerCards/DiscardPileButton" method="_on_pressed"]
+[connection signal="pressed" from="PlayArea/PlayerCards/VBoxContainer/PlayedPileButton" to="PlayArea/PlayerCards/VBoxContainer/PlayedPileButton" method="_on_pressed"]
+[connection signal="pressed" from="PlayArea/PlayerCards/VBoxContainer/DiscardPileButton" to="PlayArea/PlayerCards/VBoxContainer/DiscardPileButton" method="_on_pressed"]
 [connection signal="pressed" from="PlayArea/EndTurnButton" to="PlayArea" method="_on_end_turn_button_pressed"]
 [connection signal="visibility_changed" from="ShopPopup" to="ShopPopup" method="_on_visibility_changed"]
 [connection signal="gui_input" from="ShopPopup/GrayOut" to="ShopPopup" method="_on_gray_out_gui_input"]
@@ -758,6 +793,7 @@ text = "Quit"
 [connection signal="pressed" from="DebugButton/ManagerEnemy" to="." method="_on_manager_enemy_pressed"]
 [connection signal="pressed" from="DebugButton/ClearEnemiesButton" to="." method="_on_clear_enemies_button_pressed"]
 [connection signal="pressed" from="DebugButton/PlusGoldButton" to="." method="_on_plus_gold_button_pressed"]
+[connection signal="pressed" from="DebugButton/KeycardButton" to="." method="_on_keycard_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/MenuButton" to="PauseMenu" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="PauseMenu/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]

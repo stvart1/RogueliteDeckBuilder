@@ -50,7 +50,7 @@ func _start_new_run():
 	player_handler.start_battle(character)
 	play_area.initialize_card_pile_ui()
 	Events.level_enetered.emit(1)
-	Events.new_map_generated.connect(start_first_turn, CONNECT_ONE_SHOT)
+	#Events.new_map_generated.connect(start_first_turn, CONNECT_ONE_SHOT)
 
 
 func start_first_turn(_elevatorpos: Vector2i):
@@ -213,3 +213,7 @@ func _on_plus_gold_button_pressed():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("space") and not pause_menu.visible and not tooltip_popup.visible and not shop_popup.visible and not card_pile_viewer.visible:
 		play_area._on_end_turn_button_pressed()
+
+
+func _on_keycard_button_pressed():
+	player.stats.has_key = true

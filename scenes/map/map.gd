@@ -12,11 +12,13 @@ const TEST_MANAGER = preload("res://enemies/test_manager.tres")
 @onready var legend_button = $LegendButton
 @onready var legend_layer = $LegendLayer
 @onready var hide_legend_button = %HideLegendButton
+@onready var floor_mods_label = %FloorModsLabel
 
 var map_data: Array[Array]
 var last_room: Room
 var occupied_room: Room
 var level := 1
+var floor_mods : Array[FloorModifier]
 
 var player: Player
 var enemy_handler: EnemyHandler
@@ -32,6 +34,7 @@ func _ready():
 	occupied_room = Room.new()
 	Events.stats_changed_delay.connect(update_available_rooms)
 	Events.generate_map.connect(generate_new_map)
+	Events.floor_mods_selected.connect(set_floor_mods)
 
 
 
@@ -156,3 +159,10 @@ func _on_legend_button_pressed():
 
 func _on_hide_legend_button_pressed():
 	legend_layer.visible = false
+
+
+func set_floor_mods(mods: Array[FloorModifier]):
+	floor_mods = mods
+	floor_mods_label.text = "Floor Modifiers:"
+	for mod: FloorModifier in floor_mods:
+		floor_mods_label.text = "%s\n%s: %s" % [floor_mods_label.text, mod.name, mod.get_description()]
