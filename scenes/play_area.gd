@@ -24,6 +24,8 @@ func _on_player_hand_drawn(_player) -> void:
 
 
 func _on_end_turn_button_pressed() -> void:
+	if end_turn_button.disabled:
+		return
 	end_turn_button.disabled = true
 	hand.disable_hand()
 	empty_play_area()
