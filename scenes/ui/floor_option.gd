@@ -4,7 +4,7 @@ extends HBoxContainer
 @export var boon: FloorModifier : set = set_boon
 @export var bane: FloorModifier : set = set_bane
 #@export var difficulty : FloorModifier.difficulty : set = set_difficulty
-@export var floor: int : set = set_floor
+@export var floor_number: int : set = set_floor
 
 @onready var floor_label = %FloorLabel
 @onready var boon_description = %BoonDescription
@@ -27,13 +27,13 @@ func set_bane(value: FloorModifier):
 
 
 func set_floor(value: int):
-	floor = value
+	floor_number = value
 	#floor_label.text = "Floor %s: " % floor
 
 func update_labels():
 	boon_description.text = "%s: %s" % [boon.name, boon.get_description()]
 	bane_description.text = "%s: %s" % [bane.name, bane.get_description()]
-	floor_label.text = "Floor %s: " % floor
+	floor_label.text = "Floor %s: " % floor_number
 
 
 

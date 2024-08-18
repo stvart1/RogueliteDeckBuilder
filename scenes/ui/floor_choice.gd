@@ -32,14 +32,15 @@ func level_entered(level_ent: int):
 	for i: int in option_count:
 		var option:= FLOOR_OPTION.instantiate()
 		floor_options.add_child(option)
-		option.floor = floor_number
+		option.floor_number = floor_number
 		option.boon = RNG.array_pick_random(floor_mods.filter(func(floor_mod): return floor_mod.boon))
 		option.boon.difficulty = difficulty
 		option.bane = RNG.array_pick_random(floor_mods.filter(func(floor_mod): return !floor_mod.boon))
 		option.bane.difficulty = difficulty
 		option.update_labels()
 		floor_number = RNG.instance.randi_range(floor_number - 3, floor_number-1)
-		difficulty -= 1
+		@warning_ignore("int_as_enum_without_cast")
+		difficulty -= 1 
 
 
 func close():
